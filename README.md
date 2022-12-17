@@ -8,9 +8,6 @@ This course is divided into weeks, and each week has a central topic and problem
 
 I made this repository to show the things studied in this course.
 
-- Type some Markdown on the left
-- See HTML in the right
-
 ## Lecture 0 (Scratch)
 
 The week 0 is about principles of computers world 
