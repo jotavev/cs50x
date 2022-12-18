@@ -1,4 +1,4 @@
-# CS50
+# CS50x
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Harvard_University_logo.svg" alt="Harvard Logo" width="500" />
 
@@ -16,5 +16,10 @@ The week 0 is about principles of computers world
 - Time to solve problems (the bigO notation)
 - ✨Scratch ✨
 
+### Problem Set 0
 
-In this class, I learned about scratch, and the proposed set of problems was to create something with scratch.
+In this class, I learned about scratch, and the proposed set of problems was to create something with scratch, and i made a game.
+
+<img src="https://github.com/jotavev/cs50x/blob/master/assets/1pong_demo.gif" alt="Screenshot" width="350" />
+
+My project is a retro game, similar to pong, but for one player. To play, click [here!](https://scratch.mit.edu/projects/778158229/)
