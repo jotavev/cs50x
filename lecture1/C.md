@@ -13,4 +13,32 @@ C é uma linguagem madura e está presente em algumas linguagens modernas como p
 
 ou, simplesmente um editor de texto, é uma ferramenta que um programador usa, talvez todos os dias para escrever seus códigos (VIM, VSCODE, SUBLIME, PYCHARM, NOTEPAD++)
 
+## Main
 
+    ```
+#include <stdio.h>
+int main(void)
+{
+    printf("Hello, world\n");
+}
+
+    ```
+
+## Comandos Linux
+
+* cd (change dir)
+* cp (copy)
+* ls (mkdir)
+* mv (move)
+* rm (remove)
+* rmdir (remove dir)
+
+## C types
+
+* bool
+* char      | %c
+* double    | %f
+* float     | %f
+* int       | %i
+* long      | %li
+* string    | %s
