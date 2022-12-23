@@ -42,3 +42,51 @@ int main(void)
 * int       | %i
 * long      | %li
 * string    | %s
+
+## Condicionais
+
+```
+if (x < y) 
+{ 
+    printf("x is less than y\n");
+}
+else if (x > y)
+{
+    printf("x is greater than y\n");
+}
+else 
+{
+    printf("x is equal to y\n");
+}
+```
+
+## Loops
+
+the forever block of scratch, in C is like:
+
+```
+while (true) 
+{
+    printf("meow\n");
+}
+```
+
+and repeat:
+
+```
+int i = 0;
+while (i < 3)
+{
+    printf("meow\n");
+    i++;
+}
+```
+
+```
+for (int i = 0; i < 3; i++)
+{
+    printf("meow\n");
+}
+```
+
+
