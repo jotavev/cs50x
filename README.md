@@ -23,3 +23,9 @@ In this class, I learned about scratch, and the proposed set of problems was to 
 <img src="https://github.com/jotavev/cs50x/blob/master/assets/1pong_demo.gif" alt="Screenshot" width="350" />
 
 My project is a retro game, similar to pong, but for one player. To play, click [here!](https://scratch.mit.edu/projects/778158229/)
+
+## Lecture 1 (C language)
+
+In this class, i apprehended the fundamentals of programming with C, things already seen with Scratch, now using C and new concepts using this text-based language. (Correctness, Design, Style, Syntax, IDE, Compiling, Functions, Arguments, Return Values, Types, Operators, Variables and so on)
+
+### Problem Set 1
