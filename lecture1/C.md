@@ -15,14 +15,14 @@ ou, simplesmente um editor de texto, é uma ferramenta que um programador usa, t
 
 ## Main
 
-    ```
+```
 #include <stdio.h>
 int main(void)
 {
     printf("Hello, world\n");
 }
 
-    ```
+```
 
 ## Comandos Linux
 
