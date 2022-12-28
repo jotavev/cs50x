@@ -19,7 +19,7 @@ int main(void)
 
 void printer(int size)
 {
-    int printBlankTimes= size;
+    int printBlankTimes = size;
     int printHashTimes = 1;
     for (int i = 0; i < size; i++)
     {
