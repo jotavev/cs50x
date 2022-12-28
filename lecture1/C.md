@@ -89,4 +89,14 @@ for (int i = 0; i < 3; i++)
 }
 ```
 
+or a loop to validade a user input is:
 
+```
+int n;
+do
+{
+    n = get_int("n: ");
+}
+while (n < 1 || n > 8);
+
+```

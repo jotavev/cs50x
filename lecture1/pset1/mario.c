@@ -26,7 +26,10 @@ void printer(int size)
         printBlankTimes--;
         printblank(printBlankTimes);
         printhash(printHashTimes);
+        printf("  ");
+        printhash(printHashTimes);
         printHashTimes++;
+
 
         printf("\n");
     }
