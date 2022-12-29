@@ -9,6 +9,8 @@ int digitSum(int n);
 int main(void) 
 {
     isValid(4003600000000014);
+    printf("\ndigit sum 6: %i\n", digitSum(6));
+    printf("\ndigit sum 9: %i\n", digitSum(9));
     long creditNumber;
     do
     {
