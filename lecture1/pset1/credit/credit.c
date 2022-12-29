@@ -4,6 +4,7 @@
 bool isEven(int n);
 int len(long n);
 bool isValid(long n);
+int digitSum(int n);
 
 int main(void) 
 {
@@ -43,11 +44,12 @@ int len(long n)
 bool isValid(long n)
 {
     int lastNumber = n % 10;
-    int result;
+    int evenSum;
+    int oddSum;
     int counter = 1;
-    int i = len(n);
+    int lenght = len(n);
     int r;
-    while (i > 0)
+    while (lenght > 0)
     {
         if (isEven(counter) == true)
         {
@@ -56,27 +58,39 @@ bool isValid(long n)
                 r = (lastNumber * 2) % 10;
                 r += ( lastNumber * 2 ) / 10;
 
-
-                result += r;
-                printf("last number %i\n", lastNumber * 2);
-                printf("\n\nr is: %i\n", r);
+                evenSum += r;
+//                 printf("last number %i\n", lastNumber * 2);
+//                 printf("\n\nr is: %i\n", r);
             }
             else
             {
-                result += (lastNumber * 2);
+                evenSum += (lastNumber * 2);
             }
             printf("%i", lastNumber);
         }
+        else
+        {
+            
+            oddSum += lastNumber;
+        }
         n /= 10;
         lastNumber = n % 10;
-        i--;
+        lenght--;
         counter++;
 
     }
     printf("\n");
-    printf("\n%i\n", result);
+    printf("\n%i\n", evenSum);
+    printf("\nsum is: %i", evenSum + oddSum);
 
     return 0;
 }
 
 
+int digitSum(int n)
+{
+    int result;
+    result = (n * 2) % 10;
+    result += (n * 2) / 10;
+    return result;
+}
