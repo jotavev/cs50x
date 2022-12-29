@@ -10,21 +10,13 @@ int position(long n, int digitPosition);
 
 int main(void) 
 {
-//     printf("n: 378282246310005");
-//     position(378282246310005, 1);
-//     position(378282246310005, 2);
-//     printf("n:3566002020360505");
-//     position(3566002020360505, 1);
-//     position(3566002020360505, 2);
-//     printf("n: 4222222222222");
-//     position(4222222222222, 1);
-//     position(4222222222222, 2);
     long creditNumber;
     do
     {
         creditNumber = get_long("Number: ");
     }
     while (creditNumber < 1);
+
     if (isValid(creditNumber) == true)
     {
         checkFlagCard(creditNumber);
@@ -54,7 +46,8 @@ int len(long n)
     {
         lenght++;
         n /= 10;
-    } while (n);
+    }
+    while (n);
     return lenght;
 }
 
@@ -84,7 +77,6 @@ bool isValid(long creditCardNumber)
             {
                 evenSum += (lastNumber * 2);
             }
-//             printf("%i", lastNumber);
         }
 
         //if the counter is odd, the other part of luhn's algorithm are applied
@@ -157,6 +149,5 @@ int position(long n, int digitPosition)
         n /= 10;
         lenght--;
     }
-//     printf("\nthe position %i of number is %i\n", digitPosition, result);
     return result;
 }
