@@ -10,6 +10,11 @@ int position(long n, int digitPosition);
 
 int main(void) 
 {
+    printf("%i expected 1\n", isValid(5555555555554444));
+    printf("%i expected 0\n", isValid(4222222222223));
+    printf("%i expected 0\n", isValid(5673598276138003));
+    printf("%i expected 0\n", isValid(4062901840));
+    printf("%i expected 0\n", isValid(369421438430814));
     long creditNumber;
     do
     {
@@ -17,14 +22,14 @@ int main(void)
     }
     while (creditNumber < 1);
 
-    if (isValid(creditNumber) == true)
+    if (isValid(creditNumber) == false)
     {
-        checkFlagCard(creditNumber);
+        printf("INVALID\n");
     }
     else
     {
-        printf("IVALID\n");
-    }
+        checkFlagCard(creditNumber);
+    } 
 }
 
 bool isEven(int n)
