@@ -10,12 +10,6 @@ int position(long n, int digitPosition);
 
 int main(void) 
 {
-//     printf("%i expected 1\n", isValid(5555555555554444));
-//     printf("%i expected 0\n", isValid(4222222222223));
-//     printf("%i expected 0\n", isValid(5673598276138003));
-//     printf("%i expected 0\n", isValid(4062901840));
-//     printf("%i expected 0\n", isValid(369421438430814));
-//     int a = isValid(4062901840);
 
     long creditNumber;
     do
@@ -27,11 +21,6 @@ int main(void)
     int i;
 
     i = isValid(creditNumber);
-//     printf("credit number: %ld\n", creditNumber);
-//     printf("is valid creditNumber: %i\n", isValid(creditNumber));
-//     printf("is valid only: %i\n", isValid(4062901840));
-//     printf("%i", isValid(4062901840));
-//     printf("i: %i\n", i);
 
     if (i  == false || len(creditNumber) < 11)
     {
@@ -129,13 +118,10 @@ bool isValid(long creditCardNumber)
     // while works with the lenght of credit card number
     while (lenght > 0)
     {
-//         printf("creditcard: %ld\n", creditCardNumber);
-//         printf("lastNumber: %i\n", lastNumber);
         // if the counter is even part of luhn's algorithm 
         // are applied (for even numbers)
         if (isEven(counter) == true)
         {
-//             printf("counter is even\n");
             // if number * 2 is higher than 9 digits of number
             // are addeds according luhn's algorithm
             if (lastNumber * 2 > 9)
@@ -152,7 +138,6 @@ bool isValid(long creditCardNumber)
         //if the counter is odd, the other part of luhn's algorithm are applied
         else
         {
-//             printf("counter is odd\n");
             oddSum += lastNumber;
         }
 
@@ -168,23 +153,17 @@ bool isValid(long creditCardNumber)
 
     //check the total modulo 10 is congruent to 0
     int total = 1;
-//     printf("evensum: %i\n", evenSum);
-//     printf("oddsum: %i\n", oddSum);
-//     printf("\neven + oddo :%i\n", evenSum + oddSum);
     total = (evenSum + oddSum) % 10;
     if (total == 0)
     {
-//         printf("\nmodulo de 10: %i\n", total );
         return true;
     }
     if (total > 0)
     {
-//         printf("estou total > 0\n");
         return false;
     }
     else
     {
-//         printf("estou elsen");
         return false;
     }
 }
