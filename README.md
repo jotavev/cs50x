@@ -1,6 +1,6 @@
 # CS50x
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Harvard_University_logo.svg" alt="Harvard Logo" width="500" />
+<img src="https://github.com/jotavev/cs50x/blob/master/assets/Harvard_University_logo.jpg" alt="Harvard Logo" width="700"/>
 
 CS50 is a face-to-face and online computer science course at Harvard University.
 
