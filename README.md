@@ -37,12 +37,12 @@ In this week, have 2 problems to solve, the version of problem if you feel most 
 the first problem set, is based in make a mario pyramid, using c.  
 
 | Mario less confortable version                | Program in c                                   |
-|:---------------------------------------------:| :--------------------------------------------: |
-| <img src="./assets/mario1.jpeg" width="300"/> | <img src="./assets/pmario2.jpg" width="300"/>  |
+|:---------------------------------------------:| ---------------------------------------------- |
+| <img src="./assets/mario1.jpeg" width="300"/> |  <pre>$ ./mario           <br>Height: 4<br>   #<br>  ##<br> ###<br>####<br></pre> |
 
 | Mario more confortable version               | Program in c                                   |
-|:--------------------------------------------:| :--------------------------------------------: |
-| <img src="./assets/mario2.png" width="300"/> | <img src="./assets/pmario1.jpg" width="300"/>  |
+|:--------------------------------------------:| ---------------------------------------------- |
+| <img src="./assets/mario2.png" width="300"/> | <pre>$ ./mario           <br>Height: 4<br>   #  #<br>  ##  ##<br> ###  ###<br>####  ####<br></pre> |
 
 Can you check my solutions clicking [here!](https://github.com/jotavev/cs50x/tree/master/lecture1/pset1/)
 
@@ -53,14 +53,15 @@ The second problem set involves money 🤑 (and it's not hack a ATM).
 Cash is a greedy algorithm to minimize the number of coins you’re dispensing for each customer when giving changes, the input are the value of change and the output are the number of coins you have to give.
 
 | Cash                                        |
-|:-------------------------------------------:|
-| <img src="./assets/pcash.jpg" width="300"/> |
+|---------------------------------------------|
+| <pre>$ ./cash<br>Change Owed: -41               <br>Change Owed: foo<br>Change Owed: 41<br>4</pre> |
 
 
 Credit is a credit card checker. the input are the credit card number is `INVALID` for invalid number, and if valid, the program check what is the flag of card, return `VISA`, `MASTERCARD` and `AMEX`.
 
 | Credit                                      |
-|:-------------------------------------------:|
-| <img src="./assets/pcredit.jpg" width="300"/> |
+|---------------------------------------------|
+|  <pre>$ ./credit <br>Number: 4003600000000014       <br>VISA<br>$ ./credit<br>Number: 371449635398431<br>AMEX<br>Number: 6176292929<br>INVALID</pre> |
 
 Can you check my solutions clicking [here!](https://github.com/jotavev/cs50x/tree/master/lecture1/pset1/)
+
