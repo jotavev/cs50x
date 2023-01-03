@@ -36,15 +36,13 @@ In this week, have 2 problems to solve, the version of problem if you feel most 
 
 the first problem set, is based in make a mario pyramid, using c.  
 
-<img src="https://github.com/jotavev/cs50x/blob/master/assets/mario1.jpeg" width="350" />
+| Mario less confortable version                | Program in c                                   |
+|:---------------------------------------------:| :--------------------------------------------: |
+| <img src="./assets/mario1.jpeg" width="350"/> | <img src="./assets/pmario2.jpg" width="350"/>  |
 
-## Img of 2 marios version
-
-| Mario less confortable version        |
-|:-------------------------------------:|
-| ![](https://goo.gl/1R3T6h "Tonejito") |
-
-
+| Mario more confortable version               | Program in c                                   |
+|:--------------------------------------------:| :--------------------------------------------: |
+| <img src="./assets/mario2.png" width="350"/> | <img src="./assets/pmario1.jpg" width="350"/>  |
 
 Can you check my solutions clicking [here!](https://scratch.mit.edu/projects/778158229/)
 
