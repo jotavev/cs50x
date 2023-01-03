@@ -32,24 +32,35 @@ In this class, i apprehended the fundamentals of programming with C, things alre
 
 In this week, have 2 problems to solve, the version of problem if you feel most confortable and if you feel less confortable too
 
-#### Mario Pyramids 
+### Mario Pyramids 
 
 the first problem set, is based in make a mario pyramid, using c.  
 
 | Mario less confortable version                | Program in c                                   |
 |:---------------------------------------------:| :--------------------------------------------: |
-| <img src="./assets/mario1.jpeg" width="350"/> | <img src="./assets/pmario2.jpg" width="350"/>  |
+| <img src="./assets/mario1.jpeg" width="300"/> | <img src="./assets/pmario2.jpg" width="300"/>  |
 
 | Mario more confortable version               | Program in c                                   |
 |:--------------------------------------------:| :--------------------------------------------: |
-| <img src="./assets/mario2.png" width="350"/> | <img src="./assets/pmario1.jpg" width="350"/>  |
+| <img src="./assets/mario2.png" width="300"/> | <img src="./assets/pmario1.jpg" width="300"/>  |
 
-Can you check my solutions clicking [here!](https://scratch.mit.edu/projects/778158229/)
+Can you check my solutions clicking [here!](https://github.com/jotavev/cs50x/tree/master/lecture1/pset1/)
 
-#### Cash and Credit
+### Cash and Credit
 
-the second problem set involves money 🤑 (and it's not "urubu do pix").
+The second problem set involves money 🤑 (and it's not hack a ATM).
 
-## table of 2 problems and the solucions
+Cash is a greedy algorithm to minimize the number of coins you’re dispensing for each customer when giving changes, the input are the value of change and the output are the number of coins you have to give.
 
-Can you check my solutions clicking [here!](https://scratch.mit.edu/projects/778158229/)
+| Cash                                        |
+|:-------------------------------------------:|
+| <img src="./assets/pcash.jpg" width="300"/> |
+
+
+Credit is a credit card checker. the input are the credit card number is `INVALID` for invalid number, and if valid, the program check what is the flag of card, return `VISA`, `MASTERCARD` and `AMEX`.
+
+| Credit                                      |
+|:-------------------------------------------:|
+| <img src="./assets/pcredit.jpg" width="300"/> |
+
+Can you check my solutions clicking [here!](https://github.com/jotavev/cs50x/tree/master/lecture1/pset1/)
