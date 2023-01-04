@@ -37,9 +37,7 @@ int     | 4 bytes
 long    | 8 bytes 
 string  | ? bytes
 
-### Bool
-which can be considered a waste, taking into account that it uses only 1 bit, however, it is not that easy to work with only 1 bit in C, so we spend 1 whole byte to store a bool.
+## Memory 
 
-
-
+RAM (Random Access Memory) is where the 0's and 1's are stored, or rather, they are stored while your program is running.
 
