@@ -10,7 +10,6 @@ bool check_string_composed_by_digits(string s);
 
 int main(int argc, string argv[]) 
 {
-    int cipherN = atoi(argv[1]);
     if (argc != 2)
     {
         printf("Usage: ./caesar key\n");
@@ -23,14 +22,11 @@ int main(int argc, string argv[])
     }
     else 
     {
+        int cipherN = atoi(argv[1]);
         string text = get_string("plaintext: ");
+        printf("ciphertext: ");
         printshift(text, cipherN);
-
     }
-//     printf("%c\n", charshiter('a', 1));
-//     printf("%c\n", charshiter('Z', 1));
-//     printf("%c\n", charshiter(',', 1));
-//     printf("%c\n", charshiter(' ', 1));
 }
 
 bool check_string_composed_by_digits(string s)
@@ -61,7 +57,7 @@ char charshiter(char c, int n)
     int shifted = c + n;
     if (isalpha(c))
     {
-        if (isalpha(shifted) == false)
+        while (isalpha(shifted) == false)
         {
             shifted -= 26;
         }
