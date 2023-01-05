@@ -41,3 +41,19 @@ string  | ? bytes
 
 RAM (Random Access Memory) is where the 0's and 1's are stored, or rather, they are stored while your program is running.
 
+## Array 
+
+is a collection of elements of the same type, placed in contiguous memory locations that can be indidually referenced by using a index to a unique idenfifier
+
+## string
+
+in c is a array of chars
+
+## NUL char
+
+is a 00000000, after a string, to computer identify where string end. 
+so if inside your string is stored "HI!", actually the string stores "HI!\0"
+
+## command-line Arguments 
+
+is a way to run code, return error messages and automate tests
