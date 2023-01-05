@@ -4,6 +4,8 @@
 #include <ctype.h>
 #include <string.h>
 
+char charshiter(char c, int n);
+void printshift(string s, int n);
 bool check_string_composed_by_digits(string s);
 
 int main(int argc, string argv[]) 
@@ -21,15 +23,14 @@ int main(int argc, string argv[])
     }
     else 
     {
-        printf("plaintext: \n");
-    }
-//     printf("%i", cipherN);
+        string text = get_string("plaintext: ");
+        printshift(text, cipherN);
 
-    printf("test1 = EXPECTED: 0 | RECIEVED: %i\n", check_string_composed_by_digits("abc"));
-    printf("test2 = EXPECTED: 0 | RECIEVED: %i\n", check_string_composed_by_digits("hjk"));
-    printf("test1 = EXPECTED: 1 | RECIEVED: %i\n", check_string_composed_by_digits("123"));
-    printf("test1 = EXPECTED: 1 | RECIEVED: %i\n", check_string_composed_by_digits("22"));
-    printf("test1 = EXPECTED: 0 | RECIEVED: %i\n", check_string_composed_by_digits("2a2"));
+    }
+//     printf("%c\n", charshiter('a', 1));
+//     printf("%c\n", charshiter('Z', 1));
+//     printf("%c\n", charshiter(',', 1));
+//     printf("%c\n", charshiter(' ', 1));
 }
 
 bool check_string_composed_by_digits(string s)
@@ -43,5 +44,31 @@ bool check_string_composed_by_digits(string s)
         }
     }
     return result;
+}
 
+void printshift(string s, int n)
+{
+    for (int i = 0, j = strlen(s); i < j; i++)
+    {
+        printf("%c", charshiter(s[i], n));
+    }
+    printf("\n");
+
+}
+
+char charshiter(char c, int n)
+{
+    int shifted = c + n;
+    if (isalpha(c))
+    {
+        if (isalpha(shifted) == false)
+        {
+            shifted -= 26;
+        }
+        return shifted;
+    }
+    else
+    {
+        return c;
+    }
 }
