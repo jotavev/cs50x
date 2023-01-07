@@ -4,6 +4,7 @@
 #include <ctype.h>
 #include <string.h>
 
+bool repeatedInString(string s);
 bool check_string_composed_by_26_letters(string s);
 int indx(char c);
 void printFromIndex(string substKey, string text);
@@ -51,14 +52,15 @@ bool check_string_composed_by_26_letters(string s)
             return false;
         }
     }
+    if (repeatedInString(s))
+    {
+        return false;
+    }
     return result;
 }
 
 void printFromIndex(string substKey, string text)
 {
-    string lower = "abcdefghijklmnopqrstuvwxyz";
-    string upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
     for (int i = 0, j = strlen(text); i < j; i++)
     {
         if (islower(text[i]))
@@ -75,9 +77,6 @@ void printFromIndex(string substKey, string text)
         }
     }
     printf("\n");
-
-    
-
 }
 
 // string arr = "JTREKYAVOGDXPSNCUIZLFBMWHQ";
@@ -90,28 +89,31 @@ void printFromIndex(string substKey, string text)
 int indx(char c)
 {
     int i = 0;
-    string upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    string lower = "abcdefghijklmnopqrstuvwxyz";
-    if (isupper(c))
+    c = toupper(c);
+    string alphab = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    while (c != alphab[i])
     {
-        while (c != upper[i])
+        i++;
+    }
+    return i;
+}
+
+bool repeatedInString(string s)
+{
+    bool result = false;
+    for (int i = 0, l = strlen(s); i < l; i++)
+    {
+        for (int j = 0, l = strlen(s); j < l; j++)
         {
-            i++;
+            if (s[i] == s[j] && i != j)
+            {
+                result = true;
+            }
         }
-        return i;
+
     }
-    else if (islower(c))
-    {
-        while (c != lower[i])
-        {
-            i++;
-        }
-        return i;
-    }
-    else
-    {
-        return i;
-    }
+    return result;
 }
 
 // void printshift(string s, int n)
