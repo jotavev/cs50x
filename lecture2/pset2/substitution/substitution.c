@@ -70,6 +70,9 @@ void printFromIndex(string substKey, string text)
 // string alp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 // string dic = "HELLO";
 
+//i need to the inversal logic in this function
+//ao inves de pegar o index do caractere do texto e usar ele pra printar
+//a susbtKey[index] eu tenho que pegar o 
 int indx(char c)
 {
     int i = 0;
