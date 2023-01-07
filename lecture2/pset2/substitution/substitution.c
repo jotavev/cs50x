@@ -56,9 +56,23 @@ bool check_string_composed_by_26_letters(string s)
 
 void printFromIndex(string substKey, string text)
 {
+    string lower = "abcdefghijklmnopqrstuvwxyz";
+    string upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
     for (int i = 0, j = strlen(text); i < j; i++)
     {
-        printf("%c", substKey[indx(text[i])]);
+        if (islower(text[i]))
+        {
+            printf("%c", tolower(substKey[indx(text[i])]));
+        }
+        else if (isupper(text[i]))
+        {
+            printf("%c", toupper(substKey[indx(text[i])]));
+        }
+        else
+        {
+            printf("%c", text[i]);
+        }
     }
     printf("\n");
 
