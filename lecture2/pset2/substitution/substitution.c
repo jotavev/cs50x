@@ -4,10 +4,9 @@
 #include <ctype.h>
 #include <string.h>
 
-char charshiter(char c, int n);
-void printshift(string s, int n);
 bool check_string_composed_by_26_letters(string s);
 int indx(char c);
+void printFromIndex(string substKey, string text);
 
 int main(int argc, string argv[]) 
 {
@@ -25,12 +24,16 @@ int main(int argc, string argv[])
     {
         string cipherK = argv[1];
         string text = get_string("plaintext: ");
+
         printf("ciphertext: ");
-        printf("%i\n", indx('A'));
-        printf("%i\n", indx('C'));
-        printf("%i\n", indx('B'));
-        printf("%i\n", indx('D'));
-        printf("%i\n", indx('Z'));
+        printFromIndex(cipherK, text);
+
+        printf("\n\n\n");
+        printf("the index of 'A' is: %i\n", indx('a'));
+        printf("the index of 'C' is: %i\n", indx('C'));
+        printf("the index of 'B' is: %i\n", indx('B'));
+        printf("the index of 'D' is: %i\n", indx('D'));
+        printf("the index of 'Z' is: %i\n", indx('Z'));
     }
 }
 
@@ -51,13 +54,15 @@ bool check_string_composed_by_26_letters(string s)
     return result;
 }
 
-void printshift(string s, int n)
+void printFromIndex(string substKey, string text)
 {
-    for (int i = 0, j = strlen(s); i < j; i++)
+    for (int i = 0, j = strlen(text); i < j; i++)
     {
-        printf("%c", charshiter(s[i], n));
+        printf("%c", substKey[indx(text[i])]);
     }
     printf("\n");
+
+    
 
 }
 
@@ -68,27 +73,36 @@ void printshift(string s, int n)
 int indx(char c)
 {
     int i = 0;
-    string alp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    while (c != alp[i])
+    string upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    string lower = "abcdefghijklmnopqrstuvwxyz";
+    if (isupper(c))
     {
-        i++;
-    }
-    return i;
-}
-
-char charshiter(char c, int n)
-{
-    int shifted = c + n;
-    if (isalpha(c))
-    {
-        while (isalpha(shifted) == false)
+        while (c != upper[i])
         {
-            shifted -= 26;
+            i++;
         }
-        return shifted;
+        return i;
+    }
+    else if (islower(c))
+    {
+        while (c != lower[i])
+        {
+            i++;
+        }
+        return i;
     }
     else
     {
-        return c;
+        return i;
     }
 }
+
+// void printshift(string s, int n)
+// {
+//     for (int i = 0, j = strlen(s); i < j; i++)
+//     {
+//         printf("%c", charshiter(s[i], n));
+//     }
+//     printf("\n");
+// 
+// }
