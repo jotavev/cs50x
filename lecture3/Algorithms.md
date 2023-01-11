@@ -15,15 +15,15 @@ is a way to classify how scalable your function or algorithm is.
 
 ### Common Running Times
 
-O(n²) exponential
+O(n²) | exponential | selection sort | bubble sort (if a big data)
 
-O(n log n) log-linear
+O(n log n) | log-linear
 
-O(n) linear 
+O(n) | linear 
 
-O(log n) logarithmic
+O(log n) | logarithmic
 
-O(1) constant
+O(1) | constant
 
 ## Ω
 
@@ -72,3 +72,60 @@ Else if number > doors[middle]
 ## Sorting and Searching vs Just Searching 
 
 depend how big is data and how important is
+
+## Data Structures
+
+is a specialized format for organizing, processing, retrieving and storing data.
+
+in c we have the habilit to invent new data types, similar to scratch when we build new custom blocks
+
+```
+typedef struct
+{
+    string name;
+    string number;
+}
+person;
+
+int main(void)
+{
+    person people[2];
+
+    people[0].name = "Carter";
+    people[0].number = "+1-617-495-1000";
+
+    people[1].name = "David";
+    people[1].number = "+1-949-468-2750";
+}
+```
+
+## Sorting 
+
+organize systematically from smallest to largest
+
+6 3 8 5 2 7 4 1 → 🞎 → 1 2 3 4 5 6 7 8 
+
+## Selection Sort
+
+pseudocode
+```
+For i from 0 to n-1
+    Find the smallest number between numbers[i] and numbers[n-1]
+    Swap smallest number with numbers[i]
+```
+O(n²) && Ω(n²)
+
+## Bubble Sort 
+
+pseudocode
+```
+Repeat n-1 times
+    For i from 0 to n-2
+        If numbers[i] and numbers[i+1] out of order 
+            Swap them
+    If no swaps
+        Quit
+```
+O(n²) && Ω(n)
+
+
