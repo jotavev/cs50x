@@ -69,3 +69,6 @@ Else if number > doors[middle]
     Search doors [middle + 1] through doors[n - 1]
 ```
 
+## Sorting and Searching vs Just Searching 
+
+depend how big is data and how important is
