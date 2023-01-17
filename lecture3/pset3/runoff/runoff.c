@@ -83,18 +83,18 @@ int main(int argc, string argv[])
         printf("\n");
     }
 
-//     printf("preferences: %i\n", preferences[0][0]);
-//     printf("preferences: %i\n", preferences[0][1]);
-//     printf("preferences: %i\n", preferences[0][2]);
-// 
-//     printf("preferences: %i\n", preferences[1][0]);
-//     printf("preferences: %i\n", preferences[1][1]);
-//     printf("preferences: %i\n", preferences[1][2]);
-// 
-//     printf("preferences: %i\n", preferences[2][0]);
-//     printf("preferences: %i\n", preferences[2][1]);
-//     printf("preferences: %i\n", preferences[2][2]);
-// 
+    printf("preferences[0][0]: %i\n", preferences[0][0]);
+    printf("preferences[0][1]: %i\n", preferences[0][1]);
+    printf("preferences[0][2]: %i\n", preferences[0][2]);
+
+    printf("preferences[1][0]: %i\n", preferences[1][0]);
+    printf("preferences[1][1]: %i\n", preferences[1][1]);
+    printf("preferences[1][2]: %i\n", preferences[1][2]);
+
+    printf("preferences[2][0]: %i\n", preferences[2][0]);
+    printf("preferences[2][1]: %i\n", preferences[2][1]);
+    printf("preferences[2][2]: %i\n", preferences[2][2]);
+
     // Keep holding runoffs until winner exists
     while (true)
     {
@@ -140,9 +140,9 @@ int main(int argc, string argv[])
 // Record preference if vote is valid
 bool vote(int voter, int rank, string name)
 {
-    for (int i = 0; i < candidate_count; i++) 
+    for (int i = 0; i < candidate_count; i++)
     {
-       if (strcmp(name, candidates[i].name) == 0) 
+       if (strcmp(name, candidates[i].name) == 0)
        {
            preferences[voter][rank] = i;
            return true;
@@ -157,15 +157,18 @@ void tabulate(void)
     int counter = 0;
     for (int i = 0; i < voter_count; i++)
     {
-        if (candidates[i].eliminated == false)
+        if (candidates[preferences[i][counter]].eliminated == false)
         {
             candidates[preferences[i][counter]].votes++;
+            printf("votes are updates[%i][%i]: %i", i, counter, candidates[preferences[i][counter]].votes);
         }
-        else 
+        else
         {
             for (int j = 1; candidates[j].eliminated == true; j++)
             {
-                candidates[preferences[i][counter]].votes++;
+                candidates[preferences[i][j]].votes++;
+                printf("votes are updates[%i][%i]: %i", i, j, candidates[preferences[i][j]].votes);
+
             }
         }
     }
