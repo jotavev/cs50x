@@ -34,7 +34,18 @@ outra utilização muito comum do hex é descrever o endereço de memoria
 
 ## Pointers
 
-Ponteiros são muito importantes em C, especialmente para criar a
+Um ponteiro é uma variavel especial que contém um endereço na memória armazenado, em vez de dados comuns. Esse endereço é, no geral, a posição na memória de outra variável. Desta forma, a variavel que contém esse endereço aponta para a outra variável. E por isso o nome "ponteiro".
+
+ou seja ponteiro é uma variável com um endereço que aponta para outra variável.
+(só pra lembrar que variável é um pedaço de memoria que guarda algum dado)
+
+Ponteiros são muito importantes em C, especialmente para criar filas e lista encadeadas entre outras estruturas de dados.
+
+## Declarar Ponteiro
+
+datatype *varName;
+
+o * (star) é o 
 
 ## Dereference Operator 
 
