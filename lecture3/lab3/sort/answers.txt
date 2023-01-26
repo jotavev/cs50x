@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: Because Bubble Sort has O(n^2) and omega(n), that is, if the data is sorted, the time to run is shorter compared to random or reverse and that's what I found with my tests
+
+sort2 uses: Merge Sort
+
+How do you know?: Because Merge Sort has O(n log n) and omega(n log n), that is, regardless of whether the data is reverse, random, or sort, the running time is the same and it perform better than sort3
+
+sort3 uses: Selection Sort 
+
+How do you know?: Because Selection Sort has O(n^2) and omega(n^2), that is, regardless of whether the data is reverse, random or sort, the running time is the same, but it perform worst than sort3, because n^2 > n log n
