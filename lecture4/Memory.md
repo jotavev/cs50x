@@ -51,9 +51,69 @@ o * (star) é o
 
 ## Strings 
 
-## Char
+nas primeiras semanas do cs50, o tipo de dado string foi amplamente usado, advindo da cs50.h
+
+por exemplo a string
+
+    string s = "HI!";
+
+que basicamente armazena 'HI!\0' na variavel s
+
+onde o:
+
+s[0] = 'H'
+s[1] = 'I'
+s[2] = '!'
+s[3] = '\0'
+
+(o \0 é a forma de informar ao computador que é o fim da string)
+
+se hipoteticamente os endereços de memoria dessa string forem
+
+0x123 = 'H'
+0x124 = 'I'
+0x125 = '!'
+0x126 = '\0'
+
+então se o computador está alocando esses chars na memória o que exatamente é a variavel s?
+(obviamente s é um tipo de dado criado pela cs50.h, porém por baixo do capô, oq é s?)
+
+s é um ponteiro, que aponta expecificamente para o endereço de memória da primeira letra da string
+
+ 'H'     'I'     '!'     '\0'
+0x123   0x124   0x125   0x126
+  ^
+  |
+  s
+
+no exemplo acima vemos o s apontar para o enderço, ok?
+
+s aponta para o inicio e \0 indica que é o final
+
+se s é um ponteiro, para um char (o primeiro da string), então s é:
+
+char *s = "HI!";
+
+## Datatype string
+
+typedef char *string;
 
 ## Pointer Arithmetic 
+
+int main(void) 
+{
+    char *s = "HI!";
+    char *s = ("%c\n", *s);  <- aqui vai printar o s e no caso o s é endereço do primeiro char
+    char *s = ("%c\n", *(s + 1));  <- aqui vai printar endereço do s + 1 | se o endereço for 0x123 então s + 1 = 0x124
+    char *s = ("%c\n", *(s + 2));  <- e assim por diante
+    char *s = ("%c\n", *(s + 3));  <- aqui por ex vai printar o \0 que indica o fim da string
+}
+
+então podemos executar aritmetica com os ponteiro e seus endereços
+
+exatamente como já faziamos com 's[0]'
+
+e tudo isso ai de cima também vale para arrays (falavamos de arrays de char, porém), vale também para array de int float e assim por diante, todos são ponteiros apontando para o primeiro elemento do array.
 
 ## malloc and free 
 
