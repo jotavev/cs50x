@@ -15,4 +15,6 @@ int main(void)
     {
         printf("different\n");
     }
+    printf("the address of s is: %p\n", s);
+    printf("the address of t is: %p\n", t);
 }
