@@ -222,6 +222,59 @@ $ valgrind ./programName
 
 se você por exemplo fizer:
 
-int scores[3]; e printar os valores, sem por nada dentro o computaodr vai retornar valores lixos, sem sentido, sem nexo.
+int scores[3]; 
+e printar os valores, sem por nada dentro o computador vai retornar valores lixos, resquicios de ints, chars, strings, floats anteriormente usados por outra parte do computador ou semelhante.
 
 então não se deve esquecer nunca de declarar um valor pra dentro de uma variável.
+você pode até declarar uma variável sem valor, porém faça-o!
+
+isso é bem perigoso, existem varios exemplos de sistemas que foram invadidos por causa de declarar uma variavel sem atribuição de valor, imagine (no contexto da web) que naquele pedaço de memoria estava o n do cartão de crédito e tomalhe o urubu do pix. ou até mesmo uma senha ou outro dado sensivel.
+
+## swap 
+
+vamos pensar no codigo seguinte:
+```
+#include <cs50.h>
+#include <stdio.h>
+
+void swap(int a,int b);
+
+int main(void)
+{
+    int x = get_int("x: ");
+    int y = get_int("y: ");
+
+    swap(x, y);
+
+    printf("\n");
+    // precisava de trocar aqui e não funciona
+    printf("x is %i, y is %i\n", x, y);
+}
+
+void swap(int a, int b)
+{
+    int tmp = a;
+    a = b;
+    b = tmp;
+
+    //agora aqui dentro desse escopo o swap funciona
+    printf("a is %i, b is %i\n", a, b);
+}
+```
+infelizmente ele não funciona como o planejado, se obersarmos os comentários providos no código
+
+isso acontece pq o computador usa a memória de uma forma bastante convencional, não apenas aleatório, ou coloca as coisas apenas onde está disponível.
+
+Na verdade o computador usa diferentes partes da memória para propósitos diferentes, temos o controle sobre muito disso, mas o computador já usa parte disso por si só.
+
+| machine code | <- armazena todos os 0s e 1s no topo da memoria, ou seja, quando você executa um programa, o compter load here
+| :----------: |
+|    globals   | <- logo abaixo ele armazena as variáveis globais, que são todas as var que estão fora de main e fora de qualqr func
+|     heap     | <- "amontoar", sempre que usamos malloc ele vem para heap, vimos algo sobre isso usando valgrid
+|      ↓       |
+|              |
+|              |
+|              |
+|      ↑       |
+|    stack     | <- sempre que usamos variaveis locais elas acabam na "pilha"
+
