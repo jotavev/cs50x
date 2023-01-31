@@ -274,7 +274,6 @@ Dentro da memória do nosso computador, há diferentes tipos de dados que precis
 | machine code |
 | :----------: |
 |    globals   |
-| :----------: |
 |     heap     |
 |      ↓       |
 |              |
