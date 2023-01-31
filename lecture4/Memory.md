@@ -271,17 +271,17 @@ o computador usa a memória de uma forma bastante convencional, não apenas alea
 
 Dentro da memória do nosso computador, há diferentes tipos de dados que precisam ser armazenados para nosso programa e são organizados em diferentes seções:
 
-| machine code | <-
+| machine code |
 | :----------: |
-|    globals   | <- logo abaixo ele armazena as variáveis globais, que são todas as var que estão fora de main e fora de qualqr func
+|    globals   |
 | :----------: |
-|     heap     | <- "amontoar", sempre que usamos malloc ele vem para heap, vimos algo sobre isso usando valgrid
+|     heap     |
 |      ↓       |
 |              |
 |              |
 |              |
 |      ↑       |
-|    stack     | <- sempre que usamos variaveis locais elas acabam na "pilha"
+|    stack     |
 
 * "machine code" armazena o código binário do nosso programa compilado. Ou seja, quando executamos nosso programa, esse código é carregado nessa parte da memória.
 
