@@ -263,13 +263,18 @@ void swap(int a, int b)
 ```
 infelizmente ele não funciona como o planejado, se obersarmos os comentários providos no código
 
-isso acontece pq o computador usa a memória de uma forma bastante convencional, não apenas aleatório, ou coloca as coisas apenas onde está disponível.
+No exemplo acima a função swap usa copias das variaveis de main, a e b são variaveis locais e só se alteram dentro do escopo da função, ou seja, não muda os valores de x e y no main
 
-Na verdade o computador usa diferentes partes da memória para propósitos diferentes, temos o controle sobre muito disso, mas o computador já usa parte disso por si só.
+## memory layout
 
-| machine code | <- armazena todos os 0s e 1s no topo da memoria, ou seja, quando você executa um programa, o compter load here
+o computador usa a memória de uma forma bastante convencional, não apenas aleatório, ou coloca as coisas apenas onde está disponível
+
+Dentro da memória do nosso computador, há diferentes tipos de dados que precisam ser armazenados para nosso programa e são organizados em diferentes seções:
+
+| machine code | <-
 | :----------: |
 |    globals   | <- logo abaixo ele armazena as variáveis globais, que são todas as var que estão fora de main e fora de qualqr func
+| :----------: |
 |     heap     | <- "amontoar", sempre que usamos malloc ele vem para heap, vimos algo sobre isso usando valgrid
 |      ↓       |
 |              |
@@ -278,3 +283,39 @@ Na verdade o computador usa diferentes partes da memória para propósitos difer
 |      ↑       |
 |    stack     | <- sempre que usamos variaveis locais elas acabam na "pilha"
 
+* "machine code" armazena o código binário do nosso programa compilado. Ou seja, quando executamos nosso programa, esse código é carregado nessa parte da memória.
+
+* logo abaixo, ou na próxima parte estão "globals" que amazena as variáveis globais, que são todas as variáveis que estão fora de main e fora de qualquer função
+
+* "heap" ou "amontoar", sempre que usamos malloc ele vai para heap, vimos algo sobre isso quando usamos valgrind
+
+* "stack" ou "pilha", sempre que usamos funções e variavéis locais eles vão para stack
+
+se prestarmos atenção nas setinhas acima, heap "caminha" em direção ao stack e visse versa, ou seja:
+
+se usarmos muito malloc, para alocar muita memória, nós teremos um *heap overflow*, tendo em vista que ele irá se "chocar" com stack
+
+e se usarmos muito funções sem nenhum returno vindo delas, nós teremos um *stack overflow*, tendo em vista o mesmo motivo ao contrário
+
+o programa de trocar inteiros pode ter uma stack parecida com:
+
+```
+     -------------------------
+     |  |  |  |  |  |  |  |  |
+     -------------------------
+     |  |  |  |  |  |  |  |  |
+     -------------------------
+     |  |  |  |  |  |  |  |  |
+     -------------------------
+     |  swap     |  |  |  |  |
+swap -------------------------
+     |  a    1   |  b    2   |
+     -------------------------
+main |  x    1   |  y    2   |
+     -------------------------
+
+```
+
+o main tem duas variavéis locais, `x` e `y`. 
+
+o swap, quando chamado, é empilhado em cima de main, e ele tem três variáveis locais, `a`, `b` e `tmp`.
