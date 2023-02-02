@@ -241,8 +241,8 @@ void swap(int a,int b);
 
 int main(void)
 {
-    int x = get_int("x: ");
-    int y = get_int("y: ");
+    int x = 1;
+    int y = 2;
 
     swap(x, y);
 
@@ -306,7 +306,7 @@ o programa de trocar inteiros pode ter uma stack parecida com:
      -------------------------
      |  |  |  |  |  |  |  |  |
      -------------------------
-     |  swap     |  |  |  |  |
+     |  tmp      |  |  |  |  |
 swap -------------------------
      |  a    1   |  b    2   |
      -------------------------
@@ -315,6 +315,111 @@ main |  x    1   |  y    2   |
 
 ```
 
-o main tem duas variavéis locais, `x` e `y`. 
+o `main` tem duas variavéis locais, `x` e `y`. 
 
-o swap, quando chamado, é empilhado em cima de main, e ele tem três variáveis locais, `a`, `b` e `tmp`.
+o `swap`, quando chamado, é empilhado em cima de `main`, e ele tem três variáveis locais, `a`, `b` e `tmp`.
+
+porém quando `swap` é chamado, ele recebe cópias dos valores `x` e `y`, para dentro de seu escopo, então ele executa, troca somente as cópias dentro de seu próprio escopo e depois que `swap` termina de ser executado, a pilha que ele estava ocupando é liberada e seus valores se tornam *garbage values*, e como você pode perceber e as variáveis em main não são tocadas, só a cópia de seus valores dentro do escopo de swap que sofreram alterações, main se mantem igual.
+
+ou seja, os valores contidos em `swap` são apenas cópias dos valores contidos em main.
+
+Para contornar isso, podemos passar os endereços de `x` e `y`, e assim `swap` será capaz de alterar os valores originais:
+
+```
+void swap(int *a, int *b)
+{
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+```
+
+Os endereços de `x` e `y` são passados do `main` para o `swap` com `&x` e `&y`, e usamos a sintaxe `int *a` para declarar que a função swap irá receber um ponteiro.
+
+Ou seja, não serão cópias dos valores, igual ao primeiro código, e sim ponteiros para o endereço de onde estão as variáveis de main, alterando assim não só o escopo local, e sim o escopo de main, tendo em vista que os valores que estão sendo alterados são os que estão sendo apontados e não apenas cópias.
+
+vamos ao passo a passo do que está acontecendo no código:
+
+no caso o poteiro *a está apontando para o endereço da memória onde está armazenado 1
+
+O `tmp` recebe o valor para onde o ponteiro `*a` está apontando, que no caso é `1`.
+O `*a` recebe o valor para onde o ponteiro `*b` está apontando, que no caso é para `2`.
+O `*b` recebe o valor de tmp, que no caso é `1`.
+
+em uma representação gráfica, a pilha da memória seria:
+
+```
+     -------------------------
+     |  |  |  |  |  |  |  |  |
+     -------------------------
+     |  |  |  |  |  |  |  |  |
+     -------------------------
+     |  |  |  |  |  |  |  |  |
+     -------------------------
+     |  tmp      |  |  |  |  |
+swap -------------------------
+     |  a  0x123 |  b  0x127 |
+     -------------------------
+main |  x    1   |  y    2   |
+     -------------------------
+```
+
+se o `x` está no endereço `0x123`, `*a` irá apontar para esse valor.
+se o `y` está no endereço `0x127`, `*b` irá apontar para esse valor.
+
+no primeiro passo, o valor de `x` será colocado dentro de `tmp` seguindo para onde aponta o ponteiro `a`.
+no primeiro passo, seguindo para onde o ponteiro `a` aponta, no caso aponta para o valor de `x`, esse valor é colocado dentro de `tmp`
+
+```
+     -------------------------
+     |  |  |  |  |  |  |  |  |
+     -------------------------
+     |  |  |  |  |  |  |  |  |
+     -------------------------
+     |  |  |  |  |  |  |  |  |
+     -------------------------
+     |  tmp  1   |  |  |  |  |
+swap -------------------------
+     |  a  0x123 |  b  0x127 |
+     -------------------------
+main |  x    1   |  y    2   |
+     -------------------------
+```
+
+então, seguindo o valor para onde o ponteiro `b` aponta, no caso aponta para `y`, esse valor é guardado lá para onde aponta o ponteiro `a`, que no caso é `x`.
+
+```
+     -------------------------
+     |  |  |  |  |  |  |  |  |
+     -------------------------
+     |  |  |  |  |  |  |  |  |
+     -------------------------
+     |  |  |  |  |  |  |  |  |
+     -------------------------
+     |  tmp  1   |  |  |  |  |
+swap -------------------------
+     |  a  0x123 |  b  0x127 |
+     -------------------------
+main |  x    2   |  y    2   |
+     -------------------------
+```
+
+e por fim, seguindo para o local apontado por `b`, que no caso é `y`, e colocamos o valor de `tmp` dentro dele, que no caso é `1`
+
+```
+     -------------------------
+     |  |  |  |  |  |  |  |  |
+     -------------------------
+     |  |  |  |  |  |  |  |  |
+     -------------------------
+     |  |  |  |  |  |  |  |  |
+     -------------------------
+     |  tmp  1   |  |  |  |  |
+swap -------------------------
+     |  a  0x123 |  b  0x127 |
+     -------------------------
+main |  x    2   |  y    1   |
+     -------------------------
+```
+
+e é por isso que os valores dentro de `main` são alterados
