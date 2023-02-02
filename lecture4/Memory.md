@@ -423,3 +423,6 @@ main |  x    2   |  y    1   |
 ```
 
 e é por isso que os valores dentro de `main` são alterados
+
+## scanf
+
