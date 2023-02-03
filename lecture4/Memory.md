@@ -100,6 +100,7 @@ typedef char *string;
 
 ## Pointer Arithmetic 
 
+```
 int main(void) 
 {
     char *s = "HI!";
@@ -108,6 +109,8 @@ int main(void)
     char *s = ("%c\n", *(s + 2));  <- e assim por diante
     char *s = ("%c\n", *(s + 3));  <- aqui por ex vai printar o \0 que indica o fim da string
 }
+
+```
 
 então podemos executar aritmetica com os ponteiro e seus endereços
 
@@ -426,3 +429,202 @@ e é por isso que os valores dentro de `main` são alterados
 
 ## scanf
 
+nas primeiras, para armazenar um dado inserido pelo usuario em uma variavel utilizamos `get_int` ou `get_string` e assim por diante, que são funções disponiveis em cs50.h, isso faz com que o codigo fique mais seguro e um tanto quanto inquebravel, essas funções são rodinhas, para tornar nossa vida mais fácil. 
+
+Já existe um jeito de fazer isso e se chama `scanf`
+
+```
+#include <stdio.h>
+
+int main(void)
+{
+    int x;
+    printf("x: ");
+    scanf("%i", &x);
+    printf("x: %i\n", x);
+}
+
+```
+
+scanf pega o %i, digitado pelo usuário, que será "escaneado" e colocado no endereço que foi passado para ele, no caso `&x`
+
+se tentarmos fazer o mesmo para uma string:
+
+
+```
+#include <stdio.h>
+
+int main(void)
+{
+    char *s;
+    printf("s: ");
+    scanf("%s", &s);
+    printf("s: %i\n", s);
+}
+```
+receberemos o prompt
+
+```
+$ ./scanf
+s: hi!
+s: (null)
+```
+como não alocamos nenhuma memória para s, scanf está escrevendo o input do usuário em um lugar desconhecido da memória.
+
+para contornar isso podemos usar `malloc`
+```
+#include <stdio.h>
+
+int main(void)
+{
+    char *s = malloc(4);
+    printf("s: ");
+    scanf("%s", &s);
+    printf("s: %i\n", s);
+}
+```
+e então funcionará:
+
+```
+$ ./scanf
+s: hi!
+s: hi!
+```
+outro jeito é declarar um array de quatro caracteres:
+
+```
+#include <stdio.h>
+
+int main(void)
+{
+    char s[4];
+    printf("s: ");
+    scanf("%s", &s);
+    printf("s: %i\n", s);
+}
+```
+agora o código funcionará se o usuário digitar uma string de 3 caracteres ou menos
+se a string for maior que 3 o programa irá crashar:
+```
+$ ./scanf
+s: hellooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+s: hellooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+Segmentation fault (core dumped)
+```
+
+`get_string` de cs50.h aloca mais memória continuamente ata acabar de "scanear" a string e não possui esses problemas de `scanf`
+
+## Files
+
+com a habilidade de usar ponteiros, agora podemos abrir arquivos, como uma lista telefonica digital:
+
+```
+// Saves names and numbers to a CSV file
+  
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+  
+int main(void)
+{
+    // Open CSV file
+    FILE *file = fopen("phonebook.csv", "a");
+    if (!file)
+    {
+        return 1;
+    }
+  
+    // Get name and number
+    string name = get_string("Name: ");
+    string number = get_string("Number: ");
+  
+    // Print to file
+    fprintf(file, "%s,%s\n", name, number);
+  
+    // Close file
+    fclose(file);
+}
+```
+
+`fopen`/"file open" é uma função que possibilita abrir um arquivo com um tipo
+`fprintf` pode ser usado para escrever no arquivo
+
+## JPEG
+
+qualquer foto no formato jpeg como com três bytes escritos desse jeito:
+
+> 0xFF 0xD8 0xFF
+
+```
+// Detects if a file is a JPEG
+  
+#include <stdint.h>
+#include <stdio.h>
+  
+typedef uint8_t BYTE;
+  
+int main(int argc, char *argv[])
+{
+    // Check usage
+    if (argc != 2)
+    {
+        return 1;
+    }
+  
+    // Open file
+    FILE *file = fopen(argv[1], "r");
+    if (!file)
+    {
+        return 1;
+    }
+  
+    // Read first three bytes
+    BYTE bytes[3];
+    fread(bytes, sizeof(BYTE), 3, file);
+  
+    // Check first three bytes
+    if (bytes[0] == 0xff && bytes[1] == 0xd8 && bytes[2] == 0xff)
+    {
+        printf("Yes, possibly\n");
+    }
+    else
+    {
+        printf("No\n");
+    }
+  
+    // Close file
+    fclose(file);
+}
+```
+
+no passo a passo do código acima
+* primeiro definimos o tipo de dados `BYTE`, como 8 bits para ficar mais fácil de referenciar e usar no restante do código
+* usamos `fread` para ler o arquivo e colocar o 3 primeiros bytes na variavel `bytes`
+* checamos se os 3 primeiros bytes são iguais aos de um jpeg
+
+## BMP
+
+isso também funciona para arquivos BMP e outros formatos de imagens.
+
+```
+#include "helpers.h"
+  
+// Only let red through
+void filter(int height, int width, RGBTRIPLE image[height][width])
+{
+    // Loop over all pixels
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            image[i][j].rgbtBlue = 0x00;
+            image[i][j].rgbtGreen = 0x00;
+        }
+    }
+}
+```
+
+esse programa tem a função filter que recebe altura e largura de uma imagem
+varre em um loop alinhado todos os pixels da imagem
+e ela remove o azul e verde de cada pixel da imagem
+deixando assim só pixels vermelhos, sejas eles com mais ou menos intensidade de vermelho 0x000000 0xFF0000
