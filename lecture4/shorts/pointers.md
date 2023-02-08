@@ -1,9 +1,12 @@
 # Pointers
 * Ponteiros nos fornecem uma diferente maneira de passar dados entre funções
-** Quando passamos um valor para uma função, na verdade estamos passando uma cópia desses dados para a função. 
-** Existe uma exceção para essa regra de passagem de valor, 
 
-se usarmos ponteiros ao invés de usar cópias de variaveis, podemos passar as variáveis entre as funções, de uma maneira diferente. Como no exemplo de `swap.c`. Isso representa uma grande mudança em nossa capacidade de trabalhar com dados.
+* Quando passamos um valor para uma função, na verdade estamos passando uma cópia desses dados para a função. 
+
+* Existe uma exceção para essa regra de passagem de valor, 
+
+## Entendendo melhor
+Se usarmos ponteiros ao invés de usar cópias de variaveis, podemos passar as variáveis entre as funções, de uma maneira diferente. Como no exemplo de `swap.c`. Isso representa uma grande mudança em nossa capacidade de trabalhar com dados.
 
 Digamos que eu tenho um caderno cheio de anotações, e eu gostaria que você atualizasse algumas anotações. 
 se usarmos o jeito antigo (sem ponteiros), seria como se você pegasse meu caderno e tira uma xerox de todas as anotaços, fizesse as alterações e me retornasse com as xerox das anotações, e agora cabe a mim como `main` decidir o que fazer com as novas anotações nas xeroxs, se eu vou implementar elas no meu caderno ou não.
@@ -14,14 +17,14 @@ utilizando pointers, eu literalemnte te dei o caderno e uma caneta para que as a
 
 então o números de passos envolvidos enssa operação é diminuto em relação a outra. 
 
--
+___
 
 O ponteiro mais simples disponivel em `C` é o `NULL`
 * e é isso mesmo, ele não aponta para lugar algum (porém ele é util)
 * Se você não definir qual o endereço do ponteiro imediatamente, então é imprescindivel definir o ponteiro para nulo.
 * Para checar o valor do ponteiro (pra ver se ele é nulo por ex) basta usar o operador `==`
 
-- 
+___
 
 * Outra maneira de criar um ponteiro é simplesmente extrair o endereço de alguma variavel existente. 
 * Para extrair basta usar o operador `&`
@@ -33,7 +36,7 @@ O ponteiro mais simples disponivel em `C` é o `NULL`
 
 * array é apenas um ponteiro e é por isso que quando passamos um array como argumento para uma função a função muda de fato o conteúdo do array, pois ele é um ponteiro.
 
--
+___
 
 * o principal proposito do ponteiro é permitir que possamos modificar ou inspecionar o local para onde o ponteiro aponta (o dado que ele aponta)
 
@@ -43,14 +46,14 @@ então `*` é o operador de dereferencia é como se ele significasse `vá até a
 
 * um exemplo é como se você estivesse visitando seu vizinho, se você tem o endereço dele só significa que você tem o endereço dele. você precisa de `ir até o endereço` e só assim você consegue interagir com ele.
 
-- 
+___
 
 * O que acontece quando tentamos dereferenciar um ponteiro cujo o valor é NULL, falando `vá até a referencia`? `Segmentation fault`
 
 * isso é bom por causa que isso é uma forma de defesa contra manipulações perigosas de ponteiros que apontam para lugares desconhecidos.
 * Por isso é recomendado setar os ponteiros para NULL imediatamente, para que se sem querer você altere ele, a falha de segmentação acontaça, e você não toque na memoria que não deveria.
 
--
+___
 
 ```
 int *p;
@@ -60,7 +63,7 @@ int *p;
 * É possivel dereferenciar o `p` usando o operador `*`
 * se eu dereferenciar ele, o valor iremos achar nessa localização é o valor inteiro de p.
 
-- 
+___
 
 ```
 int *px, py, pz
@@ -70,7 +73,7 @@ no exemplo acima só px é um ponteiro para um inteiro, py e pz são inteiros.
 (meio obvio mas antigamente o padrão era usar `int* p` então o exemplo acima ficaria `int* px, py, pz`, onde obviamente não muda nada e somente o px será ponteiro. 
 Com a nova forma padrão de fazer isso, agora fica ordens de grandeza mais facil de compreender isso ok)
 
--
+___
 
 | DataType | Tamanho (em bytes) |
 |:--------:|:------------------:|

@@ -47,7 +47,7 @@ typedef struct car car_t;
         old name   new name
 ```
 
-como as typedef é muito comum de ser usado após structs, existe outro jeito comum de fazer o mesmo que fizemos acima que é:
+como o typedef é muito comum de ser usado após structs, existe outro jeito comum de fazer o mesmo que fizemos acima que é:
 
 
 ```
