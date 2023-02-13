@@ -21,9 +21,13 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
 int nMax(int x)
 {
     if (x > 255)
+    {
         return 255;
+    }
     else
+    {
         return x;
+    }
 }
 
 // Convert image to sepia
@@ -76,17 +80,17 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     return;
 }
 
-float average4(int n0, int n1, int n2, int n3)
+int average4(int n0, int n1, int n2, int n3)
 {
-    return (n0 + n1 + n2 + n3) / 4.0;
+    return round((n0 + n1 + n2 + n3) / 4.0);
 }
-float average6(int n0, int n1, int n2, int n3, int n4, int n5)
+int average6(int n0, int n1, int n2, int n3, int n4, int n5)
 {
-    return (n0 + n1 + n2 + n3 + n4 + n5) / 6.0;
+    return round((n0 + n1 + n2 + n3 + n4 + n5) / 6.0);
 }
-float average9(int n0, int n1, int n2, int n3, int n4, int n5, int n6, int n7, int n8)
+int average9(int n0, int n1, int n2, int n3, int n4, int n5, int n6, int n7, int n8)
 {
-    return (n0 + n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8) / 9.0;
+    return round((n0 + n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8) / 9.0);
 }
 
 // Blur image
@@ -109,230 +113,230 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             //canto superior esquerdo
             if (i == 0 && j == 0)
             {
-                image[i][j].rgbtRed = round(average4(
-                            buff[i][j].rgbtRed, 
-                            buff[i][j + 1].rgbtRed, 
-                            buff[i + 1][j].rgbtRed, 
-                            buff[i + 1][j + 1].rgbtRed));
+                image[i][j].rgbtRed = average4(
+                                          buff[i][j].rgbtRed, 
+                                          buff[i][j + 1].rgbtRed, 
+                                          buff[i + 1][j].rgbtRed, 
+                                          buff[i + 1][j + 1].rgbtRed);
 
-                image[i][j].rgbtGreen = round(average4(
-                            buff[i][j].rgbtGreen, 
-                            buff[i][j + 1].rgbtGreen, 
-                            buff[i + 1][j].rgbtGreen, 
-                            buff[i + 1][j + 1].rgbtGreen));
+                image[i][j].rgbtGreen = average4(
+                                            buff[i][j].rgbtGreen, 
+                                            buff[i][j + 1].rgbtGreen, 
+                                            buff[i + 1][j].rgbtGreen, 
+                                            buff[i + 1][j + 1].rgbtGreen);
 
-                image[i][j].rgbtBlue = round(average4(
-                            buff[i][j].rgbtBlue, 
-                            buff[i][j + 1].rgbtBlue, 
-                            buff[i + 1][j].rgbtBlue, 
-                            buff[i + 1][j + 1].rgbtBlue));
+                image[i][j].rgbtBlue = average4(
+                                           buff[i][j].rgbtBlue, 
+                                           buff[i][j + 1].rgbtBlue, 
+                                           buff[i + 1][j].rgbtBlue, 
+                                           buff[i + 1][j + 1].rgbtBlue);
             }
             //canto superior direito
             else if (i == 0 && j == width - 1)
             {
-                image[i][j].rgbtRed = round(average4(
-                            buff[i][j - 1].rgbtRed, 
-                            buff[i][j].rgbtRed, 
-                            buff[i + 1][j - 1].rgbtRed, 
-                            buff[i + 1][j].rgbtRed));
+                image[i][j].rgbtRed = average4(
+                                          buff[i][j - 1].rgbtRed, 
+                                          buff[i][j].rgbtRed, 
+                                          buff[i + 1][j - 1].rgbtRed, 
+                                          buff[i + 1][j].rgbtRed);
 
-                image[i][j].rgbtGreen = round(average4(
-                            buff[i][j - 1].rgbtGreen, 
-                            buff[i][j].rgbtGreen, 
-                            buff[i + 1][j - 1].rgbtGreen, 
-                            buff[i + 1][j].rgbtGreen));
+                image[i][j].rgbtGreen = average4(
+                                            buff[i][j - 1].rgbtGreen, 
+                                            buff[i][j].rgbtGreen, 
+                                            buff[i + 1][j - 1].rgbtGreen, 
+                                            buff[i + 1][j].rgbtGreen);
 
-                image[i][j].rgbtBlue = round(average4(
-                            buff[i][j - 1].rgbtBlue, 
-                            buff[i][j].rgbtBlue, 
-                            buff[i + 1][j - 1].rgbtBlue, 
-                            buff[i + 1][j].rgbtBlue));
+                image[i][j].rgbtBlue = average4(
+                                           buff[i][j - 1].rgbtBlue, 
+                                           buff[i][j].rgbtBlue, 
+                                           buff[i + 1][j - 1].rgbtBlue, 
+                                           buff[i + 1][j].rgbtBlue);
             }
             //canto inferior esquerdo
             else if (i == height - 1 && j == 0)
             {
-                image[i][j].rgbtRed = round(average4(
-                            buff[i][j].rgbtRed, 
-                            buff[i][j + 1].rgbtRed, 
-                            buff[i - 1][j].rgbtRed, 
-                            buff[i - 1][j + 1].rgbtRed));
+                image[i][j].rgbtRed = average4(
+                                          buff[i][j].rgbtRed, 
+                                          buff[i][j + 1].rgbtRed, 
+                                          buff[i - 1][j].rgbtRed, 
+                                          buff[i - 1][j + 1].rgbtRed);
 
-                image[i][j].rgbtGreen = round(average4(
-                            buff[i][j].rgbtGreen, 
-                            buff[i][j + 1].rgbtGreen, 
-                            buff[i - 1][j].rgbtGreen, 
-                            buff[i - 1][j + 1].rgbtGreen));
+                image[i][j].rgbtGreen = average4(
+                                            buff[i][j].rgbtGreen, 
+                                            buff[i][j + 1].rgbtGreen, 
+                                            buff[i - 1][j].rgbtGreen, 
+                                            buff[i - 1][j + 1].rgbtGreen);
 
-                image[i][j].rgbtBlue = round(average4(
-                            buff[i][j].rgbtBlue, 
-                            buff[i][j + 1].rgbtBlue, 
-                            buff[i - 1][j].rgbtBlue, 
-                            buff[i - 1][j + 1].rgbtBlue));
+                image[i][j].rgbtBlue = average4(
+                                           buff[i][j].rgbtBlue, 
+                                           buff[i][j + 1].rgbtBlue, 
+                                           buff[i - 1][j].rgbtBlue, 
+                                           buff[i - 1][j + 1].rgbtBlue);
             }
             //canto inferior direito
             else if (i == height - 1 && j == width - 1)
             {
-                image[i][j].rgbtRed = round(average4(
-                            buff[i][j].rgbtRed, 
-                            buff[i][j - 1].rgbtRed, 
-                            buff[i - 1][j].rgbtRed, 
-                            buff[i - 1][j - 1].rgbtRed));
+                image[i][j].rgbtRed = average4(
+                                          buff[i][j].rgbtRed, 
+                                          buff[i][j - 1].rgbtRed, 
+                                          buff[i - 1][j].rgbtRed, 
+                                          buff[i - 1][j - 1].rgbtRed);
 
-                image[i][j].rgbtBlue = round(average4(
-                            buff[i][j].rgbtBlue, 
-                            buff[i][j - 1].rgbtBlue, 
-                            buff[i - 1][j].rgbtBlue, 
-                            buff[i - 1][j - 1].rgbtBlue));
+                image[i][j].rgbtBlue = average4(
+                                           buff[i][j].rgbtBlue, 
+                                           buff[i][j - 1].rgbtBlue, 
+                                           buff[i - 1][j].rgbtBlue, 
+                                           buff[i - 1][j - 1].rgbtBlue);
 
-                image[i][j].rgbtGreen = round(average4(
-                            buff[i][j].rgbtGreen, 
-                            buff[i][j - 1].rgbtGreen, 
-                            buff[i - 1][j].rgbtGreen, 
-                            buff[i - 1][j - 1].rgbtGreen));
+                image[i][j].rgbtGreen = average4(
+                                            buff[i][j].rgbtGreen, 
+                                            buff[i][j - 1].rgbtGreen, 
+                                            buff[i - 1][j].rgbtGreen, 
+                                            buff[i - 1][j - 1].rgbtGreen);
 
             }
             //borda superior
             else if (i == 0 && j > 0 && j < width - 1)
             {
-                image[i][j].rgbtRed = round(average6(
-                            buff[i][j].rgbtRed,
-                            buff[i][j - 1].rgbtRed,
-                            buff[i][j + 1].rgbtRed,
-                            buff[i + 1][j - 1].rgbtRed,
-                            buff[i + 1][j].rgbtRed,
-                            buff[i + 1][j + 1].rgbtRed));
+                image[i][j].rgbtRed = average6(
+                                          buff[i][j].rgbtRed,
+                                          buff[i][j - 1].rgbtRed,
+                                          buff[i][j + 1].rgbtRed,
+                                          buff[i + 1][j - 1].rgbtRed,
+                                          buff[i + 1][j].rgbtRed,
+                                          buff[i + 1][j + 1].rgbtRed);
 
-                image[i][j].rgbtGreen = round(average6(
-                            buff[i][j].rgbtGreen,
-                            buff[i][j - 1].rgbtGreen,
-                            buff[i][j + 1].rgbtGreen,
-                            buff[i + 1][j - 1].rgbtGreen,
-                            buff[i + 1][j].rgbtGreen,
-                            buff[i + 1][j + 1].rgbtGreen));
+                image[i][j].rgbtGreen = average6(
+                                            buff[i][j].rgbtGreen,
+                                            buff[i][j - 1].rgbtGreen,
+                                            buff[i][j + 1].rgbtGreen,
+                                            buff[i + 1][j - 1].rgbtGreen,
+                                            buff[i + 1][j].rgbtGreen,
+                                            buff[i + 1][j + 1].rgbtGreen);
 
-                image[i][j].rgbtBlue = round(average6(
-                            buff[i][j].rgbtBlue,
-                            buff[i][j - 1].rgbtBlue,
-                            buff[i][j + 1].rgbtBlue,
-                            buff[i + 1][j - 1].rgbtBlue,
-                            buff[i + 1][j].rgbtBlue,
-                            buff[i + 1][j + 1].rgbtBlue));
+                image[i][j].rgbtBlue = average6(
+                                           buff[i][j].rgbtBlue,
+                                           buff[i][j - 1].rgbtBlue,
+                                           buff[i][j + 1].rgbtBlue,
+                                           buff[i + 1][j - 1].rgbtBlue,
+                                           buff[i + 1][j].rgbtBlue,
+                                           buff[i + 1][j + 1].rgbtBlue);
             }
             //borda inferior
             else if (i == height - 1 && j > 0 && j < width - 1)
             {
-                image[i][j].rgbtRed = round(average6(
-                            buff[i][j].rgbtRed,
-                            buff[i][j - 1].rgbtRed,
-                            buff[i][j + 1].rgbtRed,
-                            buff[i - 1][j - 1].rgbtRed,
-                            buff[i - 1][j].rgbtRed,
-                            buff[i - 1][j + 1].rgbtRed));
+                image[i][j].rgbtRed = average6(
+                                          buff[i][j].rgbtRed,
+                                          buff[i][j - 1].rgbtRed,
+                                          buff[i][j + 1].rgbtRed,
+                                          buff[i - 1][j - 1].rgbtRed,
+                                          buff[i - 1][j].rgbtRed,
+                                          buff[i - 1][j + 1].rgbtRed);
 
-                image[i][j].rgbtGreen = round(average6(
-                            buff[i][j].rgbtGreen,
-                            buff[i][j - 1].rgbtGreen,
-                            buff[i][j + 1].rgbtGreen,
-                            buff[i - 1][j - 1].rgbtGreen,
-                            buff[i - 1][j].rgbtGreen,
-                            buff[i - 1][j + 1].rgbtGreen));
+                image[i][j].rgbtGreen = average6(
+                                            buff[i][j].rgbtGreen,
+                                            buff[i][j - 1].rgbtGreen,
+                                            buff[i][j + 1].rgbtGreen,
+                                            buff[i - 1][j - 1].rgbtGreen,
+                                            buff[i - 1][j].rgbtGreen,
+                                            buff[i - 1][j + 1].rgbtGreen);
 
-                image[i][j].rgbtBlue = round(average6(
-                            buff[i][j].rgbtBlue,
-                            buff[i][j - 1].rgbtBlue,
-                            buff[i][j + 1].rgbtBlue,
-                            buff[i - 1][j - 1].rgbtBlue,
-                            buff[i - 1][j].rgbtBlue,
-                            buff[i - 1][j + 1].rgbtBlue));
+                image[i][j].rgbtBlue = average6(
+                                           buff[i][j].rgbtBlue,
+                                           buff[i][j - 1].rgbtBlue,
+                                           buff[i][j + 1].rgbtBlue,
+                                           buff[i - 1][j - 1].rgbtBlue,
+                                           buff[i - 1][j].rgbtBlue,
+                                           buff[i - 1][j + 1].rgbtBlue);
             }
             //borda esquerda
             else if (j == 0 && i > 0 && i < height - 1)
             {
-                image[i][j].rgbtRed = round(average6(
-                            buff[i][j].rgbtRed,
-                            buff[i][j + 1].rgbtRed,
-                            buff[i - 1][j].rgbtRed,
-                            buff[i - 1][j + 1].rgbtRed,
-                            buff[i + 1][j].rgbtRed,
-                            buff[i + 1][j + 1].rgbtRed));
+                image[i][j].rgbtRed = average6(
+                                          buff[i][j].rgbtRed,
+                                          buff[i][j + 1].rgbtRed,
+                                          buff[i - 1][j].rgbtRed,
+                                          buff[i - 1][j + 1].rgbtRed,
+                                          buff[i + 1][j].rgbtRed,
+                                          buff[i + 1][j + 1].rgbtRed);
 
-                image[i][j].rgbtGreen = round(average6(
-                            buff[i][j].rgbtGreen,
-                            buff[i][j + 1].rgbtGreen,
-                            buff[i - 1][j].rgbtGreen,
-                            buff[i - 1][j + 1].rgbtGreen,
-                            buff[i + 1][j].rgbtGreen,
-                            buff[i + 1][j + 1].rgbtGreen));
+                image[i][j].rgbtGreen = average6(
+                                            buff[i][j].rgbtGreen,
+                                            buff[i][j + 1].rgbtGreen,
+                                            buff[i - 1][j].rgbtGreen,
+                                            buff[i - 1][j + 1].rgbtGreen,
+                                            buff[i + 1][j].rgbtGreen,
+                                            buff[i + 1][j + 1].rgbtGreen);
 
-                image[i][j].rgbtBlue = round(average6(
-                            buff[i][j].rgbtBlue,
-                            buff[i][j + 1].rgbtBlue,
-                            buff[i - 1][j].rgbtBlue,
-                            buff[i - 1][j + 1].rgbtBlue,
-                            buff[i + 1][j].rgbtBlue,
-                            buff[i + 1][j + 1].rgbtBlue));
+                image[i][j].rgbtBlue = average6(
+                                           buff[i][j].rgbtBlue,
+                                           buff[i][j + 1].rgbtBlue,
+                                           buff[i - 1][j].rgbtBlue,
+                                           buff[i - 1][j + 1].rgbtBlue,
+                                           buff[i + 1][j].rgbtBlue,
+                                           buff[i + 1][j + 1].rgbtBlue);
             }
             //borda direita
             else if (j == width - 1 && i > 0 && i < height - 1)
             {
-                image[i][j].rgbtRed = round(average6(
-                            buff[i][j].rgbtRed,
-                            buff[i][j - 1].rgbtRed,
-                            buff[i - 1][j - 1].rgbtRed,
-                            buff[i - 1][j].rgbtRed,
-                            buff[i + 1][j - 1].rgbtRed,
-                            buff[i + 1][j].rgbtRed));
+                image[i][j].rgbtRed = average6(
+                                          buff[i][j].rgbtRed,
+                                          buff[i][j - 1].rgbtRed,
+                                          buff[i - 1][j - 1].rgbtRed,
+                                          buff[i - 1][j].rgbtRed,
+                                          buff[i + 1][j - 1].rgbtRed,
+                                          buff[i + 1][j].rgbtRed);
 
-                image[i][j].rgbtGreen = round(average6(
-                            buff[i][j].rgbtGreen,
-                            buff[i][j - 1].rgbtGreen,
-                            buff[i - 1][j - 1].rgbtGreen,
-                            buff[i - 1][j].rgbtGreen,
-                            buff[i + 1][j - 1].rgbtGreen,
-                            buff[i + 1][j].rgbtGreen));
+                image[i][j].rgbtGreen = average6(
+                                            buff[i][j].rgbtGreen,
+                                            buff[i][j - 1].rgbtGreen,
+                                            buff[i - 1][j - 1].rgbtGreen,
+                                            buff[i - 1][j].rgbtGreen,
+                                            buff[i + 1][j - 1].rgbtGreen,
+                                            buff[i + 1][j].rgbtGreen);
 
-                image[i][j].rgbtBlue = round(average6(
-                            buff[i][j].rgbtBlue,
-                            buff[i][j - 1].rgbtBlue,
-                            buff[i - 1][j - 1].rgbtBlue,
-                            buff[i - 1][j].rgbtBlue,
-                            buff[i + 1][j - 1].rgbtBlue,
-                            buff[i + 1][j].rgbtBlue));
+                image[i][j].rgbtBlue = average6(
+                                           buff[i][j].rgbtBlue,
+                                           buff[i][j - 1].rgbtBlue,
+                                           buff[i - 1][j - 1].rgbtBlue,
+                                           buff[i - 1][j].rgbtBlue,
+                                           buff[i + 1][j - 1].rgbtBlue,
+                                           buff[i + 1][j].rgbtBlue);
             }
             else if (i > 0 && j > 0 && i < height - 1 && j < width - 1)
             {
-                image[i][j].rgbtRed = round(average9(
-                            buff[i - 1][j - 1].rgbtRed,
-                            buff[i - 1][j].rgbtRed,
-                            buff[i - 1][j + 1].rgbtRed,
-                            buff[i][j - 1].rgbtRed,
-                            buff[i][j].rgbtRed,
-                            buff[i][j + 1].rgbtRed,
-                            buff[i + 1][j - 1].rgbtRed,
-                            buff[i + 1][j].rgbtRed,
-                            buff[i + 1][j + 1].rgbtRed));
+                image[i][j].rgbtRed = average9(
+                                          buff[i - 1][j - 1].rgbtRed,
+                                          buff[i - 1][j].rgbtRed,
+                                          buff[i - 1][j + 1].rgbtRed,
+                                          buff[i][j - 1].rgbtRed,
+                                          buff[i][j].rgbtRed,
+                                          buff[i][j + 1].rgbtRed,
+                                          buff[i + 1][j - 1].rgbtRed,
+                                          buff[i + 1][j].rgbtRed,
+                                          buff[i + 1][j + 1].rgbtRed);
 
-                image[i][j].rgbtGreen = round(average9(
-                            buff[i - 1][j - 1].rgbtGreen,
-                            buff[i - 1][j].rgbtGreen,
-                            buff[i - 1][j + 1].rgbtGreen,
-                            buff[i][j - 1].rgbtGreen,
-                            buff[i][j].rgbtGreen,
-                            buff[i][j + 1].rgbtGreen,
-                            buff[i + 1][j - 1].rgbtGreen,
-                            buff[i + 1][j].rgbtGreen,
-                            buff[i + 1][j + 1].rgbtGreen));
+                image[i][j].rgbtGreen = average9(
+                                            buff[i - 1][j - 1].rgbtGreen,
+                                            buff[i - 1][j].rgbtGreen,
+                                            buff[i - 1][j + 1].rgbtGreen,
+                                            buff[i][j - 1].rgbtGreen,
+                                            buff[i][j].rgbtGreen,
+                                            buff[i][j + 1].rgbtGreen,
+                                            buff[i + 1][j - 1].rgbtGreen,
+                                            buff[i + 1][j].rgbtGreen,
+                                            buff[i + 1][j + 1].rgbtGreen);
 
-                image[i][j].rgbtBlue = round(average9(
-                            buff[i - 1][j - 1].rgbtBlue,
-                            buff[i - 1][j].rgbtBlue,
-                            buff[i - 1][j + 1].rgbtBlue,
-                            buff[i][j - 1].rgbtBlue,
-                            buff[i][j].rgbtBlue,
-                            buff[i][j + 1].rgbtBlue,
-                            buff[i + 1][j - 1].rgbtBlue,
-                            buff[i + 1][j].rgbtBlue,
-                            buff[i + 1][j + 1].rgbtBlue));
+                image[i][j].rgbtBlue = average9(
+                                           buff[i - 1][j - 1].rgbtBlue,
+                                           buff[i - 1][j].rgbtBlue,
+                                           buff[i - 1][j + 1].rgbtBlue,
+                                           buff[i][j - 1].rgbtBlue,
+                                           buff[i][j].rgbtBlue,
+                                           buff[i][j + 1].rgbtBlue,
+                                           buff[i + 1][j - 1].rgbtBlue,
+                                           buff[i + 1][j].rgbtBlue,
+                                           buff[i + 1][j + 1].rgbtBlue);
             }
         }
     }
