@@ -128,29 +128,28 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                             buff[i + 1][j + 1].rgbtBlue));
             }
             //canto superior direito
-            else if (i == 0 && j == width)
+            else if (i == 0 && j == width - 1)
             {
                 image[i][j].rgbtRed = round(average4(
-                            buff[i][j].rgbtRed, 
                             buff[i][j - 1].rgbtRed, 
-                            buff[i + 1][j].rgbtRed, 
-                            buff[i + 1][j - 1].rgbtRed));
+                            buff[i][j].rgbtRed, 
+                            buff[i + 1][j - 1].rgbtRed, 
+                            buff[i + 1][j].rgbtRed));
 
                 image[i][j].rgbtGreen = round(average4(
-                            buff[i][j].rgbtGreen, 
                             buff[i][j - 1].rgbtGreen, 
-                            buff[i + 1][j].rgbtGreen, 
-                            buff[i + 1][j - 1].rgbtGreen));
+                            buff[i][j].rgbtGreen, 
+                            buff[i + 1][j - 1].rgbtGreen, 
+                            buff[i + 1][j].rgbtGreen));
 
                 image[i][j].rgbtBlue = round(average4(
-                            buff[i][j].rgbtBlue, 
                             buff[i][j - 1].rgbtBlue, 
-                            buff[i + 1][j].rgbtBlue, 
-                            buff[i + 1][j - 1].rgbtBlue));
-
+                            buff[i][j].rgbtBlue, 
+                            buff[i + 1][j - 1].rgbtBlue, 
+                            buff[i + 1][j].rgbtBlue));
             }
             //canto inferior esquerdo
-            else if (i == height && j == 0)
+            else if (i == height - 1 && j == 0)
             {
                 image[i][j].rgbtRed = round(average4(
                             buff[i][j].rgbtRed, 
@@ -171,7 +170,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                             buff[i - 1][j + 1].rgbtBlue));
             }
             //canto inferior direito
-            else if (i == height && j == width)
+            else if (i == height - 1 && j == width - 1)
             {
                 image[i][j].rgbtRed = round(average4(
                             buff[i][j].rgbtRed, 
@@ -193,7 +192,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
             }
             //borda superior
-            else if ((i == 0 && j > 0) || (i == 0 && j < width))
+            else if (i == 0 && j > 0 && j < width - 1)
             {
                 image[i][j].rgbtRed = round(average6(
                             buff[i][j].rgbtRed,
@@ -220,7 +219,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                             buff[i + 1][j + 1].rgbtBlue));
             }
             //borda inferior
-            else if ((i == height && j > 0) || (i == height && j < width))
+            else if (i == height - 1 && j > 0 && j < width - 1)
             {
                 image[i][j].rgbtRed = round(average6(
                             buff[i][j].rgbtRed,
@@ -247,7 +246,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                             buff[i - 1][j + 1].rgbtBlue));
             }
             //borda esquerda
-            else if ((j == 0 && i > 0) || (j == 0 && i < height))
+            else if (j == 0 && i > 0 && i < height - 1)
             {
                 image[i][j].rgbtRed = round(average6(
                             buff[i][j].rgbtRed,
@@ -274,7 +273,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                             buff[i + 1][j + 1].rgbtBlue));
             }
             //borda direita
-            else if ((j == width && i > 0) || (j == width && i < height))
+            else if (j == width - 1 && i > 0 && i < height - 1)
             {
                 image[i][j].rgbtRed = round(average6(
                             buff[i][j].rgbtRed,
@@ -300,7 +299,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                             buff[i + 1][j - 1].rgbtBlue,
                             buff[i + 1][j].rgbtBlue));
             }
-            else
+            else if (i > 0 && j > 0 && i < height - 1 && j < width - 1)
             {
                 image[i][j].rgbtRed = round(average9(
                             buff[i - 1][j - 1].rgbtRed,
