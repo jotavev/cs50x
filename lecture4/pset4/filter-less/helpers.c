@@ -57,20 +57,26 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            buffimage[i][j].rgbtRed = image[i][j].rgbtRed;
-            buffimage[i][j].rgbtGreen = image[i][j].rgbtGreen;
-            buffimage[i][j].rgbtBlue = image[i][j].rgbtBlue;
+            int tmpRed = image[i][j].rgbtRed;
+            int tmpGreen = image[i][j].rgbtGreen;
+            int tmpBlue = image[i][j].rgbtBlue;
+            buffimage[i][j].rgbtRed = tmpRed;
+            buffimage[i][j].rgbtGreen = tmpGreen;
+            buffimage[i][j].rgbtBlue = tmpBlue;
         }
     }
-    for (int i = 0; i < height; i++)
+    for (int i = 0; i <= height; i++)
     {
-        int last = width;
-        for (int j = 0; j < width; j++)
+        int count = 1;
+        for (int j = 0; j <= width; j++)
         {
-            image[i][j].rgbtRed = buffimage[i][last].rgbtRed;
-            image[i][j].rgbtGreen = buffimage[i][last].rgbtGreen;
-            image[i][j].rgbtBlue = buffimage[i][last].rgbtBlue;
-            last--;
+            int tmpRed = buffimage[i][width - count].rgbtRed;
+            int tmpGreen = buffimage[i][width - count].rgbtGreen;
+            int tmpBlue = buffimage[i][width - count].rgbtBlue;
+            image[i][j].rgbtRed = tmpRed;
+            image[i][j].rgbtGreen = tmpGreen;
+            image[i][j].rgbtBlue = tmpBlue;
+            count++;
         }
     }
     return;
