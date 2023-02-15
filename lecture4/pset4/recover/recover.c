@@ -19,17 +19,17 @@ int main(int argc, char *argv[])
         return 1;
     }
     
-    BYTE headbytes[3];
+    BYTE buffer[512];
+
+    int BLOCK_SIZE = 512 * sizeof(BYTE);
 
     int count = 1;
 
-    //aqui tem que ser um laço de repetição que corre pelo arquivo
-    while (fread(&headbytes, 3 * sizeof(BYTE), 1, f))
+    while (fread(buffer, 1, BLOCK_SIZE, f) == BLOCK_SIZE)
     {
-        if (headbytes[0] == 0xff && headbytes[1] == 0xd8 && headbytes[2] == 0xff)
+        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff)
         {
-            //fopen e blá blá
-            printf("achei %i jpeg", count);
+            printf("achei %i jpeg\n", count);
             count++;
         }
 
