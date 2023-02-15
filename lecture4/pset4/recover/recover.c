@@ -19,17 +19,23 @@ int main(int argc, char *argv[])
         return 1;
     }
     
-    BYTE buffer[512];
+    const int BLOCK_SIZE = 512 * sizeof(BYTE);
 
-    int BLOCK_SIZE = 512 * sizeof(BYTE);
+    BYTE buffer[BLOCK_SIZE];
 
-    int count = 1;
+    int count = 0;
 
-    while (fread(buffer, 1, BLOCK_SIZE, f) == BLOCK_SIZE)
+    char filename[10];
+
+
+    while (fread(&buffer, 1, BLOCK_SIZE, f) == BLOCK_SIZE)
     {
-        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff)
+        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
-            printf("achei %i jpeg\n", count);
+            sprintf(filename, "%03i.jpg", count);
+            FILE *img = fopen(filename, "w");
+            fwrite(&buffer, 1, BLOCK_SIZE, img);
+            fclose(img);
             count++;
         }
 
