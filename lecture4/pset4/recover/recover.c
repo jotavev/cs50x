@@ -53,16 +53,4 @@ int main(int argc, char *argv[])
     }
 
     fclose(f);
-    
-
-//     fread(headbytes, sizeof(BYTE), 3, f);
-
- 
-    //TODO 
-    //Abrir o cartão de memoria
-    //Olhar para o inicio e procurar um jpeg
-    //quando achar o jpeg, abrir um novo arquivo jpeg
-    //escrever em blocos de 512 bytes até encontrar um novo jpeg 
-    //quando achar o jpeg, fecha o antigo e abre um novo arquivo // recursão aqui
-    
 }
