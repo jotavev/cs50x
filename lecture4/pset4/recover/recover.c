@@ -23,21 +23,32 @@ int main(int argc, char *argv[])
 
     BYTE buffer[BLOCK_SIZE];
 
-    int count = 0;
+    int count = -1;
 
     char filename[10];
+
+    int firstbytefound = 0;
 
 
     while (fread(&buffer, 1, BLOCK_SIZE, f) == BLOCK_SIZE)
     {
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
+            count++;
             sprintf(filename, "%03i.jpg", count);
             FILE *img = fopen(filename, "w");
             fwrite(&buffer, 1, BLOCK_SIZE, img);
             fclose(img);
-            count++;
+            firstbytefound = 1;
         }
+        else if (firstbytefound == 1)
+        {
+            sprintf(filename, "%03i.jpg", count);
+            FILE *img = fopen(filename, "a");
+            fwrite(&buffer, 1, BLOCK_SIZE, img);
+            fclose(img);
+        }
+
 
     }
 
