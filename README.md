@@ -85,5 +85,36 @@ Scrabble is a word board game in which players create intersecting words on a bo
 |---------------------------------------------|---|---|
 |<pre>$ ./scrable<br>Player 1: COMPUTER<br>Player 2: science<br>Player 1 wins!</pre> | <pre>$ ./scrable<br>Player 1: Question?<br>Player 2: Question!<br>Tie!</pre> | <pre>$ ./scrable<br>Player 1: Oh,<br>Player 2: hai!<br>Player 2 wins!</pre> |
 
+## Readability
+
+For this problem, I implemented a program that calculates the approximate grade level needed to comprehend some text, as described below.
+
+<pre>$ ./readability<br>Text: Congratulations! Today is your day. You're off to Great Places! You're off and away!<br>Grade 3
+</pre>
+
+to do this I used the Coleman-Liau index. The Coleman-Liau index of a text is designed to output that (U.S.) grade level that is needed to understand some text. The formula is
+
+<pre>index = 0.0588 * L - 0.296 * S - 15.8</pre>
+
+where `L` is the average number of letters per 100 words in the text, and `S` is the average number of sentences per 100 words in the text.
+
+| Readability |
+|----|
+|<pre>$ ./readability<br>Text: As the average number of letters and words per sentence increases, the Coleman-Liau index gives the text a higher reading level. If you were to take this paragraph, for instance, which has longer words and sentences than either of the prior two examples, the formula would give the text an twelfth-grade reading level.<br>Grade 12
+</pre> |
+
+## Caesar
+
+The story goes that Caesar used to "encrypt" (i.e., hide reversibly) confidential messages by shifting each letter in them by a fixed number of positions. For example, if the number were 1, he would write A as B, B as C, C as D...
+
+to illustrate, here's how encryptiong `HELLO`with a key of 1 yields `IFMMP`:
+| plaintext |`H` | `E` | `L` | `L` | `O` |
+|---|---|---|---|---|---|
+| + 1 key | 1 | 1 | 1 | 1 | 1 | 1 |
+| = ciphertext | `I` | `F` | `M` | `M` | `P` |
+
+For this problem, I implemented a program that encrypts messages using Caesar’s cipher, per the below.
+
+<pre>$ ./caesar 13<br>plaintext:  hello, world!<br>ciphertext: uryyb, jbeyq!</pre>
 
 Can you check my solutions clicking [here!](https://github.com/valentejorge/cs50x/tree/master/lecture2)
