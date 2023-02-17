@@ -10,54 +10,51 @@ I made this repository to show the things studied in this course.
 
 ## Lecture 0 (Scratch)
 
-The week 0 is about principles of computers world 
-- How to computer representing data (yes, with binary) 
-- What is a algorithms 
-- Time to solve problems (the bigO notation)
-- ✨Scratch ✨
+During week 0, we covered the fundamental principles of the computer world, including:
+- How to computer represent data using binary 
+- The definition of algorithms 
+- Measuring the time to solve problems using the big-O notation
+- Introduction to Scratch, a visual programming language
 
 ### Problem Set 0
 
-In this class, I learned about scratch, and the proposed set of problems was to create something with scratch, and i made a game.
+In this class, I learned about Scratch, a visual programming language. As part of the course, we were given the freedom to solve a problem using Scratch, and I chose to create a game.
 
 <img src="https://github.com/jotavev/cs50x/blob/master/assets/1pong_demo.gif" alt="Screenshot" width="350" />
 
-My project is a retro game, similar to pong, but for one player. To play, click [here!](https://scratch.mit.edu/projects/778158229/)
+My project is a retro game, similar to pong, but designed for single player. To play, click [here!](https://scratch.mit.edu/projects/778158229/)
+
+___
 
 ## Lecture 1 (C language)
 
-In this class, i apprehended the fundamentals of programming with C, things already seen with Scratch, now using C and new concepts using this text-based language. (Correctness, Design, Style, Syntax, IDE, Compiling, Functions, Arguments, Return Values, Types, Operators, Variables and so on)
+In this class, I learned the fundamentals of programming with C. I was able to apply concepts that I had already learned with Scratch to this text-based language, while also learning new concepts such as correctness, design, style, syntax, IDE, compiling, functions, arguments, return values, types, operators, conditional statements, loops and variables.
 
-### Problem Set 1
-
-In this week, have 2 problems to solve, the version of problem if you feel most confortable and if you feel less confortable too
+## Problems Set 1
 
 ### Mario Pyramids 
 
 the first problem set, is based in make a mario pyramid, using c.  
 
-| Mario less confortable version                | Program in c                                   |
-|:---------------------------------------------:| ---------------------------------------------- |
-| <img src="./assets/mario1.jpeg" width="300"/> |  <pre>$ ./mario           <br>Height: 4<br>   #<br>  ##<br> ###<br>####<br></pre> |
-
-| Mario more confortable version               | Program in c                                   |
+| Mario Pyramids|Program in c|
 |:--------------------------------------------:| ---------------------------------------------- |
 | <img src="./assets/mario2.png" width="300"/> | <pre>$ ./mario           <br>Height: 4<br>   #  #<br>  ##  ##<br> ###  ###<br>####  ####<br></pre> |
 
-Can you check my solutions clicking [here!](https://github.com/jotavev/cs50x/tree/master/lecture1/pset1/)
+Can you check my solution clicking [here!](https://github.com/jotavev/cs50x/tree/master/lecture1/pset1/)
 
 ### Cash and Credit
 
-The second problem set involves money 🤑 (and it's not hack a ATM).
+The second problem set involves money.
 
-Cash is a greedy algorithm to minimize the number of coins you’re dispensing for each customer when giving changes, the input are the value of change and the output are the number of coins you have to give.
+Cash is a greedy algorithm used to minimize the number of coins required to give change to customers. The input is the value of the change, and the output is the number of coins that need to be dispensed.
 
 | Cash                                        |
 |---------------------------------------------|
 | <pre>$ ./cash<br>Change Owed: -41               <br>Change Owed: foo<br>Change Owed: 41<br>4</pre> |
 
 
-Credit is a credit card checker. the input are the credit card number is `INVALID` for invalid number, and if valid, the program check what is the flag of card, return `VISA`, `MASTERCARD` and `AMEX`.
+
+Credit is a program that checks credit card numbers. The program determines whether the input credit card number is invalid (returning `INVALID`) or, if valid, what type of card it is, returning `VISA`, `MASTERCARD`, or `AMEX` accordingly."
 
 | Credit                                      |
 |---------------------------------------------|
@@ -65,3 +62,28 @@ Credit is a credit card checker. the input are the credit card number is `INVALI
 
 Can you check my solutions clicking [here!](https://github.com/jotavev/cs50x/tree/master/lecture1/pset1/)
 
+___
+
+## Lecture 2 (Arrays)
+
+During the Lecture 2, I learned about:
+- Debugging techniques and tools
+- Command-line arguments (using argc and 
+- Computer memory concepts, including what memory is, how to use arrays to store values, and their many applications.
+
+## Problem set 2
+
+This week, we were introduced to lab exercises, which are typically designed to help us practice specific concepts covered in class and/or introduce new concepts that will be used in the problem sets (psets)
+
+### Lab 2: Scrabble
+
+In this lab, I was tasked with implementing functions for a Scrabble game prompt, based on a given piece of code.
+
+Scrabble is a word board game in which players create intersecting words on a board of numbered squares, using the letters on their game pieces to score points. The objective is to form words with higher scores, and players can earn extra points by utilizing special squares on the board. It's a popular game all over the world that requires both a good vocabulary and strategic thinking.
+
+| | Scrable | |
+|---------------------------------------------|---|---|
+|<pre>$ ./scrable<br>Player 1: COMPUTER<br>Player 2: science<br>Player 1 wins!</pre> | <pre>$ ./scrable<br>Player 1: Question?<br>Player 2: Question!<br>Tie!</pre> | <pre>$ ./scrable<br>Player 1: Oh,<br>Player 2: hai!<br>Player 2 wins!</pre> |
+
+
+Can you check my solutions clicking [here!](https://github.com/valentejorge/cs50x/tree/master/lecture2)
