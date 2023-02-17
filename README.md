@@ -85,7 +85,7 @@ Scrabble is a word board game in which players create intersecting words on a bo
 |---------------------------------------------|---|---|
 |<pre>$ ./scrable<br>Player 1: COMPUTER<br>Player 2: science<br>Player 1 wins!</pre> | <pre>$ ./scrable<br>Player 1: Question?<br>Player 2: Question!<br>Tie!</pre> | <pre>$ ./scrable<br>Player 1: Oh,<br>Player 2: hai!<br>Player 2 wins!</pre> |
 
-## Readability
+### Readability
 
 For this problem, I implemented a program that calculates the approximate grade level needed to comprehend some text, as described below.
 
@@ -98,12 +98,10 @@ to do this I used the Coleman-Liau index. The Coleman-Liau index of a text is de
 
 where `L` is the average number of letters per 100 words in the text, and `S` is the average number of sentences per 100 words in the text.
 
-| Readability |
-|----|
-|<pre>$ ./readability<br>Text: As the average number of letters and words per sentence increases, the Coleman-Liau index gives the text a higher reading level. If you were to take this paragraph, for instance, which has longer words and sentences than either of the prior two examples, the formula would give the text an twelfth-grade reading level.<br>Grade 12
-</pre> |
+<pre>$ ./readability<br>Text: As the average number of letters and words per sentence increases, the Coleman-Liau index gives the text a higher reading level. If you were to take this paragraph, for instance, which has longer words and sentences than either of the prior two examples, the formula would give the text an twelfth-grade reading level.<br>Grade 12
+</pre>
 
-## Caesar
+### Caesar
 
 The story goes that Caesar used to "encrypt" (i.e., hide reversibly) confidential messages by shifting each letter in them by a fixed number of positions. For example, if the number were 1, he would write A as B, B as C, C as D...
 
