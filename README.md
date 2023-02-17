@@ -28,7 +28,7 @@ ___
 
 ## Lecture 1 (C language)
 
-In this class, I learned the fundamentals of programming with C. I was able to apply concepts that I had already learned with Scratch to this text-based language, while also learning new concepts such as correctness, design, style, syntax, IDE, compiling, functions, arguments, return values, types, operators, conditional statements, loops and variables.
+In this class, I learned the fundamentals of programming with C. I was able to apply concepts that I had already learned with Scratch to this text-based language, while also learning new concepts such as correctness, design, style, syntax, IDE, compiling, functions, arguments, return values, types, operators, conditional statements, loops, and variables.
 
 ## Problems Set 1
 
@@ -81,15 +81,18 @@ In this lab, I was tasked with implementing functions for a Scrabble game prompt
 
 Scrabble is a word board game in which players create intersecting words on a board of numbered squares, using the letters on their game pieces to score points. The objective is to form words with higher scores, and players can earn extra points by utilizing special squares on the board. It's a popular game all over the world that requires both a good vocabulary and strategic thinking.
 
-| | Scrable | |
-|---------------------------------------------|---|---|
+|   | Scrable |   |
+|---|---|---|
 |<pre>$ ./scrable<br>Player 1: COMPUTER<br>Player 2: science<br>Player 1 wins!</pre> | <pre>$ ./scrable<br>Player 1: Question?<br>Player 2: Question!<br>Tie!</pre> | <pre>$ ./scrable<br>Player 1: Oh,<br>Player 2: hai!<br>Player 2 wins!</pre> |
 
 ### Readability
 
 For this problem, I implemented a program that calculates the approximate grade level needed to comprehend some text, as described below.
 
-<pre>$ ./readability<br>Text: Congratulations! Today is your day. You're off to Great Places! You're off and away!<br>Grade 3
+<pre>
+$ ./readability
+Text: Congratulations! Today is your day. You're off to Great Places! You're off and away!
+Grade 3
 </pre>
 
 to do this I used the Coleman-Liau index. The Coleman-Liau index of a text is designed to output that (U.S.) grade level that is needed to understand some text. The formula is
@@ -98,7 +101,10 @@ to do this I used the Coleman-Liau index. The Coleman-Liau index of a text is de
 
 where `L` is the average number of letters per 100 words in the text, and `S` is the average number of sentences per 100 words in the text.
 
-<pre>$ ./readability<br>Text: As the average number of letters and words per sentence increases, the Coleman-Liau index gives the text a higher reading level. If you were to take this paragraph, for instance, which has longer words and sentences than either of the prior two examples, the formula would give the text an twelfth-grade reading level.<br>Grade 12
+<pre>
+$ ./readability
+Text: As the average number of letters and words per sentence increases, the Coleman-Liau index gives the text a higher reading level. If you were to take this paragraph, for instance, which has longer words and sentences than either of the prior two examples, the formula would give the text an twelfth-grade reading level.
+Grade 12
 </pre>
 
 ### Caesar
@@ -106,13 +112,54 @@ where `L` is the average number of letters per 100 words in the text, and `S` is
 The story goes that Caesar used to "encrypt" (i.e., hide reversibly) confidential messages by shifting each letter in them by a fixed number of positions. For example, if the number were 1, he would write A as B, B as C, C as D...
 
 to illustrate, here's how encryptiong `HELLO`with a key of 1 yields `IFMMP`:
-| plaintext |`H` | `E` | `L` | `L` | `O` |
-|---|---|---|---|---|---|
-| + 1 key | 1 | 1 | 1 | 1 | 1 | 1 |
+
+| plaintext    | `H` | `E` | `L` | `L` | `O` |
+|--------------|-----|-----|-----|-----|-----|
+| + 1 key      |  1  |  1  |  1  |  1  |  1  | 
 | = ciphertext | `I` | `F` | `M` | `M` | `P` |
 
 For this problem, I implemented a program that encrypts messages using Caesar’s cipher, per the below.
 
-<pre>$ ./caesar 13<br>plaintext:  hello, world!<br>ciphertext: uryyb, jbeyq!</pre>
+<pre>
+$ ./caesar 13
+plaintext:  hello, world!
+ciphertext: uryyb, jbeyq!
+</pre>
+
+### Substituition
+
+For this problem, I write a program that implements a substitution cipher, per the below.
+
+<pre>
+$ ./substitution JTREKYAVOGDXPSNCUIZLFBMWHQ
+plaintext:  HELLO
+ciphertext: VKXXN
+</pre>
+
+This program is similar to Caesar, but instead of choosing a fixed number to shift the letters, it uses a table with indexes arbitrarily defined by the user prompt.
+
+<pre>
+$ ./substitution VCHPRZGJNTLSKFBDQWAXEUYMOI
+plaintext:  hello, world
+ciphertext: jrssb, ybwsp
+</pre>
 
 Can you check my solutions clicking [here!](https://github.com/valentejorge/cs50x/tree/master/lecture2)
+
+## Lecture 3 (Algorithms)
+
+In Lecture 3, I learned about:
+- A deeper understanding of Big-O notation
+- Differences between linear and binary search
+- Structuring custom data types
+- Perfomance differences between sorting algorithms, including Bubble sort, Selection sort, and Merge sort
+- Recursion 
+
+### Lab 3: Sort
+
+In this lab, I Analyze three compiled sorting programs to determine which algorithms they use.
+
+I was provided with three already-compiled C programs: `sort1`, `sort2`, and `sort3`. Each program implements a different sorting algorithm, including `selection sort`, `bubble sort`, or `merge sort`. My task was to determine which sorting algorithm was used by each file. 
+
+Multiple `.txt` files were provided, and each `.txt` file contained `n` lines of values, either reversed, shuffled, or sorted. I used the `time` Linux command the to run and analyze the time each program took to sort each file.
+
