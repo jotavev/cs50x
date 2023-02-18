@@ -16,7 +16,7 @@ During week 0, we covered the fundamental principles of the computer world, incl
 - Measuring the time to solve problems using the big-O notation
 - Introduction to Scratch, a visual programming language
 
-### Problem Set 0
+## Problem Set 0
 
 In this class, I learned about Scratch, a visual programming language. As part of the course, we were given the freedom to solve a problem using Scratch, and I chose to create a game.
 
@@ -163,3 +163,107 @@ I was provided with three already-compiled C programs: `sort1`, `sort2`, and `so
 
 Multiple `.txt` files were provided, and each `.txt` file contained `n` lines of values, either reversed, shuffled, or sorted. I used the `time` Linux command the to run and analyze the time each program took to sort each file.
 
+### Plurality 
+
+For this task, I implemented a program that runs a plurality election, as shown below.
+
+<pre>
+$ ./plurality Alice Bob Charlie
+Number of voters: 5
+Vote: Alice
+Vote: Bob
+Vote: Charlie
+Vote: Daciolo
+Vote: Daciolo
+Daciolo
+</pre>
+
+### Runoff
+
+For this task, I implemented a program that runs a runoff election, as shown below.
+
+<pre>
+./runoff Alice Bob Charlie
+Number of voters: 5
+Rank 1: Alice
+Rank 2: Bob
+Rank 3: Charlie
+
+Rank 1: Alice
+Rank 2: Charlie
+Rank 3: Bob
+
+Rank 1: Bob
+Rank 2: Charlie
+Rank 3: Alice
+
+Rank 1: Bob
+Rank 2: Alice
+Rank 3: Charlie
+
+Rank 1: Charlie
+Rank 2: Alice
+Rank 3: Bob
+
+Alice
+</pre>
+
+A runoff election with ballots of three preferences is a type of preferential voting system in which voters rank the candidates in order of preference. If no candidate receives a majority of first preference votes in the initial count, then the candidate with the fewest first preference votes is eliminated, and their votes are transferred to the remaining candidates according to the next preference on each ballot. This process continues until one candidate has a majority of votes, and is declared the winner.
+
+
+## Lecture 4 (Memory)
+
+In Lecture 4, I learned about:
+- Memory and memory layout in more depth
+- Addresses and pointers
+- Pointer arithmetic
+- Hexadecimal and pixels
+- Memory allocation
+- Valgrind
+- Garbage values
+
+### Lab 4: Volume
+
+For this task, I wrote a program to modify the volume of an `.wav` audio file.
+
+<pre>
+$ ./volume INPUT.wav OUTPUT.wav 2.0
+</pre>
+
+Where `INPUT.wav` is the name of an original audio file and `OUTPUT.wav` is the name of an audio file with a volume that has been scaled by the given factor (e.g., 2.0).
+
+## Problem Set 4
+
+### Filter
+
+For this task, I implemented a program in C, that applies filters to BMPs, such as grayscale, sepia, blur, and reflected, modifying the pixels position or pixel colors of the input image to create a new output image with the desired effect.
+
+<pre>
+$ ./filter -g IMAGE.bmp GRAYSCALE.bmp
+</pre>
+
+where `IMAGE.bmp` is the name of an image file and `GRAYSCALE.bmp` is the name given to an output image file, now in black and white.
+
+##### Grayscale
+
+| Input | Output |
+|-------|--------|
+|<img src="/lecture4/pset4/filter-less/images/yard.bmp"  alt="1" width=300px height=200px >| <img src="/assets/yardGrayscale.bmp" alt="1" width=300px height=200px >|
+
+##### Sepia
+
+| Input | Output |
+|-------|--------|
+|<img src="/lecture4/pset4/filter-less/images/courtyard.bmp"  alt="1" width=300px height=200px >| <img src="/assets/courtyardSepia.bmp" alt="1" width=300px height=200px >|
+
+##### Blur
+
+| Input | Output |
+|-------|--------|
+|<img src="/lecture4/pset4/filter-less/images/tower.bmp"  alt="1" width=300px height=200px >| <img src="/assets/towerBlur.bmp" alt="1" width=300px height=200px >|
+
+##### Reflected
+
+| Input | Output |
+|-------|--------|
+|<img src="/assets/mario2.png"  alt="1" width=200px height=200px >| <img src="/assets/mario2.png"  alt="1" width=200px height=200px >|
