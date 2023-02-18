@@ -260,10 +260,11 @@ where `IMAGE.bmp` is the name of an image file and `GRAYSCALE.bmp` is the name g
 
 | Input | Output |
 |-------|--------|
-|<img src="/lecture4/pset4/filter-less/images/tower.bmp"  alt="1" width=300px height=200px >| <img src="/assets/towerBlur.bmp" alt="1" width=300px height=200px >|
+|<img src="/lecture4/pset4/filter-less/images/stadium.bmp"  alt="1" width=300px height=200px >| <img src="/assets/stadiumBlur.bmp" alt="1" width=300px height=200px >|
 
 ##### Reflected
 
 | Input | Output |
 |-------|--------|
-|<img src="/assets/mario2.png"  alt="1" width=200px height=200px >| <img src="/assets/mario2.png"  alt="1" width=200px height=200px >|
+|<img src="/lecture4/pset4/filter-less/images/tower.bmp"  alt="1" width=300px height=200px >| <img src="/assets/towerReflected.bmp" alt="1" width=300px height=200px >|
+
