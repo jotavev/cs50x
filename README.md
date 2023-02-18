@@ -40,7 +40,7 @@ the first problem set, is based in make a mario pyramid, using c.
 
 | Mario Pyramids|Program in c|
 |:--------------------------------------------:| ---------------------------------------------- |
-| <img src="./assets/mario2.png" width="300"/> | <img src="./assets/mario.gif"> |
+| <img src="./assets/mario2.png" width="300"/> | <img src="./assets/mario.gif"/> |
 
 Can you check my solution clicking [here!](https://github.com/jotavev/cs50x/tree/master/lecture1/pset1/)
 
@@ -52,7 +52,7 @@ Cash is a greedy algorithm used to minimize the number of coins required to give
 
 | Cash                                        |
 |---------------------------------------------|
-| <pre>$ ./cash<br>Change Owed: -41               <br>Change Owed: foo<br>Change Owed: 41<br>4</pre> |
+| <img src="./assets/cash.gif"/> |
 
 
 
@@ -60,7 +60,7 @@ Credit is a program that checks credit card numbers. The program determines whet
 
 | Credit                                      |
 |---------------------------------------------|
-|  <pre>$ ./credit <br>Number: 4003600000000014       <br>VISA<br>$ ./credit<br>Number: 371449635398431<br>AMEX<br>Number: 6176292929<br>INVALID</pre> |
+|  <img src="./assets/credit.gif"/> |
 
 Can you check my solutions clicking [here!](https://github.com/jotavev/cs50x/tree/master/lecture1/pset1/)
 
