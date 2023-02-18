@@ -114,84 +114,84 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             if (i == 0 && j == 0)
             {
                 image[i][j].rgbtRed = average4(
-                                          buff[i][j].rgbtRed, 
-                                          buff[i][j + 1].rgbtRed, 
-                                          buff[i + 1][j].rgbtRed, 
+                                          buff[i][j].rgbtRed,
+                                          buff[i][j + 1].rgbtRed,
+                                          buff[i + 1][j].rgbtRed,
                                           buff[i + 1][j + 1].rgbtRed);
 
                 image[i][j].rgbtGreen = average4(
-                                            buff[i][j].rgbtGreen, 
-                                            buff[i][j + 1].rgbtGreen, 
-                                            buff[i + 1][j].rgbtGreen, 
+                                            buff[i][j].rgbtGreen,
+                                            buff[i][j + 1].rgbtGreen,
+                                            buff[i + 1][j].rgbtGreen,
                                             buff[i + 1][j + 1].rgbtGreen);
 
                 image[i][j].rgbtBlue = average4(
-                                           buff[i][j].rgbtBlue, 
-                                           buff[i][j + 1].rgbtBlue, 
-                                           buff[i + 1][j].rgbtBlue, 
+                                           buff[i][j].rgbtBlue,
+                                           buff[i][j + 1].rgbtBlue,
+                                           buff[i + 1][j].rgbtBlue,
                                            buff[i + 1][j + 1].rgbtBlue);
             }
             //canto superior direito
             else if (i == 0 && j == width - 1)
             {
                 image[i][j].rgbtRed = average4(
-                                          buff[i][j - 1].rgbtRed, 
-                                          buff[i][j].rgbtRed, 
-                                          buff[i + 1][j - 1].rgbtRed, 
+                                          buff[i][j - 1].rgbtRed,
+                                          buff[i][j].rgbtRed,
+                                          buff[i + 1][j - 1].rgbtRed,
                                           buff[i + 1][j].rgbtRed);
 
                 image[i][j].rgbtGreen = average4(
-                                            buff[i][j - 1].rgbtGreen, 
-                                            buff[i][j].rgbtGreen, 
-                                            buff[i + 1][j - 1].rgbtGreen, 
+                                            buff[i][j - 1].rgbtGreen,
+                                            buff[i][j].rgbtGreen,
+                                            buff[i + 1][j - 1].rgbtGreen,
                                             buff[i + 1][j].rgbtGreen);
 
                 image[i][j].rgbtBlue = average4(
-                                           buff[i][j - 1].rgbtBlue, 
-                                           buff[i][j].rgbtBlue, 
-                                           buff[i + 1][j - 1].rgbtBlue, 
+                                           buff[i][j - 1].rgbtBlue,
+                                           buff[i][j].rgbtBlue,
+                                           buff[i + 1][j - 1].rgbtBlue,
                                            buff[i + 1][j].rgbtBlue);
             }
             //canto inferior esquerdo
             else if (i == height - 1 && j == 0)
             {
                 image[i][j].rgbtRed = average4(
-                                          buff[i][j].rgbtRed, 
-                                          buff[i][j + 1].rgbtRed, 
-                                          buff[i - 1][j].rgbtRed, 
+                                          buff[i][j].rgbtRed,
+                                          buff[i][j + 1].rgbtRed,
+                                          buff[i - 1][j].rgbtRed,
                                           buff[i - 1][j + 1].rgbtRed);
 
                 image[i][j].rgbtGreen = average4(
-                                            buff[i][j].rgbtGreen, 
-                                            buff[i][j + 1].rgbtGreen, 
-                                            buff[i - 1][j].rgbtGreen, 
+                                            buff[i][j].rgbtGreen,
+                                            buff[i][j + 1].rgbtGreen,
+                                            buff[i - 1][j].rgbtGreen,
                                             buff[i - 1][j + 1].rgbtGreen);
 
                 image[i][j].rgbtBlue = average4(
-                                           buff[i][j].rgbtBlue, 
-                                           buff[i][j + 1].rgbtBlue, 
-                                           buff[i - 1][j].rgbtBlue, 
+                                           buff[i][j].rgbtBlue,
+                                           buff[i][j + 1].rgbtBlue,
+                                           buff[i - 1][j].rgbtBlue,
                                            buff[i - 1][j + 1].rgbtBlue);
             }
             //canto inferior direito
             else if (i == height - 1 && j == width - 1)
             {
                 image[i][j].rgbtRed = average4(
-                                          buff[i][j].rgbtRed, 
-                                          buff[i][j - 1].rgbtRed, 
-                                          buff[i - 1][j].rgbtRed, 
+                                          buff[i][j].rgbtRed,
+                                          buff[i][j - 1].rgbtRed,
+                                          buff[i - 1][j].rgbtRed,
                                           buff[i - 1][j - 1].rgbtRed);
 
                 image[i][j].rgbtBlue = average4(
-                                           buff[i][j].rgbtBlue, 
-                                           buff[i][j - 1].rgbtBlue, 
-                                           buff[i - 1][j].rgbtBlue, 
+                                           buff[i][j].rgbtBlue,
+                                           buff[i][j - 1].rgbtBlue,
+                                           buff[i - 1][j].rgbtBlue,
                                            buff[i - 1][j - 1].rgbtBlue);
 
                 image[i][j].rgbtGreen = average4(
-                                            buff[i][j].rgbtGreen, 
-                                            buff[i][j - 1].rgbtGreen, 
-                                            buff[i - 1][j].rgbtGreen, 
+                                            buff[i][j].rgbtGreen,
+                                            buff[i][j - 1].rgbtGreen,
+                                            buff[i - 1][j].rgbtGreen,
                                             buff[i - 1][j - 1].rgbtGreen);
 
             }
