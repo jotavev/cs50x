@@ -83,31 +83,24 @@ In this lab, I was tasked with implementing functions for a Scrabble game prompt
 
 Scrabble is a word board game in which players create intersecting words on a board of numbered squares, using the letters on their game pieces to score points. The objective is to form words with higher scores, and players can earn extra points by utilizing special squares on the board. It's a popular game all over the world that requires both a good vocabulary and strategic thinking.
 
-|   | Scrable |   |
-|---|---|---|
-|<pre>$ ./scrable<br>Player 1: COMPUTER<br>Player 2: science<br>Player 1 wins!</pre> | <pre>$ ./scrable<br>Player 1: Question?<br>Player 2: Question!<br>Tie!</pre> | <pre>$ ./scrable<br>Player 1: Oh,<br>Player 2: hai!<br>Player 2 wins!</pre> |
+| Scrable |
+|---|
+| <img src="./assets/scrable.gif"/>|
 
 ### Readability
 
 For this problem, I implemented a program that calculates the approximate grade level needed to comprehend some text, as described below.
 
-<pre>
-$ ./readability
-Text: Congratulations! Today is your day. You're off to Great Places! You're off and away!
-Grade 3
-</pre>
+| Readability |
+|---|
+| <img src="./assets/readability.gif"/>|
+
 
 to do this I used the Coleman-Liau index. The Coleman-Liau index of a text is designed to output that (U.S.) grade level that is needed to understand some text. The formula is
 
 <pre>index = 0.0588 * L - 0.296 * S - 15.8</pre>
 
 where `L` is the average number of letters per 100 words in the text, and `S` is the average number of sentences per 100 words in the text.
-
-<pre>
-$ ./readability
-Text: As the average number of letters and words per sentence increases, the Coleman-Liau index gives the text a higher reading level. If you were to take this paragraph, for instance, which has longer words and sentences than either of the prior two examples, the formula would give the text an twelfth-grade reading level.
-Grade 12
-</pre>
 
 ### Caesar
 
