@@ -8,6 +8,8 @@ This course is divided into weeks, and each week has a central topic and problem
 
 I made this repository to show the things studied in this course.  
 
+___
+
 ## Lecture 0 (Scratch)
 
 During week 0, we covered the fundamental principles of the computer world, including:
@@ -38,7 +40,7 @@ the first problem set, is based in make a mario pyramid, using c.
 
 | Mario Pyramids|Program in c|
 |:--------------------------------------------:| ---------------------------------------------- |
-| <img src="./assets/mario2.png" width="300"/> | <pre>$ ./mario           <br>Height: 4<br>   #  #<br>  ##  ##<br> ###  ###<br>####  ####<br></pre> |
+| <img src="./assets/mario2.png" width="300"/> | <img src="./assets/mario.gif"> |
 
 Can you check my solution clicking [here!](https://github.com/jotavev/cs50x/tree/master/lecture1/pset1/)
 
@@ -146,6 +148,8 @@ ciphertext: jrssb, ybwsp
 
 Can you check my solutions clicking [here!](https://github.com/valentejorge/cs50x/tree/master/lecture2)
 
+___
+
 ## Lecture 3 (Algorithms)
 
 In Lecture 3, I learned about:
@@ -210,6 +214,7 @@ Alice
 
 A runoff election with ballots of three preferences is a type of preferential voting system in which voters rank the candidates in order of preference. If no candidate receives a majority of first preference votes in the initial count, then the candidate with the fewest first preference votes is eliminated, and their votes are transferred to the remaining candidates according to the next preference on each ballot. This process continues until one candidate has a majority of votes, and is declared the winner.
 
+___
 
 ## Lecture 4 (Memory)
 
@@ -268,3 +273,6 @@ where `IMAGE.bmp` is the name of an image file and `GRAYSCALE.bmp` is the name g
 |-------|--------|
 |<img src="/lecture4/pset4/filter-less/images/tower.bmp"  alt="1" width=300px height=200px >| <img src="/assets/towerReflected.bmp" alt="1" width=300px height=200px >|
 
+___
+
+## Lecture 5 ()
