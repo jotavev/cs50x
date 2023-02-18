@@ -11,7 +11,7 @@ int main(void)
     do
     {
         heigth = get_int("Heigth: ");
-    } 
+    }
     while (heigth < 1 || heigth > 8);
 
     printer(heigth);
@@ -27,7 +27,6 @@ void printer(int size)
         printblank(printBlankTimes);
         printhash(printHashTimes);
         printf("  ");
-        printhash(printHashTimes);
         printHashTimes++;
 
 
@@ -42,7 +41,7 @@ void printblank(int n)
         printf(" ");
     }
 }
-    
+
 void printhash(int n)
 {
     for (int i = 0; i < n; i++)
@@ -50,4 +49,3 @@ void printhash(int n)
         printf("#");
     }
 }
-
