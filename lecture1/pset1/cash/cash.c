@@ -50,22 +50,25 @@ int main(void)
 
     int quarter = calculate_quarters(cents);
 
-    printf("quarter is %i\n", quarter);
-    printf("cents is %i\n", cents);
+    printf("$0.25: %i\n", quarter);
+//     printf("cents is %i\n", cents);
     cents = cents - (25 * quarter);
 
     int dimes = calculate_dimes(cents);
+    printf("$0.10: %i\n", dimes);
 
-    printf("cents after calc %i\n", cents);
+//     printf("cents after calc %i\n", cents);
     cents = cents - (10 * dimes);
 
     int nickels = calculate_nickels(cents);
     
+    printf("$0.05: %i\n", nickels);
     cents = cents - (5 * nickels);
 
     int pennies = calculate_pennies(cents);
 
+    printf("$0.01: %i\n", pennies);
     int sum = quarter + dimes + nickels + pennies;
 
-    printf("troquinho é %i\n", sum);
+    printf("\ntotal coins: %i\n", sum);
 }
