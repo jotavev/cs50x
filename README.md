@@ -163,46 +163,17 @@ Multiple `.txt` files were provided, and each `.txt` file contained `n` lines of
 
 For this task, I implemented a program that runs a plurality election, as shown below.
 
-<pre>
-$ ./plurality Alice Bob Charlie
-Number of voters: 5
-Vote: Alice
-Vote: Bob
-Vote: Charlie
-Vote: Daciolo
-Vote: Daciolo
-Daciolo
-</pre>
+| Plurality |
+|---|
+| <img src="./assets/plurality.gif"/>|
 
 ### Runoff
 
 For this task, I implemented a program that runs a runoff election, as shown below.
 
-<pre>
-./runoff Alice Bob Charlie
-Number of voters: 5
-Rank 1: Alice
-Rank 2: Bob
-Rank 3: Charlie
-
-Rank 1: Alice
-Rank 2: Charlie
-Rank 3: Bob
-
-Rank 1: Bob
-Rank 2: Charlie
-Rank 3: Alice
-
-Rank 1: Bob
-Rank 2: Alice
-Rank 3: Charlie
-
-Rank 1: Charlie
-Rank 2: Alice
-Rank 3: Bob
-
-Alice
-</pre>
+| Runoff |
+|---|
+| <img src="./assets/runoff.gif"/>|
 
 A runoff election with ballots of three preferences is a type of preferential voting system in which voters rank the candidates in order of preference. If no candidate receives a majority of first preference votes in the initial count, then the candidate with the fewest first preference votes is eliminated, and their votes are transferred to the remaining candidates according to the next preference on each ballot. This process continues until one candidate has a majority of votes, and is declared the winner.
 
@@ -265,6 +236,7 @@ where `IMAGE.bmp` is the name of an image file and `GRAYSCALE.bmp` is the name g
 |-------|--------|
 |<img src="/lecture4/pset4/filter-less/images/tower.bmp"  alt="1" width=300px height=200px >| <img src="/assets/towerReflected.bmp" alt="1" width=300px height=200px >|
 
+### Recover
 ___
 
 ## Lecture 5 ()
