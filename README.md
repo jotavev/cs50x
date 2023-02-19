@@ -115,29 +115,19 @@ to illustrate, here's how encryptiong `HELLO`with a key of 1 yields `IFMMP`:
 
 For this problem, I implemented a program that encrypts messages using Caesar’s cipher, per the below.
 
-<pre>
-$ ./caesar 13
-plaintext:  hello, world!
-ciphertext: uryyb, jbeyq!
-</pre>
+| Caesar |
+|---|
+| <img src="./assets/caesar.gif"/>|
 
 ### Substituition
 
 For this problem, I write a program that implements a substitution cipher, per the below.
 
-<pre>
-$ ./substitution JTREKYAVOGDXPSNCUIZLFBMWHQ
-plaintext:  HELLO
-ciphertext: VKXXN
-</pre>
+| Substitution |
+|---|
+| <img src="./assets/substitution.gif"/>|
 
 This program is similar to Caesar, but instead of choosing a fixed number to shift the letters, it uses a table with indexes arbitrarily defined by the user prompt.
-
-<pre>
-$ ./substitution VCHPRZGJNTLSKFBDQWAXEUYMOI
-plaintext:  hello, world
-ciphertext: jrssb, ybwsp
-</pre>
 
 Can you check my solutions clicking [here!](https://github.com/valentejorge/cs50x/tree/master/lecture2)
 
@@ -159,6 +149,15 @@ In this lab, I Analyze three compiled sorting programs to determine which algori
 I was provided with three already-compiled C programs: `sort1`, `sort2`, and `sort3`. Each program implements a different sorting algorithm, including `selection sort`, `bubble sort`, or `merge sort`. My task was to determine which sorting algorithm was used by each file. 
 
 Multiple `.txt` files were provided, and each `.txt` file contained `n` lines of values, either reversed, shuffled, or sorted. I used the `time` Linux command the to run and analyze the time each program took to sort each file.
+
+<details>
+<summary>Click here to witness the power of technology in its most extravagant form! Get ready for a high-tech solution from another world!</summary>
+
+
+| Ultra power Solution for Sort |
+|---|
+| <img src="./assets/sort.jpg"/>|
+</details>
 
 ### Plurality 
 
