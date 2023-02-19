@@ -28,13 +28,13 @@ int main(int argc, string argv[])
 
         printf("ciphertext: ");
         printFromIndex(cipherK, text);
-
-        printf("\n\n\n");
-        printf("the index of 'A' is: %i\n", indx('a'));
-        printf("the index of 'C' is: %i\n", indx('C'));
-        printf("the index of 'B' is: %i\n", indx('B'));
-        printf("the index of 'D' is: %i\n", indx('D'));
-        printf("the index of 'Z' is: %i\n", indx('Z'));
+// 
+//         printf("\n\n\n");
+//         printf("the index of 'A' is: %i\n", indx('a'));
+//         printf("the index of 'C' is: %i\n", indx('C'));
+//         printf("the index of 'B' is: %i\n", indx('B'));
+//         printf("the index of 'D' is: %i\n", indx('D'));
+//         printf("the index of 'Z' is: %i\n", indx('Z'));
     }
 }
 
