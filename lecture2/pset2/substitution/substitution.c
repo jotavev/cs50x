@@ -28,13 +28,6 @@ int main(int argc, string argv[])
 
         printf("ciphertext: ");
         printFromIndex(cipherK, text);
-// 
-//         printf("\n\n\n");
-//         printf("the index of 'A' is: %i\n", indx('a'));
-//         printf("the index of 'C' is: %i\n", indx('C'));
-//         printf("the index of 'B' is: %i\n", indx('B'));
-//         printf("the index of 'D' is: %i\n", indx('D'));
-//         printf("the index of 'Z' is: %i\n", indx('Z'));
     }
 }
 
@@ -79,13 +72,6 @@ void printFromIndex(string substKey, string text)
     printf("\n");
 }
 
-// string arr = "JTREKYAVOGDXPSNCUIZLFBMWHQ";
-// string alp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-// string dic = "HELLO";
-
-//i need to the inversal logic in this function
-//ao inves de pegar o index do caractere do texto e usar ele pra printar
-//a susbtKey[index] eu tenho que pegar o 
 int indx(char c)
 {
     int i = 0;
@@ -115,13 +101,3 @@ bool repeatedInString(string s)
     }
     return result;
 }
-
-// void printshift(string s, int n)
-// {
-//     for (int i = 0, j = strlen(s); i < j; i++)
-//     {
-//         printf("%c", charshiter(s[i], n));
-//     }
-//     printf("\n");
-// 
-// }
