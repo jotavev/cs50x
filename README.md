@@ -237,6 +237,10 @@ where `IMAGE.bmp` is the name of an image file and `GRAYSCALE.bmp` is the name g
 |<img src="/lecture4/pset4/filter-less/images/tower.bmp"  alt="1" width=300px height=200px >| <img src="/assets/towerReflected.bmp" alt="1" width=300px height=200px >|
 
 ### Recover
+
+| Images | Program in c|
+|:--------------------------------------------:| ---------------------------------------------- |
+| <img src="./assets/recover.png" width="600"/> | <img src="./assets/recover.gif"/> |
 ___
 
 ## Lecture 5 ()
