@@ -83,18 +83,6 @@ int main(int argc, string argv[])
         printf("\n");
     }
 
-//     printf("preferences[0][0]: %i\n", preferences[0][0]);
-//     printf("preferences[0][1]: %i\n", preferences[0][1]);
-//     printf("preferences[0][2]: %i\n", preferences[0][2]);
-// 
-//     printf("preferences[1][0]: %i\n", preferences[1][0]);
-//     printf("preferences[1][1]: %i\n", preferences[1][1]);
-//     printf("preferences[1][2]: %i\n", preferences[1][2]);
-// 
-//     printf("preferences[2][0]: %i\n", preferences[2][0]);
-//     printf("preferences[2][1]: %i\n", preferences[2][1]);
-//     printf("preferences[2][2]: %i\n", preferences[2][2]);
-
     // Keep holding runoffs until winner exists
     while (true)
     {
@@ -160,7 +148,6 @@ void tabulate(void)
         if (candidates[preferences[i][counter]].eliminated == false)
         {
             candidates[preferences[i][counter]].votes++;
-//             printf("votes are updates[%i][%i]: %i", i, counter, candidates[preferences[i][counter]].votes);
         }
         else if (candidates[preferences[i][counter]].eliminated == true)
         {
@@ -170,7 +157,6 @@ void tabulate(void)
                 j++;
             }
             candidates[preferences[i][j]].votes++;
-//                 printf("votes are updates[%i][%i]: %i", i, j, candidates[preferences[i][j]].votes);
 
         }
     }
