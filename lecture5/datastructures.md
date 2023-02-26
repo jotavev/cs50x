@@ -46,4 +46,3 @@ Um problema para essa solução seria o incremento no tempo de execução.
 
 Tudo bem que o array desse exemplo é pequeno, mas se tivermos usando os dados de um aplicativo web, ou aplicativo molibe, onde não tem só 3 dados, mas talvez algumas centenas, milhares ou milhões de dados. 
 
-
