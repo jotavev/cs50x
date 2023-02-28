@@ -46,3 +46,13 @@ Um problema para essa solução seria o incremento no tempo de execução.
 
 Tudo bem que o array desse exemplo é pequeno, mas se tivermos usando os dados de um aplicativo web, ou aplicativo molibe, onde não tem só 3 dados, mas talvez algumas centenas, milhares ou milhões de dados. 
 
+Então para solucionar esse problema precisaremos aprender uma nova parte da sintaxe: `Arrow Notation`
+
+## Arrow Notation
+
+arrow sintaxe se baseia em 3 coisas já aprendidas anteriormente no curso:
+
+* `Struct`
+* `.`
+* `*`
+ 
