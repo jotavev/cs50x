@@ -52,7 +52,48 @@ Então para solucionar esse problema precisaremos aprender uma nova parte da sin
 
 arrow sintaxe se baseia em 3 coisas já aprendidas anteriormente no curso:
 
-* `Struct`
-* `.`
-* `*`
+* `Struct` permite criar uma estrutura, com varios tipos de dados
+* `.` acessa um campo de uma estrutura
+* `*` acessa um endereço de memoria (derreferencia), cria um ponteiro
  
+uma abreviação de `.` e `*` é `->`
+
+## Linked Lists
+
+listas linkadas é uma das soluções para o problema dado anteriormente
+por exemplo, temos 3 números em pedaços distintos da memória
+
+```
+|-------|-------|-------|-------|-------|
+|   1   |       |       |       |       |
+| 0x123 |       |       |       |       |
+|-------|-------|-------|-------|-------|
+|       |       |   2   |       |       |
+|       |       | 0x456 |       |       |
+|-------|-------|-------|-------|-------|
+|       |       |       |       |   3   |
+|       |       |       |       | 0x789 |
+|-------|-------|-------|-------|-------|
+|       |       |       |       |       |
+|       |       |       |       |       |
+|-------|-------|-------|-------|-------|
+```
+
+e precisamos que um leve ao outro, então pode-se armazenar ao lado dos números, o endereço de onde o próximo número vai estar
+
+```
+|-------|
+|   1   |
+| 0x123 |
+|-------|       |-------|
+| 0x456 | ----> |   2   |
+|       |       | 0x456 |
+|-------|       |-------|       |-------|
+                | 0x789 | ----> |   3   |
+                |       |       | 0x789 |
+                |-------|       |-------|
+                                |  0x0  |
+                                |       |
+                                |-------|
+```
+e por ultimo usar o endereço reservado `0x0`, a 
