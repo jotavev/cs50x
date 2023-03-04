@@ -205,5 +205,77 @@ então, antes de fazemos isso, o `n` está apontado para nosso node, e `list` es
 
 a complexidade de listas encadeadas é `O(n)` e o omega é `omega(1)` e o insert dela pode ser `O(1)`
 
-## trees 
+## binary search trees 
+
+pode-se criar uma estrutura de dados chamada arvore, semelhante a uma arvore genealogica.
+
+podemos usar uma lista com 7 elementos de exemplo 
+
+```
+|---|---|---|---|---|---|---|
+| 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+|---|---|---|---|---|---|---|
+```
+
+ela ficaria assim:
+
+
+```
+            |---|            
+            | 4 |            
+        ____|---|____            
+       /             \
+      v               v
+    |---|           |---|    
+    | 2 |           | 6 |    
+    |---|           |---|    
+   /     \         /     \
+  v       v       v       v
+|---|   |---|   |---|   |---|
+| 1 |   | 3 |   | 5 |   | 7 |
+|---|   |---|   |---|   |---|
+```
+
+onde basicamente funcionaria como o exemplo de achar um nome em uma lista telefônica, porém agora com uma arvore e não um array.
+
+o código é algo como:
+```
+typedef struct node
+{
+    int number;
+    struct node *left;
+    struct node *right;
+}
+node;
+```
+
+e para pesquisar algo usando binary tree seria assim:
+
+```
+bool search(node *tree, int number)
+{
+    if (tree == NULL)
+    {
+        return false;
+    }
+    else if (number < tree->number)
+    {
+        return search(tree->left, number);
+    }
+    else if (number > tree->number)
+    {
+        return search(tree->right, number);
+    }
+    else
+    {
+        return true;
+    }
+}
+```
+a complexidade de busca é `O(log n)` e de inserção é `O(log n)`
+
+## Hash tables
+
+Hash table é um canivete suiço das estruturas de dados, e é amplamente utilizado.
+
 
