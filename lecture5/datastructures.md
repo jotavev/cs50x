@@ -276,6 +276,11 @@ a complexidade de busca é `O(log n)` e de inserção é `O(log n)`
 
 ## Hash tables
 
-Hash table é um canivete suiço das estruturas de dados, e é amplamente utilizado.
+Hash table é um canivete suiço das estruturas de dados, e é amplamente utilizado. ela permite associar chaves com valores.
 
 
+<img src="./assets/hash_table_indexed.gif"/> 
+
+podemos pensar que cada local está rotulado com uma letra de A a Z e inserir nomes:
+
+<img src="./assets/hash_table_names.png" width="600"/>
