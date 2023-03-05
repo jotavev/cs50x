@@ -278,9 +278,110 @@ a complexidade de busca é `O(log n)` e de inserção é `O(log n)`
 
 Hash table é um canivete suiço das estruturas de dados, e é amplamente utilizado. ela permite associar chaves com valores.
 
-
-<img src="./assets/hash_table_indexed.gif"/> 
+```
+ 0 -> | |
+ 1 -> | |
+ 2 -> | |
+ 3 -> | |
+ 4 -> | |
+ 5 -> | |
+ 6 -> | |
+ 7 -> | |
+ 8 -> | |
+ 9 -> | |
+10 -> | |
+11 -> | |
+22 -> | |
+23 -> | |
+24 -> | |
+25 -> | |
+```
 
 podemos pensar que cada local está rotulado com uma letra de A a Z e inserir nomes:
 
-<img src="./assets/hash_table_names.png" width="600"/>
+```
+|-|--->|Albus    |  |
+|-|--->|         |  |
+|-|--->|Cedric   |  |
+|-|--->|Dacro    |  |
+|-|--->|         |  |
+|-|--->|Fred     |  |
+|-|--->|Ginny    |  |
+|-|--->|Hermione |  |
+|-|--->|         |  |
+|-|--->|James    |  |
+|-|--->|Kingsley |  |
+|-|--->|Luna     |  |
+|-|--->|Minerva  |  |
+|-|--->|Neville  |  |
+|-|--->|         |  |
+|-|--->|Petunia  |  |
+|-|--->|         |  |
+|-|--->|Ron      |  |
+|-|--->|Severus  |  |
+|-|--->|         |  |
+|-|--->|         |  |
+|-|--->|Vernon   |  |
+|-|--->|         |  |
+|-|--->|         |  |
+|-|--->|         |  |
+|-|--->|Zacharias|  |
+```
+
+se existirem multiplos nomes com a mesma primeira letra, pode-se adiciona-los a uma lista encadeada
+
+
+```
+| -|--->|Albus    |  |
+| -|--->|         |  |
+| -|--->|Cedric   |  |
+| -|--->|Dacro    |  |
+| -|--->|         |  |
+| -|--->|Fred     |  |
+| -|--->|Ginny    |  |
+| -|--->|Hermione | -|--->|Harry    | -|--->|Hagrid   |  |
+| -|--->|         |  |
+| -|--->|James    |  |
+| -|--->|Kingsley |  |
+| -|--->|Luna     |  |
+| -|--->|Minerva  |  |
+| -|--->|Neville  |  |
+| -|--->|         |  |
+| -|--->|Petunia  |  |
+| -|--->|         |  |
+| -|--->|Ron      |  |
+| -|--->|Severus  |  |
+| -|--->|         |  |
+| -|--->|         |  |
+| -|--->|Vernon   |  |
+| -|--->|         |  |
+| -|--->|         |  |
+| -|--->|         |  |
+| -|--->|Zacharias|  |
+```
+O array tem 26 ponteiros, sendo alguns deles com valor `NULL` e outros apontando para um nome em um nó (node), e esses podem apontar apontar para outro nome em outro nó.
+
+Pode-se descrever cada nó no código como: 
+
+```
+typedef struct node
+{
+    char word[LONGEST_WORD + 1];
+    struct node *next;
+}
+node;
+```
+
+pra melhorar o entendimento, podemos imaginar o modelo mental da recursividade no codigo. onde uma estrutura node tem uma 'string' e um ponteiro 'next' do tipo node, sendo node uma estrutura com uma 'string' e um ponteiro 'next' do tipo node... 
+
+então no exemplo acima cada node terá um array de caracteres já alocados, com tamanho `LONGEST_WORD + 1`, nomeado `word`, então, o ponteiro `next` vai apontar para outro node, se ele existir.
+
+Para criar uma hash table, pode-se escrever:
+
+```
+node *hash_table[NUMBER_OF_BUCKETS];
+```
+
+a tabela será um array de ponteiros que apontam para nós de tamanho `NUMBER_OF_BUCKETS`.
+
+Para decidir qual balde, ou local que o array será colocado, pode-se usar um 'Hash '  
