@@ -279,22 +279,33 @@ a complexidade de busca é `O(log n)` e de inserção é `O(log n)`
 Hash table é um canivete suiço das estruturas de dados, e é amplamente utilizado. ela permite associar chaves com valores.
 
 ```
- 0 -> | |
- 1 -> | |
- 2 -> | |
- 3 -> | |
- 4 -> | |
- 5 -> | |
- 6 -> | |
- 7 -> | |
- 8 -> | |
- 9 -> | |
-10 -> | |
-11 -> | |
-22 -> | |
-23 -> | |
-24 -> | |
-25 -> | |
+ 0 -> |¯|
+ 1 -> |¯|
+ 2 -> |¯|
+ 3 -> |¯|
+ 4 -> |¯|
+ 5 -> |¯|
+ 6 -> |¯|
+ 7 -> |¯|
+ 8 -> |¯|
+ 9 -> |¯|
+10 -> |¯|
+11 -> |¯|
+12 -> |¯|
+13 -> |¯|
+14 -> |¯|
+15 -> |¯|
+16 -> |¯|
+17 -> |¯|
+18 -> |¯|
+19 -> |¯|
+20 -> |¯|
+21 -> |¯|
+22 -> |¯|
+23 -> |¯|
+24 -> |¯|
+25 -> |¯|
+       ¯
 ```
 
 podemos pensar que cada local está rotulado com uma letra de A a Z e inserir nomes:
@@ -384,4 +395,93 @@ node *hash_table[NUMBER_OF_BUCKETS];
 
 a tabela será um array de ponteiros que apontam para nós de tamanho `NUMBER_OF_BUCKETS`.
 
-Para decidir qual balde, ou local que o array será colocado, pode-se usar um 'Hash '  
+Para decidir qual balde, ou local que o array será colocado, pode-se usar um 'Hash function' que recebe a entrada e cria um indice ou local. No exemplo acima, a função hash retorna um indice correspondente à primeira letra do nome, como '0' para 'Albus' e '25' para 'Zacharias'
+
+Pode-se classificar um baralho embaralhado, dividindo-o em quatro baldes, cada um rotulado por um naipe, e depois classificar cada um dos naipes.
+
+Pode-se classificar cadeias menores na tabela hash, usando duas letras em vez de uma:
+
+
+```
+   | -|--->|         |  |
+   | -|--->|         |  |
+Ha | -|--->|Harry    | -|--->|Hagrid   |  |
+Hb | -|--->|         |  |
+Hc | -|--->|         |  |
+Hd | -|--->|         |  |
+He | -|--->|Hermione |  |
+Hf | -|--->|         |  |
+   | -|--->|         |  |
+   | -|--->|         |  |
+   | -|--->|         |  |
+```
+
+e então teriamos 676 baldes, para todas as combinações das duas primeiras letras.
+
+pode-se adicionar mais uma letra, porém, será necessario ainda mais espaço na memória. Alguns desses baldes vão ficar vazios, mas provavelmente só precisariamos de uma etapa para procurar um valor, reduzindo o tempo de execução da pesquisa.
+
+O tempo de execução do pior caso para a pesquisar na hash table é O(n), tendo em vista que todos os valores podem, teoricamente estar no mesmo balde, porém, na prática o tempo de execução será bem mais rápido.
+
+## tries
+
+outra estrutura de dados chamada de trie (pronunciada try e é abreviação de "retrieval"), uma trie é uma tree com arrays nos nós.
+
+```
+ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|
+ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯
+```
+
+cada array contendo as localizações que representam cada letra, AZ.
+
+Para cada palavra, a primeira letra apontará para um array, onde a próxima letra válida apontará para outro array e assim por diante, até chegar a um valor booleano indicando o fim de de uma palavra válida, marcada com `$`
+
+
+```
+               H                                    
+|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|
+ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯\¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯
+                 \
+ A                \
+|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|
+ ¯\¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯
+   \              
+    \        G    
+|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|
+ ¯ ¯ ¯ ¯ ¯ ¯ ¯\¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯
+               \
+                \                  R
+|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|
+ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯/¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯
+                                 /
+                 I              /  
+|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|
+ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯\¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯
+                   \
+       D            \
+|¯|¯|¯|$|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|¯|
+ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯
+```
+
+e com vários nomes, é possivel a visualização do espaço sendo reaproveitado para as primeiras letras que são compartilhadas.
+
+podemos definir uma trie no código como:
+
+```
+typedef struct node
+{
+    bool is_word;
+    struct node *children[SIZE_OF_ALPHABET];
+}
+node;
+```
+
+então em cada nó, ou array, temos um valor booleano que indica se é uma palavra válida (com valor `$` no nosso exemplo). Em seguida, teremos um array de tamanho `SIZE_OF_ALPHABET` que aponta para outros nós, com nome `children`.
+
+a altura da árvore será o comprimento da palavra mais longa que queremos armazenar (será 4 se o nome for jorge).
+
+e mesmo que a estrutura de dados tenha diversas palavras, o tempo máximo de busca será apenas o comprimento da palavra que estamos procurando. Sendo assim um n máximo fixo, equivalendo então a uma constante, `O(1)`, para inserção e para busca.
+
+Mas em tudo temos um tradeoff, e o custo disso é muito espaço de armazenamento, para armazenar principalemente os ponteiros nulos.
+
+
