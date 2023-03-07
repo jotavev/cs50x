@@ -484,4 +484,14 @@ e mesmo que a estrutura de dados tenha diversas palavras, o tempo máximo de bus
 
 Mas em tudo temos um tradeoff, e o custo disso é muito espaço de armazenamento, para armazenar principalemente os ponteiros nulos.
 
+## Queue
 
+queue é uma estrura de dados abstrata, equivalente a pessoas esperando em uma fila, onde o pirmeiro valor inserido será o primeiro valor a ser retirado da fila, no conceito de "primeiro a entrar, primerio a sair" (FIFO, First In First Out), então podemos dar `enqueue` para adicionar valores nessa fila e dar dequeue para remover elementos 
+
+## Stack
+
+stack é outra estrura de dados abstrata, equivalentes a uma pilha de pratos, onde o primeiro valor inserido será o ultimo a ser retirado da pilha, no conceito de "primeiro a entrar, ultimo a sair" (LIFO, Last In First Out).
+
+## Dictionary
+
+Um restaurante pode colocar pedidos de comida em várias prateleiras com áreas, cada uma rotulada com a primeira letra do nome do cliente. Este é um exemplo de dicionário, onde podemos mapear chaves para valores.
