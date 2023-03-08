@@ -27,4 +27,23 @@ trees e heaps, por exemplo, são similares a tries, stacks e queues são bastant
 * Inserção fácil - só adicionar na frente 
 * Exclusão fácil - depois de encontrar o elemento 
 * Pesquisa ruim - precisa de confiar em busca linear
-* Relativamente dificil de organizar 
+* Relativamente dificil de organizar - a menos que você esteja disposto a comprometer a inserção super rapida, e for ordenando durante a inserção
+* Relativamente pequeno (mas não tão pequeno quanto array)
+
+## Hash Tables
+
+* Inseção fácil - tem apenas dois passos: hash e inserir
+* Exclusão fácil - depois de encontrar o elemento
+* Pesquisa é melhor que Linked Lists
+* Organizar: não é a estrutura de dados se o objetivo é esse (melhor usar array)
+* Ocupa bastante espaço dependendo da quantidade de dados
+
+## Tries
+
+* Inserção é complexa - precisa de bastante memoria na heap, mas depois de construída fica mais fácil
+* Exclusão é fácil - apenas precisa de dar free em um nó 
+* Pesquisa é rápida - não tanto quanto array, mas é
+* Organizar, basicamente não precisa, tendo em vista que ele se organiza no momento da criação 
+* Ocupa bastante espaço 
+
+
