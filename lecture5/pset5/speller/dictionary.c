@@ -44,10 +44,10 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
+
     // polynomial accumulation using horner's rule
 
     char lower[LENGTH + 1];
-
     unsigned int h = 0;
     int j = 0;
 
@@ -63,7 +63,6 @@ unsigned int hash(const char *word)
     }
 
     return h % N;
-    // return toupper(word[0]) - 'A';
 }
 
 
@@ -93,6 +92,7 @@ bool load(const char *dictionary)
         table[h] = n;
         sum++;
     }
+    fclose(file);
     return true;
     // TODO
     // return false;
