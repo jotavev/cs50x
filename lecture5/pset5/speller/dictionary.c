@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <strings.h>
 
 #include "dictionary.h"
 
@@ -17,8 +18,8 @@ typedef struct node
 node;
 
 // TODO: Choose number of buckets in hash table
-// const unsigned int N = 26;
-#define N 2600
+//#define N 2600
+const unsigned int N = 2600;
 
 int sum = 0;
 
@@ -32,7 +33,7 @@ bool check(const char *word)
     int h = hash(word);
     for (node *tmp = table[h]; tmp != NULL; tmp = tmp->next)
     {
-        if (strcmp(tmp->word, word) == 0)
+        if (strcasecmp(tmp->word, word) == 0)
         {
             return true;
         }
@@ -40,25 +41,37 @@ bool check(const char *word)
     return false;
 }
 
-// Hashes word to a number
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-    // polynomial accumulation using horner's rule 
-    int h = word[0];
-    for (int i = 1; word[i] != '\0'; i++)
+    // polynomial accumulation using horner's rule
+
+    char lower[LENGTH + 1];
+
+    unsigned int h = 0;
+    int j = 0;
+
+    for (j = 0; word[j] != '\0'; j++)
     {
-        h += h * 33 + word[i];
+        lower[j] = tolower(word[j]);
     }
+    lower[j] = '\0';
+
+    for (int i = 0; lower[i] != '\0'; i++)
+    {
+        h += h * 33 + lower[i];
+    }
+
     return h % N;
     // return toupper(word[0]) - 'A';
 }
+
 
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
     FILE *file = fopen(dictionary, "r");
-    if (file == NULL)
+    if (!file)
     {
         return false;
     }
@@ -96,7 +109,7 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i <= N; i++)
     {
         while (table[i] != NULL)
         {
@@ -105,7 +118,7 @@ bool unload(void)
             table[i] = tmp;
         }
     }
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i <= N; i++)
     {
         if (table[i] != NULL)
         {
