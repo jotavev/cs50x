@@ -9,49 +9,6 @@ def main():
     else:
         print("INVALID")
 
-    # check_flag(number)
-
-    test_valid(378282246310005)
-    test_valid(371449635398431)
-    test_valid(5555555555554444)
-    test_valid(5105105105105100)
-    test_valid(4111111111111111)
-    test_valid(4012888888881881)
-    test_valid(1234567890)
-    print()
-    test_is_even(1234567890, "even")
-    test_is_even(2, "even")
-    test_is_even(3, "odd")
-    test_is_even(13, "odd")
-    test_is_even(5, "odd")
-    print()
-    test_digit_sum(6, 3)
-    test_digit_sum(8, 7)
-    test_digit_sum(7, 5)
-    test_digit_sum(5, 1)
-
-
-def test_valid(number):
-    if is_valid(number):
-        print("OK")
-    else:
-        print("test_valid ERROR")
-
-
-def test_is_even(number, expected):
-    if is_even(number):
-        print(f"even : {expected}")
-    else:
-        print(f"odd : {expected}")
-
-
-def test_digit_sum(number, expected):
-    result = digit_sum(number)
-    if result == expected:
-        print(f"{result} : {expected}")
-    else:
-        print(f"ERROR {result} : {expected}")
-
 
 def get_credit_number():
     while True:
@@ -76,7 +33,7 @@ def is_valid(card_number):
     even_sum = 0
     odd_sum = 0
 
-    while(lenght > 0):
+    while (lenght > 0):
         if is_even(counter):
             even_sum += calculate(last_number)
         else:
@@ -114,7 +71,7 @@ def check_flag(card_number):
     elif match(r'^4[0-9]{12}(?:[0-9]{3})?$', card_number):
         print("VISA")
     elif match(r'^5[1-5][0-9]{14}$', card_number):
-        print("MASTER")
+        print("MASTERCARD")
     else:
         print("INVALID")
 
