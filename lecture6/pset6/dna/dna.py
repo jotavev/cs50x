@@ -8,83 +8,44 @@ def main():
     if len(sys.argv) != 3:
         sys.exit("Usage: python dna.py data.csv sequence.txt")
 
-    # Read database file into a variable
+    # take argv from user prompt
     database = sys.argv[1]
     seq_file = sys.argv[2]
 
+    # Read database file into a variable
     people = get_people_dict(database)
     strs = get_strs(database)
-    sequence = get_sequence(seq_file)
 
     compare_people = get_people_dict(database)
-    for i, element in enumerate(compare_people):
+    for i, _ in enumerate(compare_people):
         compare_people[i].pop("name")
 
-    print(people)
-    print(strs)
-    print(sequence)
-    
-#     for i, element in enumerate(people):
-#         print(people[i].pop(strs[0]))
+    # Read DNA sequence file into a variable
+    sequence = get_sequence(seq_file)
 
-    print()
-
-    # TODO: Read DNA sequence file into a variable
-
-
-    # TODO: Find longest match of each STR in DNA sequence
+    # Find longest match of each STR in DNA sequence
     suspect = get_suspect_str(sequence, strs)
 
-    print(longest_match(sequence, 'AGATC'))
-    print(longest_match(sequence, 'AATG'))
-    print(longest_match(sequence, 'TATC'))
-    print()
+    # Check database for matching profiles
+    if check_suspect(suspect, compare_people):
+        print(f"{people[suspect_index]['name']}")
+    else:
+        print("No match")
 
 
-    print(people[1])
-    print(suspect)
-    print()
-    print()
-    print()
-    print(suspect)
-    print(compare_people[1])
-    print(people)
-    print()
-    print()
-#     for i, element in enumerate(strs):
-#         suspect.update({strs[i]: str(longest_match(sequence, strs[i]))})
-#         print(longest_match(sequence, strs[i]))
-#     print()
-#     print(suspect)
-#     people[1].pop("name")
-#     print(people[1])
-#     if people[1] == suspect:
-#         print("sim")
-#     else:
-#         print("não")
-
-
-
-
-
-
-#     for i, element in enumerate(people):
-#         if suspect == people[i]
-
-    
-
-    # TODO: Check database for matching profiles
-    for i, element in enumerate(compare_people):
+def check_suspect(suspect, compare_people):
+    for i, _ in enumerate(compare_people):
         if suspect == compare_people[i]:
-            print("é o home")
-        else:
-            print("tem não")
+            global suspect_index
+            suspect_index = i
+#             print(f"é o home {people[i]['name']}")
+            return True
+    return False
 
-    return
 
 def get_suspect_str(sequence, strs):
     suspect = {}
-    for i, element in enumerate(strs):
+    for i, _ in enumerate(strs):
         suspect.update({strs[i]: str(longest_match(sequence, strs[i]))})
     return suspect
 
@@ -93,14 +54,14 @@ def get_suspect_str(sequence, strs):
 
 
 def get_sequence(seq_file):
-    with open(seq_file) as file:
+    with open(seq_file, 'r', encoding='utf-8') as file:
         sequence = file.read()
     return sequence
 
 
 def get_people_dict(filename):
     people = {}
-    with open(filename) as file:
+    with open(filename, 'r', encoding='utf-8') as file:
         reader = csv.DictReader(file)
         for counter, row in enumerate(reader):
             people.update({counter: row})
@@ -108,12 +69,12 @@ def get_people_dict(filename):
 
 
 def get_strs(filename):
-    with open(filename) as file:
+    with open(filename, 'r', encoding='utf-8') as file:
         reader = csv.DictReader(file)
-        STRs = dict(list(reader)[0])
-        STRs = list(STRs.keys())
-        STRs.remove('name')
-    return STRs
+        strs = dict(list(reader)[0])
+        strs = list(strs.keys())
+        strs.remove('name')
+    return strs
 
 
 def longest_match(sequence, subsequence):
