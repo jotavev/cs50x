@@ -33,6 +33,7 @@ def main():
 
 
     # TODO: Find longest match of each STR in DNA sequence
+    suspect = get_suspect_str(sequence, strs)
 
     print(longest_match(sequence, 'AGATC'))
     print(longest_match(sequence, 'AATG'))
@@ -40,7 +41,6 @@ def main():
     print()
 
 
-    suspect = get_suspect_str(sequence, strs)
     print(people[1])
     print(suspect)
     print()
@@ -74,6 +74,11 @@ def main():
     
 
     # TODO: Check database for matching profiles
+    for i, element in enumerate(compare_people):
+        if suspect == compare_people[i]:
+            print("é o home")
+        else:
+            print("tem não")
 
     return
 
