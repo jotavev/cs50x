@@ -1,0 +1,15 @@
+.centered {
+    text-align: center;
+    font-family: sans-serif;
+}
+.large {
+    font-size: large;
+}
+
+.medium {
+    font-size: medium;
+}
+
+.small {
+    font-size: small;
+}
