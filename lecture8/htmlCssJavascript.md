@@ -33,3 +33,16 @@ O DNS é como se fosse um dicionario que quando tu poe o dominio "www.barfoo.ru"
 
 É o protocolo que os navegadores e os servidores web usam para se comunicar e isso diferencia a internet da web. A internet é como se fosse o baixo nível, os cabos e a tecnologia que move os pacotes seguindo aquelas instruções. A web é uma aplicação que foi contruida em cima das tecnologias da internet, utilizando o HTTP ou HTTPS para transferir dados entre o servidor e o cliente e é acessada por meio de URLs (Uniform Resource Locators)
 
+assindo como exemplo o site:
+
+https://www.example.com/
+
+o "/" no fim do endereço indica a raiz do diretório, ou seja a pagina inicial do site. 
+
+https://www.example.com/path
+
+o path pode ser um arquivo.html ou diretório/arquivo.html por exemplo assim:
+
+https://www.example.com/diretório/file.html
+
+
