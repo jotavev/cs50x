@@ -8,6 +8,11 @@
         <meta charset="UTF-8">
         <script>
             // TODO: Add code to check answers to questions
+            function selected() {
+                let button = document.querySelector('button');
+                button.style.backgroundColor = 'red';
+            }
+            document.querySelectorAll('button').addEventListener('click', selected());
         </script>
     </head>
     <body>
@@ -20,8 +25,8 @@
                 <h2>Part 1: Multiple Choice </h2>
                 <hr>
                 <h3>O que entra mole e sai duro?</h3>
-                <button>Macarrão</button>
-                <button>Chevrolet Astra SS 2.0 2008</button>
+                <button id="b1" onclick="selected(); return false;">Macarrão</button>
+                <button onclick="selected(); return false;">Chevrolet Astra SS 2.0 2008</button>
                 <button>Polvo</button>
                 <button>Alicate</button>
                 <!-- TODO: Add multiple choice question here -->
