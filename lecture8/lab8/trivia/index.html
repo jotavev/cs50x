@@ -9,33 +9,50 @@
         <script>
             // TODO: Add code to check answers to questions
             function selected(position, bool, question) {
-                let button = document.querySelectorAll(`#${question} .answer`);
+                const button = document.querySelectorAll(`#${question} .answer`);
+                const h3 = document.querySelector(`#${question} h3`)
+                const p = h3.nextElementSibling
+
                 if (bool == false) {
                     for (let i = 0; i < button.length; i++) {
                         button[i].style.backgroundColor = '#d9edff';
                     }
                     button[position].style.backgroundColor = 'red';
-                    document.getElementById("isCorrect1").innerHTML = "Incorrect"
+                    p.textContent = 'Incorrect'
+/*                     document.getElementById("isCorrect1").innerHTML = "Incorrect" */
                 }
                 else {
                     for (let i = 0; i < button.length; i++) {
                         button[i].style.backgroundColor = '#d9edff';
                     }
                     button[position].style.backgroundColor = 'green';
-                    document.getElementById("isCorrect1").innerHTML = "Correct"
+                    p.textContent = 'Correct'
+/*                     document.getElementById("isCorrect1").innerHTML = "Correct" */
                 }
             }
-            function checkForm(rightanswer) {
-                let field = document.querySelector('input');
-                let fieldvalue = document.querySelector('input').value.toUpperCase().trim();
+            function checkForm(rightanswer, formId) {
+/*                 const field = document.querySelector('input'); */
+                const input = document.querySelector(`#${formId} input`)
+                const answer = document.querySelector(`#${formId} input`).value.toUpperCase().trim();
+                const p = input.previousElementSibling
                 rightanswer = rightanswer.toUpperCase();
-                if (fieldvalue == rightanswer) {
-                    field.style.backgroundColor = 'green';
-                    document.getElementById("isCorrect2").innerHTML = "Correct"
+
+                if (answer == rightanswer) {
+                    input.style.backgroundColor = 'green';
+                    p.textContent = 'Correct'
+/*                     document.getElementById("isCorrect2").innerHTML = "Correct" */
                 }
                 else {
-                    field.style.backgroundColor = 'red';
-                    document.getElementById("isCorrect2").innerHTML = "Incorrect"
+                    input.style.backgroundColor = 'red';
+                    p.textContent = 'Incorrect'
+/*                     document.getElementById("isCorrect2").innerHTML = "Incorrect" */
+                }
+            }
+            function enterPressed(event, formId) {
+                if (event.keyCode === 13) {
+                    const button = document.querySelector(`#${formId} button`);
+                    button.click();
+/*                     checkForm(rightanswer, formId); */
                 }
             }
         </script>
@@ -50,20 +67,31 @@
                 <h2>Part 1: Multiple Choice </h2>
                 <hr>
                 <div id="question1">
-                    <h3>A palavra "café" vem do árabe qahhwah e significa: </h3>
-                    <p id="isCorrect1"></p>
-                    <button class="answer" onclick="selected(0, false, 'question1');">Nascer do sol</button>
-                    <button class="answer" onclick="selected(1, false, 'question1');">Despertar</button>
-                    <button class="answer" onclick="selected(2, true, 'question1');">Vinho</button>
-                    <button class="answer" onclick="selected(3, false, 'question1');">Olhos</button>
+                    <h3>Which is the largest planet in the solar system? </h3>
+                    <p></p>
+                    <button class="answer" onclick="selected(0, false, 'question1');">Earth</button>
+                    <button class="answer" onclick="selected(1, false, 'question1');">Venus</button>
+                    <button class="answer" onclick="selected(2, false, 'question1');">Moon</button>
+                    <button class="answer" onclick="selected(3, true, 'question1');">Jupiter</button>
+                    <button class="answer" onclick="selected(4, false, 'question1');">Mars</button>
                 </div>
                 <div id="question2">
-                    <h3>A palavra "café" vem do árabe qahhwah e significa: </h3>
-                    <p id="isCorrect1"></p>
-                    <button class="answer" onclick="selected(0, false, 'question2');">Nascer do sol</button>
-                    <button class="answer" onclick="selected(1, false, 'question2');">Despertar</button>
-                    <button class="answer" onclick="selected(2, true, 'question2');">Vinho</button>
-                    <button class="answer" onclick="selected(3, false, 'question2');">Olhos</button>
+                    <h3>Which type of fish is Nemo?</h3>
+                    <p></p>
+                    <button class="answer" onclick="selected(0, false, 'question2');">Skate fish</button>
+                    <button class="answer" onclick="selected(1, true, 'question2');">Clownfish</button>
+                    <button class="answer" onclick="selected(2, false, 'question2');">Anchovy</button>
+                    <button class="answer" onclick="selected(3, false, 'question2');">Blue tang</button>
+                    <button class="answer" onclick="selected(4, false, 'question2');">Barracuda</button>
+                </div>
+                <div id="question3">
+                    <h3>How many legs does a lobster have?</h3>
+                    <p></p>
+                    <button class="answer" onclick="selected(0, true, 'question3');">Ten</button>
+                    <button class="answer" onclick="selected(1, false, 'question3');">One</button>
+                    <button class="answer" onclick="selected(2, false, 'question3');">Two</button>
+                    <button class="answer" onclick="selected(3, false, 'question3');">Three</button>
+                    <button class="answer" onclick="selected(4, false, 'question3');">Four</button>
                 </div>
                 <!-- TODO: Add multiple choice question here -->
             </div>
@@ -71,10 +99,24 @@
             <div class="section">
                 <h2>Part 2: Free Response</h2>
                 <hr>
-                <h3>Qual o maior produtor de café do mundo?</h3>
-                <p id="isCorrect2"></p>
-                <input class="form" type="text">
-                <button onclick="checkForm('Brasil');">Enviar</button>
+                <div id="form1">
+                    <h3>Are worker bees male or female?</h3>
+                    <p></p>
+                    <input class="form" type="text" onkeypress="enterPressed(event, 'form1');">
+                    <button onclick="checkForm('Female', 'form1');">Send</button>
+                </div>
+                <div id="form2">
+                    <h3>Which was the first country to use paper money?</h3>
+                    <p></p>
+                    <input class="form" type="text" onkeypress="enterPressed(event, 'form2');">
+                    <button onclick="checkForm('China', 'form2');">Send</button>
+                </div>
+                <div id="form3">
+                    <h3>What do bees consume to make honey?</h3>
+                    <p></p>
+                    <input class="form" type="text" onkeypress="enterPressed(event, 'form3');">
+                    <button onclick="checkForm('Nectar', 'form3');">Send</button>
+                </div>
                 <!-- TODO: Add free response question here -->
             </div>
         </div>
