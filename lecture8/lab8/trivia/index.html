@@ -23,11 +23,8 @@
                     }
                     button[position].style.backgroundColor = 'green';
                     document.getElementById("isCorrect1").innerHTML = "Correct"
-/*                     button[position].style.backgroundColor = 'green'; */
                 }
-                    console.log(button.length);
             }
-/*             document.querySelectorAll('button').addEventListener('click', selected()); */
             function checkForm(rightanswer) {
                 let field = document.querySelector('input');
                 let fieldvalue = document.querySelector('input').value.toUpperCase().trim();
@@ -40,8 +37,6 @@
                     field.style.backgroundColor = 'red';
                     document.getElementById("isCorrect2").innerHTML = "Incorrect"
                 }
-
-
             }
         </script>
     </head>
