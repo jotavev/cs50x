@@ -8,11 +8,41 @@
         <meta charset="UTF-8">
         <script>
             // TODO: Add code to check answers to questions
-            function selected() {
-                let button = document.querySelector('button');
-                button.style.backgroundColor = 'red';
+            function selected(position, bool) {
+                let button = document.querySelectorAll('.answer');
+                if (bool == false) {
+                    for (let i = 0; i < button.length; i++) {
+                        button[i].style.backgroundColor = '#d9edff';
+                    }
+                    button[position].style.backgroundColor = 'red';
+                    document.getElementById("isCorrect1").innerHTML = "Incorrect"
+                }
+                else {
+                    for (let i = 0; i < button.length; i++) {
+                        button[i].style.backgroundColor = '#d9edff';
+                    }
+                    button[position].style.backgroundColor = 'green';
+                    document.getElementById("isCorrect1").innerHTML = "Correct"
+/*                     button[position].style.backgroundColor = 'green'; */
+                }
+                    console.log(button.length);
             }
-            document.querySelectorAll('button').addEventListener('click', selected());
+/*             document.querySelectorAll('button').addEventListener('click', selected()); */
+            function checkForm(rightanswer) {
+                let field = document.querySelector('input');
+                let fieldvalue = document.querySelector('input').value.toUpperCase().trim();
+                rightanswer = rightanswer.toUpperCase();
+                if (fieldvalue == rightanswer) {
+                    field.style.backgroundColor = 'green';
+                    document.getElementById("isCorrect2").innerHTML = "Correct"
+                }
+                else {
+                    field.style.backgroundColor = 'red';
+                    document.getElementById("isCorrect2").innerHTML = "Incorrect"
+                }
+
+
+            }
         </script>
     </head>
     <body>
@@ -24,20 +54,22 @@
             <div class="section">
                 <h2>Part 1: Multiple Choice </h2>
                 <hr>
-                <h3>O que entra mole e sai duro?</h3>
-                <button id="b1" onclick="selected(); return false;">Macarrão</button>
-                <button onclick="selected(); return false;">Chevrolet Astra SS 2.0 2008</button>
-                <button>Polvo</button>
-                <button>Alicate</button>
+                <h3>A palavra "café" vem do árabe qahhwah e significa: </h3>
+                <p id="isCorrect1"></p>
+                <button class="answer" onclick="selected(0, false);">Nascer do sol</button>
+                <button class="answer" onclick="selected(1, false);">Despertar</button>
+                <button class="answer" onclick="selected(2, true);">Vinho</button>
+                <button class="answer" onclick="selected(3, false);">Olhos</button>
                 <!-- TODO: Add multiple choice question here -->
             </div>
 
             <div class="section">
                 <h2>Part 2: Free Response</h2>
                 <hr>
-                <h3>Qual seu nome? Vamos identificar você e se a resposta acima estiver errada meia noite te conto</h3>
-                <input type="text">
-                <button>Enviar</button>
+                <h3>Qual o maior produtor de café do mundo?</h3>
+                <p id="isCorrect2"></p>
+                <input class="form" type="text">
+                <button onclick="checkForm('Brasil');">Enviar</button>
                 <!-- TODO: Add free response question here -->
             </div>
         </div>
