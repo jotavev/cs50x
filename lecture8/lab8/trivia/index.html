@@ -10,15 +10,15 @@
             // TODO: Add code to check answers to questions
             function selected(position, bool, question) {
                 const button = document.querySelectorAll(`#${question} .answer`);
-                const h3 = document.querySelector(`#${question} h3`)
-                const p = h3.nextElementSibling
+                const p = document.querySelector(`#${question} p`)
+/*                 const p = h3.nextElementSibling */
 
                 if (bool == false) {
                     for (let i = 0; i < button.length; i++) {
                         button[i].style.backgroundColor = '#d9edff';
                     }
                     button[position].style.backgroundColor = 'red';
-                    p.textContent = 'Incorrect'
+                    p.textContent = 'Incorrect!'
 /*                     document.getElementById("isCorrect1").innerHTML = "Incorrect" */
                 }
                 else {
@@ -26,7 +26,7 @@
                         button[i].style.backgroundColor = '#d9edff';
                     }
                     button[position].style.backgroundColor = 'green';
-                    p.textContent = 'Correct'
+                    p.textContent = 'Correct!'
 /*                     document.getElementById("isCorrect1").innerHTML = "Correct" */
                 }
             }
@@ -34,17 +34,17 @@
 /*                 const field = document.querySelector('input'); */
                 const input = document.querySelector(`#${formId} input`)
                 const answer = document.querySelector(`#${formId} input`).value.toUpperCase().trim();
-                const p = input.previousElementSibling
+                const p = document.querySelector(`#${formId} p`)
                 rightanswer = rightanswer.toUpperCase();
 
                 if (answer == rightanswer) {
                     input.style.backgroundColor = 'green';
-                    p.textContent = 'Correct'
+                    p.textContent = 'Correct!'
 /*                     document.getElementById("isCorrect2").innerHTML = "Correct" */
                 }
                 else {
                     input.style.backgroundColor = 'red';
-                    p.textContent = 'Incorrect'
+                    p.textContent = 'Incorrect!'
 /*                     document.getElementById("isCorrect2").innerHTML = "Incorrect" */
                 }
             }
@@ -67,31 +67,31 @@
                 <h2>Part 1: Multiple Choice </h2>
                 <hr>
                 <div id="question1">
-                    <h3>Which is the largest planet in the solar system? </h3>
-                    <p></p>
+                    <h3>Which is the largest planet in the solar system?</h3>
                     <button class="answer" onclick="selected(0, false, 'question1');">Earth</button>
                     <button class="answer" onclick="selected(1, false, 'question1');">Venus</button>
                     <button class="answer" onclick="selected(2, false, 'question1');">Moon</button>
                     <button class="answer" onclick="selected(3, true, 'question1');">Jupiter</button>
                     <button class="answer" onclick="selected(4, false, 'question1');">Mars</button>
+                    <p></p>
                 </div>
                 <div id="question2">
                     <h3>Which type of fish is Nemo?</h3>
-                    <p></p>
                     <button class="answer" onclick="selected(0, false, 'question2');">Skate fish</button>
                     <button class="answer" onclick="selected(1, true, 'question2');">Clownfish</button>
                     <button class="answer" onclick="selected(2, false, 'question2');">Anchovy</button>
                     <button class="answer" onclick="selected(3, false, 'question2');">Blue tang</button>
                     <button class="answer" onclick="selected(4, false, 'question2');">Barracuda</button>
+                    <p></p>
                 </div>
                 <div id="question3">
                     <h3>How many legs does a lobster have?</h3>
-                    <p></p>
                     <button class="answer" onclick="selected(0, true, 'question3');">Ten</button>
                     <button class="answer" onclick="selected(1, false, 'question3');">One</button>
                     <button class="answer" onclick="selected(2, false, 'question3');">Two</button>
                     <button class="answer" onclick="selected(3, false, 'question3');">Three</button>
                     <button class="answer" onclick="selected(4, false, 'question3');">Four</button>
+                    <p></p>
                 </div>
                 <!-- TODO: Add multiple choice question here -->
             </div>
@@ -101,21 +101,21 @@
                 <hr>
                 <div id="form1">
                     <h3>Are worker bees male or female?</h3>
-                    <p></p>
                     <input class="form" type="text" onkeypress="enterPressed(event, 'form1');">
-                    <button onclick="checkForm('Female', 'form1');">Send</button>
+                    <button onclick="checkForm('Female', 'form1');">Check Answer</button>
+                    <p></p>
                 </div>
                 <div id="form2">
                     <h3>Which was the first country to use paper money?</h3>
-                    <p></p>
                     <input class="form" type="text" onkeypress="enterPressed(event, 'form2');">
-                    <button onclick="checkForm('China', 'form2');">Send</button>
+                    <button onclick="checkForm('China', 'form2');">Check Answer</button>
+                    <p></p>
                 </div>
                 <div id="form3">
                     <h3>What do bees consume to make honey?</h3>
-                    <p></p>
                     <input class="form" type="text" onkeypress="enterPressed(event, 'form3');">
-                    <button onclick="checkForm('Nectar', 'form3');">Send</button>
+                    <button onclick="checkForm('Nectar', 'form3');">Check Answer</button>
+                    <p></p>
                 </div>
                 <!-- TODO: Add free response question here -->
             </div>
