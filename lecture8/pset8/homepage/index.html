@@ -9,25 +9,48 @@
     </head>
     <body>
         <header class="header">
-            <div class="navbar navbar-light bg-light">
-                <a class="navbar-brand" href="#">
-                    <img src="./braces.svg" alt="Braces" width="34">
-                    valentejorge
-                </a>
-                <nav class="nav nav-masthead justify-content-center">
-                    <a class="nav-link active" href="#">Home</a>
-                    <a class="nav-link" href="#">About</a>
-                    <a class="nav-link" href="#">Projects</a>
-                    <a class="nav-link" href="#">Contact</a>
+            <nav class="navbar navbar-expand-sm navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="./braces.svg" alt="Braces" width="34">
+                        valentejorge
                     </a>
-                </nav>
-                    <a class="nav-link" href="#">
-                        <button class="btn btn-sm btn-outline-secondary" type="button">Contact</button>
-            </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link active" href="#">home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">about</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">projects</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">contact</a>
+                            </li>
+                        </ul>		  
+                    </div>
+                </div>
+            </nav>
+            
         </header>
 
         <main>
-            <p>hellomain</p>
+            <div class="container d-flex align-items-center justify-content-center">
+                <div class="row">
+                    <div class="col-md-6 text-center">
+                        <h2 class="title mb-6">I am Jorge Valente Jr.</h2>
+                        <p class="text">Computer Science Student at OSSU</p>
+                    </div>
+                    <div class="col-md-6 justify-content-start">
+                        <img src="./person-circle.svg" width="150px"alt="">
+                    </div>
+                </div>
+            </div>
 
         </main>
 

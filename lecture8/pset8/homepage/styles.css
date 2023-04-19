@@ -1,3 +1,14 @@
-.navbar {
+.container-fluid {
+    width: 90%;
+}
+/* .navbar-exapand-lg {
     justify-content: space-around;
 }
+.navbar-brand {
+
+    justify-content: space-around;
+}
+.ml-auto .dropdown-menu {
+    left: auto !important;
+    right: 0px;
+} */
