@@ -2,10 +2,12 @@
 
 <html lang="en">
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <link href="styles.css" rel="stylesheet">
+        <link rel="icon" href="./assets/braces.svg" type="image/svg+xml">
+        <script src="./scripts.js"></script>
         <title>My Webpage</title>
     </head>
     <body>
@@ -37,14 +39,14 @@
                     </div>
                 </div>
             </nav>
-            
+
         </header>
 
         <main>
             <div class="container align-items-center justify-content-center mt-5 px-5">
                 <div class="row g-1 py-2 text-center">
                     <div class="col-md-12 text-center">
-                            <h2 class="display-5 fw-bold lh-1 mb-3">Contact me</h2>
+                        <h2 class="display-5 fw-bold lh-1 mb-3">Contact me</h2>
                     </div>
                     <form class="needs-validation text-start" novalidate>
                         <div class="row">
@@ -84,7 +86,7 @@
                                 <label for="message">Message</label>
                                 <textarea class="form-control" id="message" rows="6" placeholder="Type your message" required></textarea>
                                 <div class="invalid-feedback">
-                                    Please, write your message
+                                    Please, write your message.
                                 </div>
                             </div>
                             <div class="col-md-12 mb-3">
@@ -101,9 +103,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="invalid-feedback">
-                            Você deve concordar, antes de continuar.
-                        </div>
                         <div class="form-group">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
@@ -115,51 +114,40 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary mb-5 mt-2" onclick="confirmed();" type="submit" >Send</button>
+                        <button class="btn btn-dark mb-5 mt-2" type="submit" >Send</button>
                         <div class="mb-5" style="height:100px"></div>
                     </form>
-
-                    <script>
-                        // Exemplo de JavaScript inicial para desativar envios de formulário, se houver campos inválidos.
-                        function confirmed() {
-
-                        };
-
-                        (function() {
-                            'use strict';
-                            window.addEventListener('load', function() {
-                                // Pega todos os formulários que nós queremos aplicar estilos de validação Bootstrap personalizados.
-                                var forms = document.getElementsByClassName('needs-validation');
-                                // Faz um loop neles e evita o envio
-                                var validation = Array.prototype.filter.call(forms, function(form) {
-                                    form.addEventListener('submit', function(event) {
-                                        if (form.checkValidity() === false) {
-                                            event.preventDefault();
-                                            event.stopPropagation();
-                                        }
-                                        else {
-                                            alert('a beautiful modal ok');
-                                        }
-                                        form.classList.add('was-validated');
-                                    }, false);
-                                });
-                            }, false);
-                        })();
-                    </script>
                 </div>
             </div>
 
 
         </main>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Sucess</h5>
+                    </div>
+                    <div class="modal-body">
+                        Your message has been successfully sent.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <footer class="bg-dark text-center text-white text-lg-start fixed-bottom">
             <!-- Copyright -->
             <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
                 &copy 2023 Copyright
-            <!--
-                <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-            </div>
-            -->
-            <!-- Copyright -->
+                <!--
+                    <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+                    </div>
+                -->
+                <!-- Copyright -->
         </footer>
     </body>
 
