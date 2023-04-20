@@ -24,5 +24,27 @@
 }
 
 .invert-img {
-  filter: invert(100%);
+    filter: invert(100%);
 }
+
+.span-button {
+    margin-left: 0.5rem;
+}
+
+@media (min-width: 1400px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1320px;
+        max-width: 1000px;
+    }
+}
+/* main {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+
+/* body {
+    background-color: black;
+    filter: invert(100%);
+} */
