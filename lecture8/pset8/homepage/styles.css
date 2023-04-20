@@ -12,3 +12,17 @@
     left: auto !important;
     right: 0px;
 } */
+
+.bi-linkedin {
+    background-image: url('linkedin.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+    fill: white;
+}
+
+.invert-img {
+  filter: invert(100%);
+}
