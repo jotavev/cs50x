@@ -1,26 +1,23 @@
 .container-fluid {
     width: 90%;
 }
-/* .navbar-exapand-lg {
-    justify-content: space-around;
-}
-.navbar-brand {
 
-    justify-content: space-around;
+#personImg {
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
 }
-.ml-auto .dropdown-menu {
-    left: auto !important;
-    right: 0px;
-} */
 
-.bi-linkedin {
-    background-image: url('linkedin.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 0.5rem;
-    fill: white;
+#nameTitle {
+    margin-top: 1.5rem;
+}
+
+.button-custom {
+    margin: 0.2rem; 
+    width: 120px;
+}
+
+.page-of-page {
+    height:100px;
 }
 
 .invert-img {

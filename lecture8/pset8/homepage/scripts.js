@@ -30,6 +30,10 @@ function checkUrlToShowModal() {
   }
 }
 
+function openLink(link) {
+    window.open(link, "_blank");
+}
+
 window.onload = function() {
   checkUrlToShowModal();
 }
