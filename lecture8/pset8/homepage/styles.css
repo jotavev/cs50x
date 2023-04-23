@@ -212,4 +212,6 @@ html.dark-mode {
   justify-content: space-between;
 }
 
-
+.dark-mode .navbar-light .navbar-toggler{
+    filter: invert(1);
+}
