@@ -11,19 +11,14 @@
     margin-top: 1.5rem;
 }
 
-/* .button-custom {
-    margin: 0.2rem; 
-    width: 120px;
-} */
-
 .link-button {
     display: inline-block;
     position: relative;
     padding: 10px 20px 10px 40px;
     border: none;
     border-radius: 5px;
-    background-color: #000000;
-    color: #fff;
+    background-color: var(--std-color);
+    color: var(--std-bg);
     cursor: pointer;
     transition: background-color 0.5s ease;
     margin: 0 0.5rem;
@@ -31,8 +26,8 @@
 
 .button-custom {
     display: inline-block;
-    color: #fff;
-    background-color: #000000;
+    color: var(--color-w);
+    background-color: var(--color-b);
     display: inline-block;
     padding: .375rem .75rem;
     border-radius: 5px;
@@ -43,7 +38,7 @@
 }
 
 .button-custom:hover {
-    color: #fff;
+    color: var(--color-w);
     background-color: gray;
     transform: scale(1.05);
     transition: transform 0.1s ease-in-out;
@@ -60,7 +55,7 @@
 }
 
 .link-button:hover {
-    color: #fff;
+    color: var(--color-w);
     background-color: gray;
     transform: scale(1.05);
     transition: transform 0.1s ease-in-out;
@@ -72,7 +67,11 @@
 }
 
 .invert-img {
-    filter: invert(100%);
+    filter: invert(1);
+}
+
+.dark-mode .invert-img {
+    filter: none;
 }
 
 .span-button {
@@ -88,14 +87,113 @@
 textarea {
   resize: none;
 }
-/* main {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-} */
 
-/* body {
-    background-color: black;
-    filter: invert(100%);
-} */
+.bg-b {
+    background-color: var(--color-b);
+}
+.bg-w {
+    background-color: var(--color-w);
+}
+.text-w {
+    color: var(--color-w);
+}
+.text-b {
+    color: var(--color-b);
+}
+
+.dark-mode .nav-item {
+  filter: invert(1);
+}
+.border-none {
+    border: none;
+}
+
+body {
+    background-color: var(--color-w);
+    color: var(--color-b);
+}
+
+:root {
+    --std-bg: #fafafa;
+    --std-color: #1c1c1c;
+
+    --color-b: #1c1c1c;
+    --color-w: #fafafa;
+}
+
+.dark-mode:root {
+    --std-bg: #1c1c1c;
+    --std-color: #fafafa;
+
+    --color-b: #fafafa;
+    --color-w: #1c1c1c;
+}
+
+.dark-mode img {
+  filter: invert(1);
+}
+
+body, html, .card, .form-control, button{
+  transition: background-color 0.3s ease, color 0.3s ease, filter 0.3s ease;
+}
+
+html.dark-mode {
+  background-color: #1c1c1c;
+  color: #fafafa;
+}
+
+.dark-mode img {
+  filter: invert(100%);
+}
+
+.modal-content{
+    background-color: var(--color-w);
+} 
+
+.modal-header{
+    border-bottom:1px solid rgba(180, 180, 180, 0.3);
+} 
+
+.modal-footer {
+    border-top:1px solid rgba(180, 180, 180, 0.3);
+} 
+
+.form-control {
+    background-color: var(--color-w);
+    color: var(--color-b);
+} 
+
+.form-control:focus {
+    background-color: var(--color-w);
+    color: var(--color-b);
+
+}
+
+.toggle {
+    position: relative;
+    height: 26px;
+    width: 60px;
+    background-color: red;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0,  0.1);
+    cursor: pointer;
+}
+
+.toggle::before {
+    content: "";
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    background: #c0c0c0;
+    border-radius: 50%;
+    top: 50%;
+    left: 2px;
+    transform: translateY(-50%);
+    transition: all 0.3s ease-in-out;
+}
+
+.toggle.active::before {
+    left: calc(100% - 22px - 2px);
+    background: var(--color-w);
+}
