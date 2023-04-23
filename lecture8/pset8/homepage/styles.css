@@ -197,3 +197,19 @@ html.dark-mode {
     left: calc(100% - 22px - 2px);
     background: var(--color-w);
 }
+
+.toggle img {
+    margin-right: 5px;
+    margin-left: 5px;
+    height: 18px;
+    width: 18px;
+    filter: none;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
