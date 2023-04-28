@@ -37,13 +37,38 @@ templates/
 
 Outros frameworks web fazem de outra forma ok 
 
-# MVC
-Model-View-Controller, é um padrão de design de software que facilita a troca de informações entre a interface do usuário e ao dados no banco
-
-
-
 obs: 
 ```
 request.args
 request.form
 ```
+
+# MVC
+Model-View-Controller, é um padrão de design de software que facilita a troca de informações entre a interface do usuário e ao dados no banco
+
+* model é responsável pelos dados e regras de negócio da aplicação
+
+* view é responsável por apresentar os dados ao usuário e capturar as entradas do usuário
+
+* controller é por gerenciar a interação entre o view e o controller
+
+```
+         ╭─── MODEL ◀──╮
+         │             │
+         │             │
+      updates     manipulates
+         │             │
+         ▼             │
+       VIEW       CONTROLLER
+         │             │
+       sees          uses
+         │             ▲
+         │             │
+         ╰──▶ USER ────╯
+```
+no exemplo do flask:
+o controler é onde está nosso código python
+o view é onde está nosso HTML com jinja
+e o model é nosso database, em sqlite, por exemplo
+
+
