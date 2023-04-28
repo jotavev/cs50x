@@ -37,5 +37,13 @@ templates/
 
 Outros frameworks web fazem de outra forma ok 
 
+# MVC
+Model-View-Controller, é um padrão de design de software que facilita a troca de informações entre a interface do usuário e ao dados no banco
 
 
+
+obs: 
+```
+request.args
+request.form
+```
