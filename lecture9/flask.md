@@ -72,3 +72,8 @@ o view é onde está nosso HTML com jinja
 e o model é nosso database, em sqlite, por exemplo
 
 
+# Sessions e Cookies 
+
+Session é como se fosse o carrinho de compras que mantém as informações, mesmo navegando em páginas diferentes do site.
+
+Cookie é comumente usado para armazenar as informações de login do usário para que ele permaneça conectado entre sessões.
