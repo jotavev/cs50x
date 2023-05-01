@@ -117,15 +117,36 @@ def quote():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
-    user = request.form.get("username")
-    new_password = request.form.get("confirm-password")
-    check_password = request.form.get("confirm-password")
+    def register_new_user(username, password):
+        psw_hash = generate_password_hash(password)
+        db.execute(
+                "INSERT INTO users (username, hash) VALUES(?, ?)",
+                username, psw_hash)
+        print(f"user is: {username}")
+        print(f"password is: {password} ")
+        print(f"hash is: {psw_hash}")
+        print(f"check_password_hash: {check_password_hash(psw_hash, password)}")
 
-    print(user)
-    print(new_password)
-    print(check_password)
+    if request.method == "POST":
+        user = request.form.get("username")
+        password = request.form.get("password")
+        confirmation = request.form.get("confirmation")
 
-    return render_template("register.html")
+        if not user:
+            return apology("Insert a username", 403)
+        elif password != confirmation:
+            return apology("Passwords do not match", 403)
+        elif user:
+            search_user = db.execute(
+                    "SELECT * FROM users WHERE username = ?", (user,))
+            if search_user:
+                # TODO: if the user exists
+                return apology("The username already exists", 403)
+            else:
+                register_new_user(user, password)
+                return render_template("register.html")
+    else:
+        return render_template("register.html")
 
 
 @app.route("/sell", methods=["GET", "POST"])

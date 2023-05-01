@@ -14,10 +14,10 @@
             </div>
         </div>
         <div class="mb-3">
-            <input class="form-control mx-auto w-auto" id="new-password" name="new-password" placeholder="Password" type="password" value="" required>
+            <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password" value="" required>
         </div>
         <div class="mb-3">
-            <input class="form-control mx-auto w-auto" id="confirm-password" name="confirm-password" placeholder="Confirm password" type="password" value="" required>
+            <input class="form-control mx-auto w-auto" id="confirmation" name="confirmation" placeholder="Confirm password" type="password" value="" required>
             <div class="invalid-feedback">
                 Error message
             </div>
@@ -40,9 +40,9 @@
                             event.stopPropagation();
                         }
                         // Take password values
-                        let newPassword = form.querySelector('#new-password').value;
-                        let confirmPassword = form.querySelector('#confirm-password').value;
-                        let passwordQuery = form.querySelector('#confirm-password')
+                        let newPassword = form.querySelector('#password').value;
+                        let confirmPassword = form.querySelector('#confirmation').value;
+                        let passwordQuery = form.querySelector('#confirmation')
 
                         // Compare the passwords
                         if (newPassword !== confirmPassword) {
