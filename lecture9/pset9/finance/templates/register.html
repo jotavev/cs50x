@@ -18,6 +18,9 @@
         </div>
         <div class="mb-3">
             <input class="form-control mx-auto w-auto" id="confirm-password" name="confirm-password" placeholder="Confirm password" type="password" value="" required>
+            <div class="invalid-feedback">
+                Error message
+            </div>
         </div>
         <button class="btn btn-primary" type="submit">Register</button>
     </form>
@@ -35,6 +38,23 @@
                         if (form.checkValidity() === false) {
                             event.preventDefault();
                             event.stopPropagation();
+                        }
+                        // Take password values
+                        let newPassword = form.querySelector('#new-password').value;
+                        let confirmPassword = form.querySelector('#confirm-password').value;
+                        let passwordQuery = form.querySelector('#confirm-password')
+
+                        // Compare the passwords
+                        if (newPassword !== confirmPassword) {
+                            passwordQuery.setCustomValidity('Passwords do not match.');
+                            passwordQuery.parentElement.querySelector('.invalid-feedback').innerHTML = 'Passwords do not match.';
+                        }
+                        // Check if the field is blank
+                        else if (newPassword === '' && confirmPassword === '') {
+                            passwordQuery.parentElement.querySelector('.invalid-feedback').innerHTML = 'Type a password.';
+                        }
+                        else {
+                            passwordQuery.setCustomValidity('');
                         }
                         form.classList.add('was-validated');
                     }, false);
