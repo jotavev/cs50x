@@ -43,7 +43,7 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    return apology("TODO")
+    return render_template("index.html")
 
 
 @app.route("/buy", methods=["GET", "POST"])
@@ -111,7 +111,16 @@ def logout():
 @login_required
 def quote():
     """Get stock quote."""
-    return apology("TODO")
+    if request.method == "POST":
+        query = request.form.get("query")
+        reply = lookup(query)
+        if reply:
+            reply["price"] = usd(reply["price"])
+            return render_template("quoted.html", reply=reply)
+        else:
+            return apology("Stock symbol not found", 403)
+    else:
+        return render_template("quote.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -122,10 +131,6 @@ def register():
         db.execute(
                 "INSERT INTO users (username, hash) VALUES(?, ?)",
                 username, psw_hash)
-        print(f"user is: {username}")
-        print(f"password is: {password} ")
-        print(f"hash is: {psw_hash}")
-        print(f"check_password_hash: {check_password_hash(psw_hash, password)}")
 
     if request.method == "POST":
         user = request.form.get("username")

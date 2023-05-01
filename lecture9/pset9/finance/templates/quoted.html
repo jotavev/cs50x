@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <h1 class="h1 fw-bold mb-3">Data of stock</h1>
+    <div class="container mw-80">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Stock</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ reply["symbol"] }}</td>
+                    <td>{{ reply["name"] }}</td>
+                    <td>{{ reply["price"] }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
