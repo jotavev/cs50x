@@ -50,7 +50,46 @@ def index():
 @login_required
 def buy():
     """Buy shares of stock"""
-    return apology("TODO")
+    if request.method == "POST":
+
+        query = request.form.get("query")
+        qty = request.form.get("qty")
+
+        if not query:
+            return apology("must provide a stock symbol", 403)
+
+        elif not qty:
+            return apology("must provide a stock quantity", 403)
+
+        elif (int(qty) < 1):
+            return apology("quantity cannot be lowwer than one", 403)
+
+        reply = lookup(query)
+
+        if not reply:
+            return apology("check the symbol stocks", 403)
+
+        else:
+            stock_price = reply["price"]
+
+            total_stock_price = stock_price * qty
+            print(stock_price)
+            print(qty)
+
+            user_balance = db.execute(
+                    "SELECT cash FROM users WHERE id = ?",
+                    session["user_id"])
+
+            user_balance = user_balance[0]["cash"]
+            if user_balance < total_stock_price:
+                return apology("You have no funds available to support this request", 403)
+            else:
+                # TODO: table
+                # TODO: insert the transaction in table
+                return render_template("buy.html", price=price)
+                return reply
+    else:
+        return render_template("buy.html")
 
 
 @app.route("/history")
