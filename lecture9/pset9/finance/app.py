@@ -5,6 +5,7 @@ from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
+from datetime import datetime
 
 from helpers import apology, login_required, lookup, usd
 
@@ -70,24 +71,34 @@ def buy():
             return apology("check the symbol stocks", 403)
 
         else:
+            user_id = session["user_id"]
+            stock_name = reply["name"]
             stock_price = reply["price"]
+            stock_symbol = reply["symbol"]
+            transaction_type = "BUY"
 
-            total_stock_price = stock_price * qty
-            print(stock_price)
-            print(qty)
+            total_stock_price = stock_price * int(qty)
+            date_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
             user_balance = db.execute(
                     "SELECT cash FROM users WHERE id = ?",
                     session["user_id"])
 
             user_balance = user_balance[0]["cash"]
+
             if user_balance < total_stock_price:
                 return apology("You have no funds available to support this request", 403)
             else:
-                # TODO: table
-                # TODO: insert the transaction in table
-                return render_template("buy.html", price=price)
+                # insert the transaction in table transactions
+                db.execute(
+                        "INSERT INTO transactions "
+                        "(user_id, date, stock_symbol, "
+                        "stock_name, price, qty, type) "
+                        "VALUES(?, ?, ?, ?, ?, ?, ?)",
+                        user_id, date_time, stock_symbol, stock_name,
+                        stock_price, qty, transaction_type)
                 return reply
+                return render_template("buy.html", price=price)
     else:
         return render_template("buy.html")
 
