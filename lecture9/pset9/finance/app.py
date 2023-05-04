@@ -54,15 +54,15 @@ def buy():
     if request.method == "POST":
 
         query = request.form.get("query")
-        qty = request.form.get("qty")
+        quantity = request.form.get("qty")
 
         if not query:
             return apology("must provide a stock symbol", 403)
 
-        elif not qty:
+        elif not quantity:
             return apology("must provide a stock quantity", 403)
 
-        elif (int(qty) < 1):
+        elif (int(quantity) < 1):
             return apology("quantity cannot be lowwer than one", 403)
 
         reply = lookup(query)
@@ -77,7 +77,7 @@ def buy():
             stock_symbol = reply["symbol"]
             transaction_type = "BUY"
 
-            total_stock_price = stock_price * int(qty)
+            total_stock_price = stock_price * int(quantity)
             date_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
             user_balance = db.execute(
@@ -90,13 +90,34 @@ def buy():
                 return apology("You have no funds available to support this request", 403)
             else:
                 # insert the transaction in table transactions
-                db.execute(
-                        "INSERT INTO transactions "
-                        "(user_id, date, stock_symbol, "
-                        "stock_name, price, qty, type) "
-                        "VALUES(?, ?, ?, ?, ?, ?, ?)",
-                        user_id, date_time, stock_symbol, stock_name,
-                        stock_price, qty, transaction_type)
+                db.execute("INSERT INTO transactions "
+                           "(user_id, date, stock_symbol, stock_name, "
+                           "price_per_share, quantity, type) "
+                           "VALUES(?, ?, ?, ?, ?, ?, ?)",
+                           user_id, date_time, stock_symbol, stock_name,
+                           stock_price, quantity, transaction_type)
+
+                check_user_stock = db.execute("SELECT * FROM users_stocks "
+                                              "WHERE user_id = ? "
+                                              "AND stock_symbol = ?",
+                                              user_id, stock_symbol)
+
+                db.execute("UPDATE users "
+                           "SET cash = cash - ? "
+                           "WHERE id = ?",
+                           total_stock_price, user_id)
+
+                if check_user_stock:
+                    db.execute("UPDATE users_stocks "
+                               "SET quantity = quantity + ? "
+                               "WHERE user_id = ? "
+                               "AND stock_symbol = ?",
+                               quantity, user_id, stock_symbol)
+                else:
+                    db.execute("INSERT INTO users_stocks "
+                               "(user_id, stock_symbol, stock_name, quantity) "
+                               "VALUES(?, ?, ?, ?)",
+                               user_id, stock_symbol, stock_name, quantity)
                 return reply
                 return render_template("buy.html", price=price)
     else:
