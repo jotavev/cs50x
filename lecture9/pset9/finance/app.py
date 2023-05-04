@@ -48,8 +48,8 @@ def index():
     portifolio_data = db.execute("SELECT * FROM users_stocks "
                                  " WHERE user_id = ?", user_id)
     cash = db.execute("SELECT cash FROM users WHERE id = ?", user_id)
+    total = cash[0]["cash"]
     cash = usd(cash[0]["cash"])
-    total = 0.0
 
     for stock in portifolio_data:
         symbol = stock["stock_symbol"]
@@ -147,7 +147,15 @@ def buy():
 @login_required
 def history():
     """Show history of transactions"""
-    return apology("TODO")
+    user_id = session["user_id"]
+    history_data = db.execute("SELECT * FROM transactions "
+                              "WHERE user_id = ?", user_id)
+
+    for stock in history_data:
+        stock["stock_sum"] = usd(float(
+            stock["price_per_share"]) * int(stock["quantity"]))
+        stock["price_per_share"] = usd(stock["price_per_share"])
+    return render_template("history.html", history_data=history_data)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -248,4 +256,73 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
+    if request.method == "POST":
+
+        select = request.form.get("select")
+        quantity = request.form.get("qty")
+
+        if not select:
+            return apology("must provide a stock symbol", 403)
+
+        elif not quantity:
+            return apology("must provide a stock quantity", 403)
+
+        elif (int(quantity) < 1):
+            return apology("quantity cannot be lowwer than one", 403)
+
+        reply = lookup(select)
+
+        if not reply:
+            return apology("check the symbol stocks", 403)
+
+        else:
+            user_id = session["user_id"]
+            stock_name = reply["name"]
+            stock_price = reply["price"]
+            stock_symbol = reply["symbol"]
+            transaction_type = "SELL"
+
+            total_stock_price = stock_price * int(quantity)
+            date_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+            total_stock_user = db.execute(
+                    "SELECT quantity FROM users_stocks "
+                    "WHERE stock_symbol = ? "
+                    "AND user_id = ?",
+                    stock_symbol,
+                    user_id)
+            total_stock_user = total_stock_user[0]["quantity"]
+
+            if not total_stock_user or int(quantity) > total_stock_user:
+                return apology("You have no enough stocks "
+                               "to support this request", 403)
+            else:
+                # insert the transaction in table transactions
+                db.execute("INSERT INTO transactions "
+                           "(user_id, date, stock_symbol, stock_name, "
+                           "price_per_share, quantity, type) "
+                           "VALUES(?, ?, ?, ?, ?, ?, ?)",
+                           user_id, date_time, stock_symbol, stock_name,
+                           stock_price, quantity, transaction_type)
+
+                db.execute("UPDATE users "
+                           "SET cash = cash + ? "
+                           "WHERE id = ?",
+                           total_stock_price, user_id)
+
+                db.execute("UPDATE users_stocks "
+                           "SET quantity = quantity - ? "
+                           "WHERE user_id = ? "
+                           "AND stock_symbol = ?",
+                           quantity, user_id, stock_symbol)
+                return reply
+                return render_template("index.html")
+                return render_template("buy.html", price=price)
+    else:
+        user_id = session["user_id"]
+        stocks = db.execute("SELECT stock_symbol "
+                            "FROM users_stocks "
+                            "WHERE user_id = ?",
+                            user_id)
+        return render_template("sell.html", stocks=stocks)
     return apology("TODO")

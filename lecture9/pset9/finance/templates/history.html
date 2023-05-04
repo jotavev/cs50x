@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <h1 class="h1 fw-bold mb-3">History</h1>
+    <div class="container mw-80">
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-start">Date</th>
+                    <th scope="col" class="text-start">Symbol</th>
+                    <th scope="col" class="text-start">Name</th>
+                    <th scope="col" class="text-end">Type</th>
+                    <th scope="col" class="text-end">Shares</th>
+                    <th scope="col" class="text-end">Price</th>
+                    <th scope="col" class="text-end">TOTAL</th>
+                </tr>
+            </thead>
+            <tbody class="border-top">
+                {% for data in history_data  %}
+                <tr>
+                    <td class="text-start">{{ data["date"] }}</td>
+                    <td class="text-start">{{ data["stock_symbol"] }}</td>
+                    <td class="text-start">{{ data["stock_name"] }}</td>
+                    <td class="text-end">{{ data["type"] }}</td>
+                    <td class="text-end">{{ data["quantity"] }}</td>
+                    <td class="text-end">{{ data["price_per_share"] }}</td>
+                    <td class="text-end">{{ data["stock_sum"] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
