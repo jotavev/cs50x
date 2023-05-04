@@ -87,7 +87,8 @@ def buy():
             user_balance = user_balance[0]["cash"]
 
             if user_balance < total_stock_price:
-                return apology("You have no funds available to support this request", 403)
+                return apology("You have no funds available "
+                               "to support this request", 403)
             else:
                 # insert the transaction in table transactions
                 db.execute("INSERT INTO transactions "
