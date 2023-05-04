@@ -5,5 +5,45 @@
 {% endblock %}
 
 {% block main %}
-    TODO a table
+    <h1 class="h1 fw-bold mb-3">Portifolio</h1>
+    <div class="container mw-80">
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-start">Symbol</th>
+                    <th scope="col" class="text-start">Name</th>
+                    <th scope="col" class="text-end">Shares</th>
+                    <th scope="col" class="text-end">Price</th>
+                    <th scope="col" class="text-end">TOTAL</th>
+                </tr>
+            </thead>
+            <tbody class="border-top">
+                {% for data in portifolio_data  %}
+                <tr>
+                    <td class="text-start">{{ data["stock_symbol"] }}</td>
+                    <td class="text-start">{{ data["stock_name"] }}</td>
+                    <td class="text-end">{{ data["quantity"] }}</td>
+                    <td class="text-end">{{ data["price"] }}</td>
+                    <td class="text-end">{{ data["stock_sum"] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot class="border-top">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <th class="text-end">CASH</th>
+                    <td class="text-end">{{ cash }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <th class="text-end">TOTAL</th>
+                    <td class="text-end">{{ total }}</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
 {% endblock %}

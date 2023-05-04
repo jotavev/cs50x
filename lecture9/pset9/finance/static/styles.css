@@ -21,3 +21,6 @@ nav .navbar-brand .green
 {
     color: #2e944b;
 }
+.border-top {
+  border-top: 2px solid #1c1c1c !important;
+}

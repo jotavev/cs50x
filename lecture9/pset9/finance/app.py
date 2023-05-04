@@ -44,7 +44,25 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    return render_template("index.html")
+    user_id = session["user_id"]
+    portifolio_data = db.execute("SELECT * FROM users_stocks "
+                                 " WHERE user_id = ?", user_id)
+    cash = db.execute("SELECT cash FROM users WHERE id = ?", user_id)
+    cash = usd(cash[0]["cash"])
+    total = 0.0
+
+    for stock in portifolio_data:
+        symbol = stock["stock_symbol"]
+        request_data = lookup(symbol)
+        price = request_data["price"]
+        stock["price"] = usd(price)
+        stock["stock_sum"] = usd(price * stock["quantity"])
+        total += price * stock["quantity"]
+    total = usd(total)
+    return render_template("index.html",
+                           portifolio_data=portifolio_data,
+                           cash=cash,
+                           total=total)
 
 
 @app.route("/buy", methods=["GET", "POST"])
