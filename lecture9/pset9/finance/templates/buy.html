@@ -6,13 +6,15 @@
 
 {% block main %}
     <h1 class="h1 fw-bold mb-5">Buy a stock</h1>
-    <form action="/buy" method="post">
-        <div class="mb-3">
-            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="query" name="query" placeholder="Symbol" type="text">
-        </div>
-        <div class="mb-3">
-            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="qty" name="qty" placeholder="Qty" type="number" min="1">
-        </div>
-        <button class="btn btn-primary" type="submit">Buy</button>
-    </form>
+    <div class="form-group mx-auto w-25">
+        <form action="/buy" method="post">
+            <div class="mb-3">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-100" id="query" name="query" placeholder="Symbol" type="text">
+            </div>
+            <div class="mb-3">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-100" id="qty" name="qty" placeholder="Qty" type="number" min="1">
+            </div>
+            <button class="btn btn-primary" type="submit">Buy</button>
+        </form>
+    </div>
 {% endblock %}

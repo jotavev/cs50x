@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <h1 class="h1 fw-bold mb-5">Sell a stock</h1>
+    <div class="form-group mx-auto w-25">
+        <form action="/sell" method="post">
+            <div class="mb-3">
+                <select name="select" id="select" class="form-control mx-auto w-100">
+                    <option value="" disabled selected class="text-muted">Select a stock...</option>
+                    {% for stock in stocks%}
+                    <option value="{{ stock['stock_symbol'] }}">{{ stock['stock_symbol'] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-100" id="qty" name="qty" placeholder="Qty" type="number" min="1">
+            </div>
+            <button class="btn btn-primary" type="submit">Sell</button>
+        </form>
+
+    </div>
+{% endblock %}
