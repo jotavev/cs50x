@@ -6,6 +6,7 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 from datetime import datetime
+from flask import jsonify
 
 from helpers import apology, login_required, lookup, usd
 
@@ -48,21 +49,9 @@ def index():
     portifolio_data = db.execute("SELECT * FROM users_stocks "
                                  " WHERE user_id = ?", user_id)
     cash = db.execute("SELECT cash FROM users WHERE id = ?", user_id)
-    total = cash[0]["cash"]
     cash = usd(cash[0]["cash"])
-
-    for stock in portifolio_data:
-        symbol = stock["stock_symbol"]
-        request_data = lookup(symbol)
-        price = request_data["price"]
-        stock["price"] = usd(price)
-        stock["stock_sum"] = usd(price * stock["quantity"])
-        total += price * stock["quantity"]
-    total = usd(total)
     return render_template("index.html",
-                           portifolio_data=portifolio_data,
-                           cash=cash,
-                           total=total)
+                           portifolio_data=portifolio_data, cash=cash)
 
 
 @app.route("/buy", methods=["GET", "POST"])
@@ -137,8 +126,7 @@ def buy():
                                "(user_id, stock_symbol, stock_name, quantity) "
                                "VALUES(?, ?, ?, ?)",
                                user_id, stock_symbol, stock_name, quantity)
-                return reply
-                return render_template("buy.html", price=price)
+                return render_template("index.html")
     else:
         return render_template("buy.html")
 
@@ -315,9 +303,7 @@ def sell():
                            "WHERE user_id = ? "
                            "AND stock_symbol = ?",
                            quantity, user_id, stock_symbol)
-                return reply
                 return render_template("index.html")
-                return render_template("buy.html", price=price)
     else:
         user_id = session["user_id"]
         stocks = db.execute("SELECT stock_symbol "
@@ -325,4 +311,19 @@ def sell():
                             "WHERE user_id = ?",
                             user_id)
         return render_template("sell.html", stocks=stocks)
-    return apology("TODO")
+
+
+@app.route("/stock_price", methods=["GET", "POST"])
+@login_required
+def stock_price():
+    """A"""
+    user_id = session["user_id"]
+    stock_symbols = db.execute("SELECT stock_symbol "
+                               "FROM users_stocks WHERE user_id = ?", user_id)
+    prices = {}
+    for stock in stock_symbols:
+        symbol = stock["stock_symbol"]
+        request_data = lookup(symbol)
+        prices[symbol] = request_data["price"]
+
+    return jsonify(prices)

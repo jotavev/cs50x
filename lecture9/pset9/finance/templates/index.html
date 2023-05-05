@@ -22,9 +22,9 @@
                 <tr>
                     <td class="text-start">{{ data["stock_symbol"] }}</td>
                     <td class="text-start">{{ data["stock_name"] }}</td>
-                    <td class="text-end">{{ data["quantity"] }}</td>
-                    <td class="text-end">{{ data["price"] }}</td>
-                    <td class="text-end">{{ data["stock_sum"] }}</td>
+                    <td class="text-end" id="qty-{{ data["stock_symbol"] }}">{{ data["quantity"] }}</td>
+                    <td class="text-end" id="price-{{ data["stock_symbol"] }}"></td>
+                    <td class="text-end" id="sum-{{ data["stock_symbol"] }}"></td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -34,16 +34,42 @@
                     <td></td>
                     <td></td>
                     <th class="text-end">CASH</th>
-                    <td class="text-end">{{ cash }}</td>
+                    <td class="text-end" id="cash">{{ cash }}</td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
                     <td></td>
                     <th class="text-end">TOTAL</th>
-                    <td class="text-end">{{ total }}</td>
+                    <td class="text-end" id="total"></td>
                 </tr>
             </tfoot>
         </table>
     </div>
+    <script>
+        const formatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+        });
+        window.onload = async function(){
+            const response = await fetch('/stock_price')
+            const data = await response.json()
+            let total = 0.0;
+            for (const symbol in data) {
+                const price = data[symbol];
+                const qty = parseInt(document.querySelector(`#qty-${symbol}`).innerHTML);
+                let stockSumField = document.querySelector(`#sum-${symbol}`)
+                let stockSum = price * qty
+                let element = document.querySelector(`#price-${symbol}`)
+                total += stockSum;
+                document.querySelector(`#price-${symbol}`).innerHTML = formatter.format(price);
+                document.querySelector(`#sum-${symbol}`).innerHTML = formatter.format(stockSum);
+            }
+            let cashString = document.querySelector('#cash').innerHTML;
+            let cashFloat = parseFloat(cashString.replace(/[$,]/g, ''))
+            total += cashFloat;
+            document.querySelector('#total').innerHTML = formatter.format(total);
+        }
+
+    </script>
 {% endblock %}
