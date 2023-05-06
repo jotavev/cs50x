@@ -20,11 +20,23 @@
             <tbody class="border-top">
                 {% for data in portifolio_data  %}
                 <tr>
-                    <td class="text-start">{{ data["stock_symbol"] }}</td>
-                    <td class="text-start">{{ data["stock_name"] }}</td>
-                    <td class="text-end" id="qty-{{ data["stock_symbol"] }}">{{ data["quantity"] }}</td>
-                    <td class="text-end" id="price-{{ data["stock_symbol"] }}"></td>
-                    <td class="text-end" id="sum-{{ data["stock_symbol"] }}"></td>
+                    <td class="text-start">
+                        {{ data["stock_symbol"] }}
+                    </td>
+                    <td class="text-start">
+                        {{ data["stock_name"] }}
+                    </td>
+                    <td class="text-end" id="qty-{{ data["stock_symbol"] }}">
+                        {{ data["quantity"] }}
+                    </td>
+                    <td class="text-end" id="price-{{ data["stock_symbol"] }}">
+                        <div class="spinner-border spinner-border-sm" role="status">
+                        </div>
+                    </td>
+                    <td class="text-end" id="sum-{{ data["stock_symbol"] }}">
+                        <div class="spinner-border spinner-border-sm" role="status">
+                        </div>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -41,7 +53,10 @@
                     <td></td>
                     <td></td>
                     <th class="text-end">TOTAL</th>
-                    <td class="text-end" id="total"></td>
+                    <td class="text-end" id="total">
+                        <div class="spinner-border spinner-border-sm" role="status">
+                        </div>
+                    </td>
                 </tr>
             </tfoot>
         </table>
