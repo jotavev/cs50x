@@ -69,7 +69,7 @@ def buy():
         elif not quantity:
             return apology("must provide a stock quantity", 403)
 
-        elif (int(quantity) < 1):
+        elif int(quantity) < 1:
             return apology("quantity cannot be lowwer than one", 403)
 
         reply = lookup(query)
@@ -126,7 +126,7 @@ def buy():
                                "(user_id, stock_symbol, stock_name, quantity) "
                                "VALUES(?, ?, ?, ?)",
                                user_id, stock_symbol, stock_name, quantity)
-                return render_template("index.html")
+                return redirect("/")
     else:
         return render_template("buy.html")
 
@@ -219,10 +219,12 @@ def register():
                 username, psw_hash)
 
     if request.method == "POST":
+        # take the user fields
         user = request.form.get("username")
         password = request.form.get("password")
         confirmation = request.form.get("confirmation")
 
+        # verify the user data
         if not user:
             return apology("Insert a username", 403)
         elif password != confirmation:
@@ -231,8 +233,8 @@ def register():
             search_user = db.execute(
                     "SELECT * FROM users WHERE username = ?", (user,))
             if search_user:
-                # TODO: if the user exists
                 return apology("The username already exists", 403)
+            # register a new user
             else:
                 register_new_user(user, password)
                 return render_template("register.html")
@@ -293,17 +295,31 @@ def sell():
                            user_id, date_time, stock_symbol, stock_name,
                            stock_price, quantity, transaction_type)
 
+                # update the cash of user
                 db.execute("UPDATE users "
                            "SET cash = cash + ? "
                            "WHERE id = ?",
                            total_stock_price, user_id)
 
+                # update the stocks remaining of user
                 db.execute("UPDATE users_stocks "
                            "SET quantity = quantity - ? "
                            "WHERE user_id = ? "
                            "AND stock_symbol = ?",
                            quantity, user_id, stock_symbol)
-                return render_template("index.html")
+
+                # checking the remaining amount of the stock sold
+                stock_qty = db.execute("SELECT quantity FROM users_stocks "
+                                       "WHERE user_id = ? "
+                                       "AND stock_symbol = ?",
+                                       user_id, stock_symbol)
+                stock_qty = stock_qty[0]["quantity"]
+
+                # removing from table users_stocks if equal to 0
+                if stock_qty == 0:
+                    db.execute("DELETE FROM users_stocks WHERE user_id = ? "
+                               "AND stock_symbol = ?", user_id, stock_symbol)
+                return redirect("/")
     else:
         user_id = session["user_id"]
         stocks = db.execute("SELECT stock_symbol "
@@ -316,14 +332,14 @@ def sell():
 @app.route("/stock_price", methods=["GET", "POST"])
 @login_required
 def stock_price():
-    """A"""
+    """Take the stocks price in API"""
     user_id = session["user_id"]
     stock_symbols = db.execute("SELECT stock_symbol "
                                "FROM users_stocks WHERE user_id = ?", user_id)
     prices = {}
+
     for stock in stock_symbols:
         symbol = stock["stock_symbol"]
         request_data = lookup(symbol)
         prices[symbol] = request_data["price"]
-
     return jsonify(prices)
