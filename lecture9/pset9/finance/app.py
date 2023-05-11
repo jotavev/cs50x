@@ -64,18 +64,18 @@ def buy():
         quantity = request.form.get("qty")
 
         if not query:
-            return apology("must provide a stock symbol", 403)
+            return apology("must provide a stock symbol", 400)
 
         elif not quantity:
-            return apology("must provide a stock quantity", 403)
+            return apology("must provide a stock quantity", 400)
 
         elif int(quantity) < 1:
-            return apology("quantity cannot be lowwer than one", 403)
+            return apology("quantity cannot be lowwer than one", 400)
 
         reply = lookup(query)
 
         if not reply:
-            return apology("check the symbol stocks", 403)
+            return apology("check the symbol stocks", 400)
 
         else:
             user_id = session["user_id"]
@@ -126,6 +126,7 @@ def buy():
                                "(user_id, stock_symbol, stock_name, quantity) "
                                "VALUES(?, ?, ?, ?)",
                                user_id, stock_symbol, stock_name, quantity)
+                flash("Bought!")
                 return redirect("/")
     else:
         return render_template("buy.html")
@@ -204,7 +205,7 @@ def quote():
             reply["price"] = usd(reply["price"])
             return render_template("quoted.html", reply=reply)
         else:
-            return apology("Stock symbol not found", 403)
+            return apology("Stock symbol not found", 400)
     else:
         return render_template("quote.html")
 
@@ -226,18 +227,19 @@ def register():
 
         # verify the user data
         if not user:
-            return apology("Insert a username", 403)
+            return apology("Insert a username", 400)
         elif password != confirmation:
-            return apology("Passwords do not match", 403)
+            return apology("Passwords do not match", 400)
         elif user:
             search_user = db.execute(
                     "SELECT * FROM users WHERE username = ?", (user,))
             if search_user:
-                return apology("The username already exists", 403)
+                return apology("The username already exists", 400)
             # register a new user
             else:
                 register_new_user(user, password)
-                return render_template("register.html")
+                flash("Registered!")
+                return render_template("/")
     else:
         return render_template("register.html")
 
@@ -252,18 +254,18 @@ def sell():
         quantity = request.form.get("qty")
 
         if not select:
-            return apology("must provide a stock symbol", 403)
+            return apology("must provide a stock symbol", 400)
 
         elif not quantity:
-            return apology("must provide a stock quantity", 403)
+            return apology("must provide a stock quantity", 400)
 
         elif (int(quantity) < 1):
-            return apology("quantity cannot be lowwer than one", 403)
+            return apology("quantity cannot be lowwer than one", 400)
 
         reply = lookup(select)
 
         if not reply:
-            return apology("check the symbol stocks", 403)
+            return apology("check the symbol stocks", 400)
 
         else:
             user_id = session["user_id"]
@@ -285,7 +287,7 @@ def sell():
 
             if not total_stock_user or int(quantity) > total_stock_user:
                 return apology("You have no enough stocks "
-                               "to support this request", 403)
+                               "to support this request", 400)
             else:
                 # insert the transaction in table transactions
                 db.execute("INSERT INTO transactions "
@@ -319,6 +321,7 @@ def sell():
                 if stock_qty == 0:
                     db.execute("DELETE FROM users_stocks WHERE user_id = ? "
                                "AND stock_symbol = ?", user_id, stock_symbol)
+                flash("Sold!")
                 return redirect("/")
     else:
         user_id = session["user_id"]

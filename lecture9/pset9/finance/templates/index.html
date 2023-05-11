@@ -7,7 +7,7 @@
 {% block main %}
     <h1 class="h1 fw-bold mb-3">Portifolio</h1>
     <div class="container mw-80">
-        <table class="table table-borderless">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col" class="text-start">Symbol</th>
@@ -42,18 +42,12 @@
             </tbody>
             <tfoot class="border-top">
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <th class="text-end">CASH</th>
-                    <td class="text-end" id="cash">{{ cash }}</td>
+                    <th class="text-end border-0" colspan="4">Cash</th>
+                    <td class="text-end border-0" id="cash">{{ cash }}</td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <th class="text-end">TOTAL</th>
-                    <td class="text-end" id="total">
+                    <th class="text-end border-0" colspan="4">TOTAL</th>
+                    <td class="text-end border-0" id="total">
                         <div class="spinner-border spinner-border-sm" role="status">
                         </div>
                     </td>

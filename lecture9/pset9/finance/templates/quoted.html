@@ -7,7 +7,7 @@
 {% block main %}
     <h1 class="h1 fw-bold mb-3">Data of stock</h1>
     <div class="container mw-80">
-        <table class="table">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Symbol</th>
@@ -15,7 +15,7 @@
                     <th>Price</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="border-top">
                 <tr>
                     <td>{{ reply["symbol"] }}</td>
                     <td>{{ reply["name"] }}</td>
