@@ -239,7 +239,7 @@ def register():
             else:
                 register_new_user(user, password)
                 flash("Registered!")
-                return render_template("/")
+                return redirect("/")
     else:
         return render_template("register.html")
 
