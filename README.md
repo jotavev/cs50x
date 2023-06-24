@@ -243,4 +243,5 @@ where `IMAGE.bmp` is the name of an image file and `GRAYSCALE.bmp` is the name g
 | <img src="./assets/recover.png" width="600"/> | <img src="./assets/recover.gif"/> |
 ___
 
-## Lecture 5 ()
+## Lecture 5 (Data Structures)
+In this class, 
