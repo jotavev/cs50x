@@ -244,4 +244,10 @@ where `IMAGE.bmp` is the name of an image file and `GRAYSCALE.bmp` is the name g
 ___
 
 ## Lecture 5 (Data Structures)
-In this class, 
+In Lecture 4, I learned about:
+- Introduction to data structures
+- Linked Lists
+- Stacks and Queues
+- Trees
+- Tries
+- Hash Tables
