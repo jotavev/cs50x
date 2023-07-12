@@ -12,6 +12,12 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/test")
+def test():
+    return render_template("layout.html")
+
+
+"""
 @app.route("/<restaurant-name>")
 def menu():
-    return render_template("restaurant-menu.html")
+"""
