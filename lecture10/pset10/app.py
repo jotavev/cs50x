@@ -9,12 +9,12 @@ db = SQLAlchemy(app)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("landing.html")
 
 
 @app.route("/test")
 def test():
-    return render_template("layout.html")
+    return render_template("index.html")
 
 
 """
