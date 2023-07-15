@@ -1,10 +1,16 @@
-from dynaconf import FlaskDynaconf
 from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
+from appetieats.ext import sesssion
+
+from appetieats.ext import database
+from appetieats.ext import commands
+from appetieats.ext import configuration
 
 app = Flask(__name__)
-FlaskDynaconf(app)
-db = SQLAlchemy(app)
+
+commands.init_app(app)
+sesssion.init_app(app)
+configuration.init_app(app)
+database.init_app(app)
 
 
 @app.route("/")
