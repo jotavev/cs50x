@@ -2,6 +2,7 @@ from flask import Flask, render_template
 from appetieats.ext import sesssion
 
 from appetieats.ext import database
+from appetieats.routes.main import main_bp
 from appetieats.ext import commands
 from appetieats.ext import configuration
 
@@ -12,10 +13,7 @@ sesssion.init_app(app)
 configuration.init_app(app)
 database.init_app(app)
 
-
-@app.route("/")
-def index():
-    return render_template("landing.html")
+app.register_blueprint(main_bp)
 
 
 @app.route("/test")
