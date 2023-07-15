@@ -1,9 +1,5 @@
 from appetieats.ext.database import db
-
-
-def hello():
-    """says hello"""
-    print("hello commands")
+from appetieats.models import Users
 
 
 def create_db():
@@ -16,9 +12,30 @@ def drop_db():
     db.drop_all()
 
 
+def populate_users():
+    """populate db users with default acconts"""
+    data = [
+            Users(
+                id=1,
+                username="master",
+                hash="123"
+                )
+            ]
+    db.session.bulk_save_objects(data)
+    db.session.commit()
+    return Users.query.all()
+
+
+def hello_commands():
+    """says hello"""
+    print("hello commands")
+
+
 def init_app(app):
     """add multiple commands in a bulk"""
-    for command in [hello, create_db, drop_db]:
+    for command in [create_db,
+                    drop_db,
+                    populate_users,
+                    hello_commands]:
         app.cli.add_command(app.cli.command()(command))
-
     return app

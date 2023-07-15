@@ -14,9 +14,3 @@ configuration.init_app(app)
 database.init_app(app)
 
 app.register_blueprint(main_bp)
-
-
-"""
-@app.route("/<restaurant-name>")
-def menu():
-"""

@@ -8,7 +8,7 @@ class Users(db.Model, SerializerMixin):
     hash = db.Column(db.String(120), nullable=False)
 
 
-class Product(db.Model, SerializerMixin):
+class Products(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(200), nullable=False)
     description = db.Column(db.Text)
@@ -24,7 +24,7 @@ class Categories(db.Model, SerializerMixin):
     category_name = db.Column(db.String(200), nullable=False)
 
 
-class ProductImages(db.Model):
+class ProductImages(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     product_id = db.Column(db.Integer, db.ForeignKey(
         'products.id', use_alter=True))
