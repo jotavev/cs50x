@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask
 from appetieats.ext import sesssion
 
 from appetieats.ext import database
@@ -14,11 +14,6 @@ configuration.init_app(app)
 database.init_app(app)
 
 app.register_blueprint(main_bp)
-
-
-@app.route("/test")
-def test():
-    return render_template("index.html")
 
 
 """
