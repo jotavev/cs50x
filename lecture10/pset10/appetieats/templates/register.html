@@ -15,6 +15,7 @@
         <link href="/static/favicon.ico" rel="icon">
 
         <link href="/static/styles.css" rel="stylesheet">
+        <link href="/static/register.css" rel="stylesheet">
 
         <title>AppetiEats</title>
 
@@ -37,32 +38,49 @@
             </div>
         </nav>
 
-        <div class="container">
-            <div class="form-image">
-                <img src="static/undraw_cooking_p7m1.svg" alt="cooking image">
-            </div>
-            <div class="form">
-                <form action="#">
-                    <div class="form-header">
-                        <div class="title">
-                            <h1>Register</h1>
+        <main>
+            <div class="container-c">
+
+                <div class="form-image">
+                    <img src="static/undraw_cooking_p7m1.svg" alt="cooking image">
+                </div>
+
+                <div class="form">
+                    <form action="#">
+                        <div class="form-header">
+
+                            <div class="title">
+                                <h1>Register</h1>
+                            </div>
+
+                            <div class="login-button">
+                                <a href="#login">Login</a>
+                            </div>
                         </div>
-                        <div class="login-button">
-                            <button class="btn" ><a class="btn button" href="#login">Login</a></button>
+
+                        <div class="input-g">
+                            <div class="input-b">
+                                <label for="username" class="">Username: </label>
+                                <input id="username" name="username" class="" type="text" placeholder="Type your username" required>
+                            </div>
+
+                            <div class="input-b">
+                                <label for="password" class="">Password: </label>
+                                <input id="password" name="password" class="" type="password" placeholder="Type your password" required>
+                            </div>
+
+                            <div class="input-b">
+                                <label for="confirm" class="">Confirm password: </label>
+                                <input id="confirm" name="confirm" type="password" placeholder="Confirm your password" required>
+                            </div>
                         </div>
-
-                    </div>
-
-                        <label for="username" class="">Username: </label>
-                        <input name="username" class="form-control mx-auto w-auto" type="text" required>
-                        <input name="password" type="password" class="form-control" required>
-                        <input name="confirmation" type="password" class="form-control" required>
-                        <button class="btn button" type="submit">Register</button>
-
-                </form>
+                            <button class="btn button-sm" type="submit">Register</button>
+                    </form>
+                </div>
             </div>
 
-        </div>
+        </main>
+<!--
         <main>
             <h1 class="">Create Account</h1>
             <form action="/register" method="post" class="needs-validation" novalidate>
@@ -79,6 +97,7 @@
             </form>
 
         </main>
+-->
 
 <!--
         <main class="container-fluid py-5 text-center">
@@ -87,7 +106,7 @@
                  <footer class="mb-5 mt-5 small text-center text-muted">
             Powered by <a href="https://github.com/valentejorge/">valentejorge</a>
         </footer>
-        -->
+-->
     </body>
 
 </html>

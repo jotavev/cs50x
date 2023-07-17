@@ -1,0 +1,138 @@
+main {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background: #ff0000;*/
+}
+.container-c {
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .212);
+    border-radius: 30px;
+}
+.form-image {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fde3a7d7;
+    padding: 1rem;
+    border-radius: 30px;
+}
+.form-image img {
+    width: 31rem;
+}
+.form {
+    border-radius: 30px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 3rem;
+}
+.form-header {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+.form-header h1::after {
+    content: '';
+    display: block;
+    width: 5rem;
+    height: 0.3rem;
+    background-color: #ff0000;
+    margin: 0 auto;
+    position: absolute;
+    border-radius: 10px;
+}
+.login-button {
+    display: flex;
+    align-items: center;
+}
+.login-button a {
+    border: none;
+    background-color: #ff0000;
+    padding: 0.4rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+}
+.login-button a:hover {
+    background-color: #cc0000;
+}
+.input-g {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+.input-b {
+    display: flex;
+    flex-direction: column;
+    padding: 0.1rem;
+    width: 100%;
+}
+.input-b input {
+    margin: 0.6rem 0;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid #fff;
+    outline: 1px solid #fff;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #0000001c;
+    font-size: 0.8rem;
+}
+.input-b input:hover {
+    background-color: #eeeeee65;
+}
+.input-b input:focus-visible {
+    outline: 1px solid #ff0000;
+    transition: ease 0.3s;
+}
+.input-b input::placeholder {
+    color: #000000be;
+}
+.button-sm {
+    width: 100%;
+    border: none;
+    background-color: #ff0000;
+    padding: 0.62rem;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+}
+.button-sm:hover {
+    background-color: #cc0000;
+    color: #fff;
+}
+
+@media screen and (max-width: 1230px) {
+
+    .form-image {
+        display: none;
+    }
+    .container-c {
+        width: 50%;
+    }
+    .form {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 785px) {
+    .container-c {
+        width: 90%;
+        height: auto;
+    }
+    .input-g {
+        flex-direction: column;
+    }
+    .form form{
+        width: 100%;
+    }
+}
