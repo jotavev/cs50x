@@ -14,3 +14,9 @@ def index():
 def register():
     """Register a new restaurant"""
     return render_template("register.html")
+
+
+@main_bp.route("/login")
+def login():
+    """Login user"""
+    return render_template("login.html")
