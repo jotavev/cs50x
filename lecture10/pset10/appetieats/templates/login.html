@@ -1,8 +1,11 @@
 {% extends "layout-login-form.html" %}
+{% block img %}
+<img src="static/undraw_cooking_p7m1.svg" alt="cooking image">
+{% endblock %}
 
 {% block form %}
 <div class="form">
-    <form action="#">
+    <form method="post" action="/login" >
         <div class="form-header">
 
             <div class="title">
