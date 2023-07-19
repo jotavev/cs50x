@@ -65,8 +65,20 @@ main {
     text-decoration: none;
     color: #fff;
 }
+
 .login-button a:hover {
+    color: #fff;
     background-color: #cc0000;
+    border-color: #cc0000;
+}
+.login-button a:focus,
+.login-button a.focus {
+    color: #fff;
+    background-color: #cc0000;
+    border-color: #cc0000;
+    box-shadow: 0 0 0 0.2rem rgba(204, 0, 0, 0.5);
+    outline: none;
+    transition: ease 0.3s;
 }
 .input-g {
     display: flex;
@@ -83,14 +95,15 @@ main {
 .input-b input {
     margin: 0.6rem 0;
     padding: 0.8rem 1.2rem;
-    border: 1px solid #fff;
-    outline: 1px solid #fff;
+    border: 1px solid #eeeeee65;
+    outline: 1px solid #eeeeee65;
     border-radius: 10px;
     box-shadow: 1px 1px 6px #0000001c;
     font-size: 0.8rem;
 }
 .input-b input:hover {
     background-color: #eeeeee65;
+    transition: ease 0.3s;
 }
 .input-b input:focus-visible {
     outline: 1px solid #ff0000;
