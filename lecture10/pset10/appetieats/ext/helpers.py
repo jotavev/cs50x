@@ -5,7 +5,6 @@ from appetieats.ext.database import db
 from werkzeug.security import check_password_hash, generate_password_hash
 
 
-
 def login_required(f):
     """
     Decorate routes to require login.
@@ -69,8 +68,4 @@ def check_credentials(username, password):
 def log_user(username):
     user = Users.query.filter_by(username=username).first() or abort(
             403, "fatal error")
-
     session["user_id"] = user.id
-
-    # Redirect user to home page
-    return redirect("/")
