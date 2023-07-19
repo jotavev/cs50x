@@ -3,11 +3,12 @@
 }
 .button {
     background-color: #ff0000;
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: #fff !important;
     border-radius: 10px;
     border-color: #ff0000;
     transition: all 0.3s;
+    outline: none;
 }
 .button:hover {
     color: #fff;
@@ -28,7 +29,8 @@
     border-color: #ff0000;
     transition: all 0.3s;
     border: 1px solid;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    outline: none;
 }
 .button-s:hover {
     color: #fff;
