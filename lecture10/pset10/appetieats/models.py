@@ -30,3 +30,19 @@ class ProductImages(db.Model, SerializerMixin):
         'products.id', use_alter=True))
     image_path = db.Column(db.String(200), nullable=False)
     image_data = db.Column(db.LargeBinary, nullable=False)
+
+
+class RestaurantsData(db.Model, SerializerMixin):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(200), nullable=False)
+    address = db.Column(db.String(200), nullable=False)
+    phone = db.Column(db.String(20), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+
+
+class RestaurantOpeningHours(db.Model, SerializerMixin):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    restaurant_id = db.Column(db.Integer, db.ForeignKey('restaurants_data.id'), nullable=False)
+    day_of_week = db.Column(db.Integer, nullable=False)
+    opening_time = db.Column(db.Time, nullable=False)
+    closing_time = db.Column(db.Time, nullable=False)
