@@ -24,6 +24,7 @@ def register():
 
         verify_user_register_data(username, password, confirm)
         register_user(username, password)
+        # TODO: colect other info in same route
 
         # TODO: redirect to admin page of restaurant
         return redirect("/restaurant-setup")
