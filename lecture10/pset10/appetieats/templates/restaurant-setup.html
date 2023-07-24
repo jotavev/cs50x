@@ -16,14 +16,32 @@
         <div class="form-header">
 
             <div class="title">
-                <h1>Restaurant infos</h1>
+                <h1>Register</h1>
             </div>
-            <!--
             <div class="login-button">
                 <a href="/login">Login</a>
             </div>
-            -->
         </div>
+        <section class="step-wizard">
+            <ul class="step-wizard-list">
+                <li class="step-wizard-item current-item">
+                    <span class="progress-count">1</span>
+                    <span class="progress-label">Restaurant info</span>
+                </li>
+                <li class="step-wizard-item">
+                    <span class="progress-count">2</span>
+                    <span class="progress-label">Opening Hours</span>
+                </li>
+                <li class="step-wizard-item">
+                    <span class="progress-count">3</span>
+                    <span class="progress-label">Login Info</span>
+                </li>
+                <li class="step-wizard-item">
+                    <span class="progress-count">4</span>
+                    <span class="progress-label">Agree Terms</span>
+                </li>
+            </ul>
+        </section>
 
         <div id="firstStep">
             <div class="input-g">
@@ -65,17 +83,30 @@
             <button type="button" class="button button-sm w-49" onclick="goPage(3)">Next</button>
         </div>
         <div id="thirdStep" style="display: none;">
-            <div class="input-t">
-                <p>3</p>
+            <div class="input-g">
+                <div class="input-b">
+                    <label for="username" class="">Username: </label>
+                    <input id="username" name="username" class="required" type="text" placeholder="Type your username" required>
+                </div>
+
+                <div class="input-b">
+                    <label for="password" class="">Password: </label>
+                    <input id="password" name="password" class="required" type="password" placeholder="Type your password" required>
+                </div>
+
+                <div class="input-b">
+                    <label for="confirm" class="">Confirm password: </label>
+                    <input id="confirm" name="confirm" class="required" type="password" placeholder="Confirm your password" required>
+                </div>
             </div>
             <button type="button" class="button button-sm w-49" onclick="goPage(2)">Back</button>
             <button type="button" class="button button-sm w-49" onclick="goPage(4)">Next</button>
         </div>
         <div id="fourthStep" style="display: none;">
-            <div class="input-t">
-                <p>4</p>
+            <div class="input-g">
+                <p>agree terms</p>
             </div>
-            <button type="button" class="button button-sm w-49" onclick="goPage(2)">Back</button>
+            <button type="button" class="button button-sm w-49" onclick="goPage(3)">Back</button>
             <button class="button button-sm w-49" type="submit">Register</button>
         </div>
     </form>
