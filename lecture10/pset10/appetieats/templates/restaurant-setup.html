@@ -4,7 +4,7 @@
 .input-b {width: 49%;}
 .w-49 {width: 49%;}
 </style>
-<script src="static/js/register.js"></script>
+<script src="static/js/steps.js"></script>
 {% endblock %}
 {% block img %}
 <img src="static/undraw_cooking_p7m1.svg" alt="cooking image">
@@ -57,73 +57,101 @@
                     </div>
 
                     <div class="input-b">
-                        <label for="number" class="">Phone number: </label>
-                        <input id="number" name="phone" class="required" type="number" placeholder="Type the phone number of restaurant" required>
-                    </div>
-                    <div class="input-b">
                         <label for="color" class="">Color theme: </label>
-                        <input id="color" name="color" class="required" type="color" placeholder="Select the color of restaurant" value="#ff0000" required>
+                        <input id="color" name="color" class="required" type="color" required>
                     </div>
+
+                    <div class="input-b">
+                        <label for="number" class="">Phone number: </label>
+                        <input id="number" name="phone" class="required" type="text" placeholder="Type the phone number of restaurant" required>
+                    </div>
+
                 </div>
                 <button type="button" class="button button-sm" onclick="goPage(2)">Next</button>
             </div>
             <div id="secondStep" style="display: none;">
-                <div class="input-t">
-                    <div class="time-row">
-                        <label for="monday" class="checkbox-l">
-                            <input class="checkbox-c" id="monday" name="monday" type="checkbox">
-                            Monday
-                        </label>
-                        <input type="time" name="opening_time" placeholder="Opening Time">
-                        <input type="time" name="closing_time" placeholder="Closing Time">
-                    </div>
-                    <div class="time-row">
+                <div class="input-t-g">
+                    <div class="time-row mb-2">
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="tuesday">
-                            <label class="form-check-label" for="tuesday">Tuesday</label>
+                            <input class="form-check-input mr-1vw" type="checkbox" id="everyday">
+                            <label class="form-check-label mt-1 mb-2" for="everyday">Same everyday</label>
                         </div>
-                        <input type="time" name="opening_time" placeholder="Opening Time">
-                        <input type="time" name="closing_time" placeholder="Closing Time">
+                        <div class="input-t d-flex" id="everyday-input">
+                            <input class="w-100" type="text" name="opening_time" placeholder="Opening Time">
+                            <input class="w-100" type="text" name="closing_time" placeholder="Closing Time">
+                        </div>
                     </div>
-                    <div class="time-row">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="tuesday">
-                            <label class="form-check-label" for="tuesday">Tuesday</label>
+                    <div id="weekdays">
+                    <div class="time-row d-flex align-items-center justify-content-between mb-2">
+                        <div class="form-check form-switch day-container">
+                            <input class="form-check-input mr-1vw" type="checkbox" id="monday">
+                            <label class="form-check-label mt-1" for="monday">Mon</label>
                         </div>
-                        <input type="time" name="opening_time" placeholder="Opening Time">
-                        <input type="time" name="closing_time" placeholder="Closing Time">
+                        <div class="input-t d-flex">
+                            <input class="w-100" type="text" name="opening_time" placeholder="Opening Time">
+                            <input class="w-100" type="text" name="closing_time" placeholder="Closing Time">
+                        </div>
                     </div>
-                    <div class="time-row">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="tuesday">
-                            <label class="form-check-label" for="tuesday">Tuesday</label>
+                    <div class="time-row d-flex align-items-center mb-2">
+                        <div class="form-check form-switch day-container">
+                            <input class="form-check-input mr-1vw" type="checkbox" id="tuesday">
+                            <label class="form-check-label mt-1" for="tuesday">Tue</label>
                         </div>
-                        <input type="time" name="opening_time" placeholder="Opening Time">
-                        <input type="time" name="closing_time" placeholder="Closing Time">
+                        <div class="input-t d-flex">
+                            <input class="w-100" type="text" name="opening_time" placeholder="Opening Time">
+                            <input class="w-100" type="text" name="closing_time" placeholder="Closing Time">
+                        </div>
                     </div>
-                    <div class="time-row">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="tuesday">
-                            <label class="form-check-label" for="tuesday">Tuesday</label>
+                    <div class="time-row d-flex align-items-center mb-2">
+                        <div class="form-check form-switch day-container">
+                            <input class="form-check-input mr-1vw" type="checkbox" id="wednesday">
+                            <label class="form-check-label mt-1" for="wednesday">Wed</label>
                         </div>
-                        <input type="time" name="opening_time" placeholder="Opening Time">
-                        <input type="time" name="closing_time" placeholder="Closing Time">
+                        <div class="input-t d-flex">
+                            <input class="w-100" type="text" name="opening_time" placeholder="Opening Time">
+                            <input class="w-100" type="text" name="closing_time" placeholder="Closing Time">
+                        </div>
                     </div>
-                    <div class="time-row">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="tuesday">
-                            <label class="form-check-label" for="tuesday">Tuesday</label>
+                    <div class="time-row d-flex align-items-center mb-2">
+                        <div class="form-check form-switch day-container">
+                            <input class="form-check-input mr-1vw" type="checkbox" id="thursday">
+                            <label class="form-check-label mt-1" for="thursday">Thu</label>
                         </div>
-                        <input type="time" name="opening_time" placeholder="Opening Time">
-                        <input type="time" name="closing_time" placeholder="Closing Time">
+                        <div class="input-t d-flex">
+                            <input class="w-100" type="text" name="opening_time" placeholder="Opening Time">
+                            <input class="w-100" type="text" name="closing_time" placeholder="Closing Time">
+                        </div>
                     </div>
-                    <div class="time-row">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="tuesday">
-                            <label class="form-check-label" for="tuesday">Tuesday</label>
+                    <div class="time-row d-flex align-items-center mb-2">
+                        <div class="form-check form-switch day-container">
+                            <input class="form-check-input mr-1vw" type="checkbox" id="friday">
+                            <label class="form-check-label mt-1" for="friday">Fri</label>
                         </div>
-                        <input type="time" name="opening_time" placeholder="Opening Time">
-                        <input type="time" name="closing_time" placeholder="Closing Time">
+                        <div class="input-t d-flex">
+                            <input class="w-100" type="text" name="opening_time" placeholder="Opening Time">
+                            <input class="w-100" type="text" name="closing_time" placeholder="Closing Time">
+                        </div>
+                    </div>
+                    <div class="time-row d-flex align-items-center mb-2">
+                        <div class="form-check form-switch day-container">
+                            <input class="form-check-input mr-1vw" type="checkbox" id="saturday">
+                            <label class="form-check-label mt-1" for="saturday">Sat</label>
+                        </div>
+                        <div class="input-t d-flex">
+                            <input class="w-100" type="text" name="opening_time" placeholder="Opening Time">
+                            <input class="w-100" type="text" name="closing_time" placeholder="Closing Time">
+                        </div>
+                    </div>
+                    <div class="time-row d-flex align-items-center mb-2">
+                        <div class="form-check form-switch day-container">
+                            <input class="form-check-input mr-1vw" type="checkbox" id="sunday">
+                            <label class="form-check-label mt-1" for="sunday">Sun</label>
+                        </div>
+                        <div class="input-t d-flex">
+                            <input class="w-100" type="text" name="opening_time" placeholder="Opening Time">
+                            <input class="w-100" type="text" name="closing_time" placeholder="Closing Time">
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <button type="button" class="button button-sm w-49" onclick="goPage(1)">Back</button>
@@ -150,8 +178,8 @@
                 <button type="button" class="button button-sm w-49" onclick="goPage(4)">Next</button>
             </div>
             <div id="fourthStep" style="display: none;">
-                <div class="input-t">
-                    <h6 class="text-center"> 
+                <div class="input-t-g t-justify">
+                    <h6 class="text-center mx-auto"> 
                         Terms of Use:
                     </h6>
                     <p> 
@@ -207,4 +235,5 @@
             </div>
         </div>
     </form>
+<script src="static/js/open-hour.js"></script>
 {% endblock %}

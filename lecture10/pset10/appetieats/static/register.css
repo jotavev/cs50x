@@ -85,6 +85,7 @@ main {
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 1rem 0;
+    min-width: 450px;
     max-height: 14rem;
     overflow-y: scroll;
 }
@@ -123,18 +124,69 @@ main {
     background-color: #eeeeee65;
     transition: ease 0.3s;
 }
-.input-t {
+.input-t-g {
     display: flex;
     flex-wrap: wrap;
     flex-grow: 1;
     justify-content: space-between;
     padding: 1rem 0;
     width: 100%;
+    min-width: 450px;
     max-height: 218px;
+    height: 218px;
     overflow-y: scroll;
+}
+.input-t {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.input-t input {
+    flex: 1;
+    margin: 0 0.3rem;
+    padding: 8px 10px;
+    border: 1px solid #eeeeee65;
+    outline: 1px solid #eeeeee65;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #0000001f;
+    font-size: 0.8rem;
+}
+.mr-1vw {
+    margin-right: 0.8vw;
 }
 .time-row {
     width: 100%;
+}
+.form-switch .form-check-input {
+    height: 24px;
+    width: 40px;
+}
+.form-switch .form-check-input:focus {
+    border-color: rgba(0, 0, 0, 0.25);
+    outline: 0;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(0,0,0,0.25)'/></svg>");
+}
+.form-switch .form-check-input:checked {
+    background-color: #ff0000;
+    border-color: #ff0000;
+    border: none;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,255,255,1.0)'/></svg>");
+}
+.form-check-label {
+    font-size: 1.1rem;
+}
+.day-container {
+    display: flex;
+    align-items: center;
+    width: 100px;
+}
+.t-justify {
+    text-align: justify;
+    text-justify: inter-word;
+}
+.hide-important {
+    display: none !important;
 }
 .button-sm {
     width: 100%;
@@ -269,6 +321,9 @@ main {
     .form {
         width: 100%;
     }
+    .form form{
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 1064px) {
@@ -290,8 +345,17 @@ main {
         overflow-y: scroll;
         flex-wrap: nowrap;
     }
-    .input-t {
+    .input-t-g {
         max-height: 300px;
+        height: 300px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .input-g {
+        min-width: 10px;
+    }
+    .progress-label {
+        font-size: 9px;
     }
 }
 @media screen and (max-width: 420px) {
