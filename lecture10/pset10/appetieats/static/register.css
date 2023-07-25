@@ -114,6 +114,15 @@ main {
 .input-b input::placeholder {
     color: #000000be;
 }
+.input-b input[type="color"] {
+    width: 100%;
+    padding: 1.4rem 1.2rem;
+    background-color: #fff;
+}
+.input-b input[type="color"]:hover {
+    background-color: #eeeeee65;
+    transition: ease 0.3s;
+}
 .input-t {
     display: flex;
     flex-wrap: wrap;
@@ -252,9 +261,11 @@ main {
     .form-image {
         display: none;
     }
+    /*
     .container-c {
         width: 50%;
     }
+    */
     .form {
         width: 100%;
     }
@@ -264,9 +275,6 @@ main {
     .container-c {
         width: 90%;
         height: auto;
-    }
-    .input-g {
-        flex-direction: column;
     }
     .input-b {
         width: 100% !important;
@@ -278,9 +286,12 @@ main {
         flex-direction: column;
         z-index: 5;
         padding-right: 0rem;
-        max-height: 30rem;
+        max-height: 300px;
         overflow-y: scroll;
         flex-wrap: nowrap;
+    }
+    .input-t {
+        max-height: 300px;
     }
 }
 @media screen and (max-width: 420px) {
