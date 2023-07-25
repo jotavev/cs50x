@@ -188,6 +188,15 @@ main {
 .hide-important {
     display: none !important;
 }
+.form-check-input:checked {
+    background-color: red;
+    border-color: red;
+}
+.form-check-input:focus {
+    box-shadow: none;
+    border-color: red;
+}
+
 .button-sm {
     width: 100%;
     border: none;
@@ -346,6 +355,7 @@ main {
         flex-wrap: nowrap;
     }
     .input-t-g {
+        min-width: 10px;
         max-height: 300px;
         height: 300px;
     }

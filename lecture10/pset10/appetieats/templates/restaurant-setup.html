@@ -77,8 +77,8 @@
                             <label class="form-check-label mt-1 mb-2" for="everyday">Same everyday</label>
                         </div>
                         <div class="input-t d-flex" id="everyday-input">
-                            <input class="w-100" type="text" name="opening_time" placeholder="Opening Time">
-                            <input class="w-100" type="text" name="closing_time" placeholder="Closing Time">
+                            <input class="w-100 time" type="text" name="opening_time" placeholder="Opening Time">
+                            <input class="w-100 time" type="text" name="closing_time" placeholder="Closing Time">
                         </div>
                     </div>
                     <div id="weekdays">
@@ -88,8 +88,8 @@
                             <label class="form-check-label mt-1" for="monday">Mon</label>
                         </div>
                         <div class="input-t d-flex">
-                            <input class="w-100" type="text" name="opening_time" placeholder="Opening Time">
-                            <input class="w-100" type="text" name="closing_time" placeholder="Closing Time">
+                            <input class="w-100 time" type="text" name="opening_time" placeholder="Opening Time">
+                            <input class="w-100 time" type="text" name="closing_time" placeholder="Closing Time">
                         </div>
                     </div>
                     <div class="time-row d-flex align-items-center mb-2">
@@ -98,8 +98,8 @@
                             <label class="form-check-label mt-1" for="tuesday">Tue</label>
                         </div>
                         <div class="input-t d-flex">
-                            <input class="w-100" type="text" name="opening_time" placeholder="Opening Time">
-                            <input class="w-100" type="text" name="closing_time" placeholder="Closing Time">
+                            <input class="w-100 time" type="text" name="opening_time" placeholder="Opening Time">
+                            <input class="w-100 time" type="text" name="closing_time" placeholder="Closing Time">
                         </div>
                     </div>
                     <div class="time-row d-flex align-items-center mb-2">
@@ -108,8 +108,8 @@
                             <label class="form-check-label mt-1" for="wednesday">Wed</label>
                         </div>
                         <div class="input-t d-flex">
-                            <input class="w-100" type="text" name="opening_time" placeholder="Opening Time">
-                            <input class="w-100" type="text" name="closing_time" placeholder="Closing Time">
+                            <input class="w-100 time" type="text" name="opening_time" placeholder="Opening Time">
+                            <input class="w-100 time" type="text" name="closing_time" placeholder="Closing Time">
                         </div>
                     </div>
                     <div class="time-row d-flex align-items-center mb-2">
@@ -118,8 +118,8 @@
                             <label class="form-check-label mt-1" for="thursday">Thu</label>
                         </div>
                         <div class="input-t d-flex">
-                            <input class="w-100" type="text" name="opening_time" placeholder="Opening Time">
-                            <input class="w-100" type="text" name="closing_time" placeholder="Closing Time">
+                            <input class="w-100 time" type="text" name="opening_time" placeholder="Opening Time">
+                            <input class="w-100 time" type="text" name="closing_time" placeholder="Closing Time">
                         </div>
                     </div>
                     <div class="time-row d-flex align-items-center mb-2">
@@ -128,8 +128,8 @@
                             <label class="form-check-label mt-1" for="friday">Fri</label>
                         </div>
                         <div class="input-t d-flex">
-                            <input class="w-100" type="text" name="opening_time" placeholder="Opening Time">
-                            <input class="w-100" type="text" name="closing_time" placeholder="Closing Time">
+                            <input class="w-100 time" type="text" name="opening_time" placeholder="Opening Time">
+                            <input class="w-100 time" type="text" name="closing_time" placeholder="Closing Time">
                         </div>
                     </div>
                     <div class="time-row d-flex align-items-center mb-2">
@@ -138,8 +138,8 @@
                             <label class="form-check-label mt-1" for="saturday">Sat</label>
                         </div>
                         <div class="input-t d-flex">
-                            <input class="w-100" type="text" name="opening_time" placeholder="Opening Time">
-                            <input class="w-100" type="text" name="closing_time" placeholder="Closing Time">
+                            <input class="w-100 time" type="text" name="opening_time" placeholder="Opening Time">
+                            <input class="w-100 time" type="text" name="closing_time" placeholder="Closing Time">
                         </div>
                     </div>
                     <div class="time-row d-flex align-items-center mb-2">
@@ -148,8 +148,8 @@
                             <label class="form-check-label mt-1" for="sunday">Sun</label>
                         </div>
                         <div class="input-t d-flex">
-                            <input class="w-100" type="text" name="opening_time" placeholder="Opening Time">
-                            <input class="w-100" type="text" name="closing_time" placeholder="Closing Time">
+                            <input class="w-100 time" type="text" name="opening_time" placeholder="Opening Time">
+                            <input class="w-100 time" type="text" name="closing_time" placeholder="Closing Time">
                         </div>
                     </div>
                     </div>
@@ -225,8 +225,8 @@
                     By clicking the acceptance button or continuing to use the system, the user agrees to be legally bound by these terms of use.
                     </p>
                     <div>
-                        <input class="checkbox-c" id="agree" name="agree" type="checkbox" required>
-                        <label for="agree" class="checkbox-l">I Agree Terms</label>
+                        <input class="form-check-input" id="agree" name="agree" type="checkbox" required>
+                        <label for="agree" class="form-check-label">I Agree Terms</label>
                     </div>
 
                 </div>
@@ -235,5 +235,6 @@
             </div>
         </div>
     </form>
-<script src="static/js/open-hour.js"></script>
+<script src="static/js/weekdays-hide.js"></script>
+<script src="static/js/open-hour-format.js"></script>
 {% endblock %}

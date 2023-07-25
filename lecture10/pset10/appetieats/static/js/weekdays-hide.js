@@ -1,8 +1,6 @@
 const everyday = document.querySelector("#everyday")
 const weekdays = document.querySelector("#weekdays");
 const everydayInput = document.querySelector("#everyday-input")
-console.log(weekdays)
-console.log(everydayInput)
 
 function toggleWeekdayVisibility() {
     if (everyday.checked) {
