@@ -31,7 +31,7 @@ main {
     border-radius: 30px;
     width: 50%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
     background-color: #fff;
@@ -85,6 +85,8 @@ main {
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 1rem 0;
+    max-height: 14rem;
+    overflow-y: scroll;
 }
 .input-b {
     display: flex;
@@ -111,6 +113,19 @@ main {
 }
 .input-b input::placeholder {
     color: #000000be;
+}
+.input-t {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    justify-content: space-between;
+    padding: 1rem 0;
+    width: 100%;
+    max-height: 218px;
+    overflow-y: scroll;
+}
+.time-row {
+    width: 100%;
 }
 .button-sm {
     width: 100%;
@@ -156,7 +171,7 @@ main {
     display: flex;
     flex-direction: column;
     text-align: center;
-    min-width: 90px;
+    min-width: 40px;
     position: relative;
 }
 .step-wizard-item + .step-wizard-item:after {
@@ -266,5 +281,10 @@ main {
         max-height: 30rem;
         overflow-y: scroll;
         flex-wrap: nowrap;
+    }
+}
+@media screen and (max-width: 420px) {
+    .progress-label {
+        font-size: 9px;
     }
 }
