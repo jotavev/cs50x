@@ -1,8 +1,9 @@
 from functools import wraps
-from flask import redirect, session, abort
-from appetieats.models import Users
+from flask import redirect, session, abort, request
+from appetieats.models import Users, RestaurantsData, RestaurantOpeningHours
 from appetieats.ext.database import db
 from werkzeug.security import check_password_hash, generate_password_hash
+from datetime import datetime
 
 
 def login_required(f):
@@ -19,11 +20,37 @@ def login_required(f):
     return decorated_function
 
 
-def register_user(username, password):
-    psw_hash = generate_password_hash(password)
-    new_user = Users(username=username, hash=psw_hash)
+def register_user(user_data, weekdays):
+    psw_hash = generate_password_hash(user_data["password"])
+    new_user = Users(username=user_data["username"], hash=psw_hash)
     db.session.add(new_user)
     db.session.commit()
+
+    user_id = new_user.id
+
+    restaurant = RestaurantsData(
+            name=user_data["name"],
+            address=user_data["address"],
+            phone=user_data["phone"],
+            user_id=user_id
+    )
+    db.session.add(restaurant)
+    db.session.commit()
+
+    for i, hours in weekdays.items():
+        print(i)
+        if hours["is_open"]:
+            opening_time = datetime.strptime(hours["open_at"], "%H:%M").time()
+            closing_time = datetime.strptime(hours["close_at"], "%H:%M").time()
+
+            opening_hours = RestaurantOpeningHours(
+                    restaurant_id=restaurant.id,
+                    day_of_week=i,
+                    opening_time=opening_time,
+                    closing_time=closing_time
+                    )
+            db.session.add(opening_hours)
+            db.session.commit()
 
 
 def verify_user_register_data(username, password, confirm):

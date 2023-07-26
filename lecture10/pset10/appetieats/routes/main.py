@@ -2,6 +2,7 @@ from flask import (Blueprint, render_template, flash, request, abort, redirect,
                    session)
 from appetieats.ext.helpers import (login_required, verify_user_register_data,
                                     check_credentials, register_user, log_user)
+from appetieats.ext.register_tools import take_user_data, take_opening_hours
 
 main_bp = Blueprint('main', __name__)
 
@@ -16,20 +17,21 @@ def index():
 def register():
     """Register a new restaurant"""
     if request.method == "POST":
-        username, password, confirm = (
-                request.form.get("username", type=str),
-                request.form.get("password", type=str),
-                request.form.get("confirm", type=str)
-        )
 
-        verify_user_register_data(username, password, confirm)
-        register_user(username, password)
+        user_data = take_user_data()
+        weekdays = take_opening_hours(user_data["everyday"])
+
+        verify_user_register_data(user_data["username"], user_data["password"],
+                                  user_data["confirm"])
+
+        register_user(user_data, weekdays)
+        # register_user(username, password)
         # TODO: colect other info in same route
 
         # TODO: redirect to admin page of restaurant
-        return redirect("/restaurant-setup")
+        return render_template("restaurant-setup.html")
     else:
-        return render_template("register.html")
+        return render_template("restaurant-setup.html")
 
 
 @main_bp.route("/login", methods=["GET", "POST"])
