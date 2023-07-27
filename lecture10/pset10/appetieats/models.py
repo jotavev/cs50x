@@ -37,6 +37,7 @@ class RestaurantsData(db.Model, SerializerMixin):
     name = db.Column(db.String(200), nullable=False)
     address = db.Column(db.String(200), nullable=False)
     phone = db.Column(db.String(20), nullable=False)
+    color = db.Column(db.String(8), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
 

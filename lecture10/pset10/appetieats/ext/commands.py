@@ -1,5 +1,6 @@
 from appetieats.ext.database import db
-from appetieats.models import Users
+from appetieats.models import Users, RestaurantsData
+from werkzeug.security import generate_password_hash
 
 
 def create_db():
@@ -17,8 +18,16 @@ def populate_users():
     data = [
             Users(
                 id=1,
-                username="master",
-                hash="123"
+                username="dev",
+                hash=generate_password_hash("dev"),
+                ),
+            RestaurantsData(
+                id=1,
+                name="devrest",
+                address="3street",
+                phone="555-000-000",
+                color="#ff0000",
+                user_id=1
                 )
             ]
     db.session.bulk_save_objects(data)

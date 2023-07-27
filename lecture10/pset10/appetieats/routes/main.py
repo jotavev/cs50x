@@ -25,13 +25,12 @@ def register():
                                   user_data["confirm"])
 
         register_user(user_data, weekdays)
-        # register_user(username, password)
-        # TODO: colect other info in same route
-
-        # TODO: redirect to admin page of restaurant
-        return render_template("restaurant-setup.html")
+        # TODO: log user and go to dashboard template
+        log_user(user_data["username"])
+        # redirect("/dashboard")
+        return redirect("/admin")
     else:
-        return render_template("restaurant-setup.html")
+        return render_template("register.html")
 
 
 @main_bp.route("/login", methods=["GET", "POST"])
@@ -47,7 +46,7 @@ def login():
         check_credentials(username, password)
         log_user(username)
         print(session.get("user_id"))
-        return redirect("/restaurant-setup")
+        return redirect("/admin")
     else:
         return render_template("login.html")
 
@@ -63,10 +62,10 @@ def logout():
     return redirect("/")
 
 
-@main_bp.route("/restaurant-setup")
+@main_bp.route("/admin")
 @login_required
-def restaurant_setup():
-    return render_template("restaurant-setup.html")
+def admin():
+    return render_template("admin.html")
 
 
 @main_bp.route("/error")
