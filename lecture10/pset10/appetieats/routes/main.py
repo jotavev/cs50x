@@ -62,30 +62,6 @@ def logout():
     return redirect("/")
 
 
-@main_bp.route("/admin")
-@login_required
-def admin():
-    return render_template("admin/admin.html")
-
-
-@main_bp.route("/admin/dashboard")
-@login_required
-def dashboard():
-    return render_template("admin/dashboard.html")
-
-
-@main_bp.route("/admin/edit-menu")
-@login_required
-def edit_menu():
-    return render_template("admin/edit-menu.html")
-
-
-@main_bp.route("/admin/settings")
-@login_required
-def settings():
-    return render_template("admin/settings.html")
-
-
 @main_bp.route("/error")
 def error():
     """Error message page"""
