@@ -30,7 +30,7 @@ def register():
         # redirect("/dashboard")
         return redirect("/admin")
     else:
-        return render_template("register.html")
+        return render_template("auth/register.html")
 
 
 @main_bp.route("/login", methods=["GET", "POST"])
@@ -48,7 +48,7 @@ def login():
         print(session.get("user_id"))
         return redirect("/admin")
     else:
-        return render_template("login.html")
+        return render_template("auth/login.html")
 
 
 @main_bp.route("/logout")
@@ -65,7 +65,25 @@ def logout():
 @main_bp.route("/admin")
 @login_required
 def admin():
-    return render_template("admin.html")
+    return render_template("admin/admin.html")
+
+
+@main_bp.route("/admin/dashboard")
+@login_required
+def dashboard():
+    return render_template("admin/dashboard.html")
+
+
+@main_bp.route("/admin/edit-menu")
+@login_required
+def edit_menu():
+    return render_template("admin/edit-menu.html")
+
+
+@main_bp.route("/admin/settings")
+@login_required
+def settings():
+    return render_template("admin/settings.html")
 
 
 @main_bp.route("/error")
