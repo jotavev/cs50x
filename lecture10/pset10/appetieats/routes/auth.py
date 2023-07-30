@@ -12,13 +12,15 @@ def register():
     if request.method == "POST":
 
         user_data = take_user_data()
-        weekdays = take_opening_hours(user_data["everyday"])
+        week_opening_time = take_opening_hours(user_data["is_open_everyday"])
 
         verify_user_register_data(user_data["username"], user_data["password"],
                                   user_data["confirm"])
 
-        register_user(user_data, weekdays)
+        register_user(user_data, week_opening_time)
+
         log_user(user_data["username"])
+        print(user_data["username"])
 
         return redirect("/admin/dashboard")
     else:

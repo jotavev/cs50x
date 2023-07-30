@@ -32,13 +32,13 @@ def register_user(user_data, weekdays):
             name=user_data["name"],
             address=user_data["address"],
             phone=user_data["phone"],
+            color=user_data["color"],
             user_id=user_id
     )
     db.session.add(restaurant)
     db.session.commit()
 
     for i, hours in weekdays.items():
-        print(i)
         if hours["is_open"]:
             opening_time = datetime.strptime(hours["open_at"], "%H:%M").time()
             closing_time = datetime.strptime(hours["close_at"], "%H:%M").time()

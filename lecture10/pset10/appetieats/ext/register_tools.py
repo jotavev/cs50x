@@ -12,7 +12,7 @@ def take_user_data():
         "username": str,
         "password": str,
         "confirm": str,
-        "everyday": bool,
+        "is_open_everyday": bool,
         "agree": bool
     }
 
@@ -22,10 +22,10 @@ def take_user_data():
     return form_data
 
 
-def take_opening_hours(everyday):
+def take_opening_hours(is_open_everyday):
     name_days = {"monday": 0, "tuesday": 1, "wednesday": 2, "thursday": 3,
                  "friday": 4, "saturday": 5, "sunday": 6}
-    if everyday:
+    if is_open_everyday:
         weekdays = {day_int: {
             "is_open": request.form.get(day, type=bool),
             "open_at": request.form.get("open_everyday", type=str),
