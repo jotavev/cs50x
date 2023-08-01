@@ -1,25 +1,31 @@
-    function formatTimeInput(input) {
-        const cleanedInput = input.replace(/[^\d]/g, '');
+function formatTimeInput(input) {
+    let cleanedInput = input.replace(/[^\d]/g, '');
 
-        if (cleanedInput.length >= 3) {
-            const hours = cleanedInput.slice(0, 2);
-            const minutes = cleanedInput.slice(2, 4);
-            return `${hours}:${minutes}`;
+    if (cleanedInput.length >= 3) {
+        let hours = cleanedInput.slice(0, 2);
+        let minutes = cleanedInput.slice(2, 4);
+        if (hours > 23) {
+            hours = 00;
         }
-
-        return cleanedInput;
+        if (minutes > 59) {
+            minutes = 00;
+        }
+        return `${hours}:${minutes}`;
     }
 
-    function handleTimeInput(inputElement) {
-        const currentValue = inputElement.value;
+    return cleanedInput;
+}
 
-        const formattedValue = formatTimeInput(currentValue);
+function handleTimeInput(inputElement) {
+    const currentValue = inputElement.value;
 
-        inputElement.value = formattedValue;
-    }
+    const formattedValue = formatTimeInput(currentValue);
+
+    inputElement.value = formattedValue;
+}
 
 const timeInputs = document.querySelectorAll('.time');
 console.log(timeInputs)
-    timeInputs.forEach((input) => {
-        input.addEventListener('input', () => handleTimeInput(input));
-    });
+timeInputs.forEach((input) => {
+    input.addEventListener('input', () => handleTimeInput(input));
+});
