@@ -17,8 +17,11 @@
         <!-- https://favicon.io/emoji-favicons/spaghetti/ -->
         <link href="/static/assets/ico/favicon.ico" rel="icon">
 
+        <!--
         <link href="/static/css/styles.css" rel="stylesheet">
         <link href="/static/css/register.css" rel="stylesheet">
+        -->
+        <link href="/static/css/admin.css" rel="stylesheet">
         <link href="/static/css/nav.css" rel="stylesheet">
 
         <title>AppetiEats: {% block title %}{% endblock %}</title>
@@ -48,7 +51,9 @@
         -->
 
         <main>
+            <div class="main_content">
             {% block main %}{% endblock %}
+            </div>
         </main>
 
         <nav class="nav">
