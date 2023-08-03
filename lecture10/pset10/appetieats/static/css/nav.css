@@ -52,7 +52,13 @@ a:hover {
     font-size: 22px;
 }
 
+.main_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .main_content {
+    width: 80%;
     padding-bottom: 55px;
 }
 
