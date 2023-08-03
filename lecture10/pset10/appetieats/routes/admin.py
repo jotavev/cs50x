@@ -27,3 +27,9 @@ def edit_menu():
 @login_required
 def settings():
     return render_template("admin/settings.html")
+
+
+@admin_bp.route("/admin/settings/add")
+@login_required
+def add():
+    return render_template("admin/settings/add.html")
