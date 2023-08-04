@@ -3,9 +3,11 @@
 {% block title %}Register{% endblock %}
 
 {% block head %}
+<link href="/static/css/progress.css" rel="stylesheet">
 <style>
 .input-b {width: 49%;}
 .w-49 {width: 49%;}
+
 </style>
 <script src="/static/js/steps.js"></script>
 {% endblock %}
@@ -52,7 +54,7 @@
                 <div class="input-g">
                     <div class="input-b">
                         <label for="name" class="">Restaurant name: </label>
-                        <input id="name" name="name" class="required" type="text" placeholder="Type the name of your restaurant" required>
+                        <input id="name" name="name" class="std-input required" type="text" placeholder="Type the name of your restaurant" required>
                     </div>
 
                     <div class="input-b">
