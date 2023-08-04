@@ -258,12 +258,3 @@ main {
     .input-g {
         min-width: 10px;
     }
-    .progress-label {
-        font-size: 9px;
-    }
-}
-@media screen and (max-width: 420px) {
-    .progress-label {
-        font-size: 9px;
-    }
-}
