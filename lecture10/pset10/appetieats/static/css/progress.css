@@ -94,3 +94,13 @@
 .current-item .progress-count {
     color: #ee0000;
 }
+@media screen and (max-width: 600px) {
+    .progress-label {
+        font-size: 9px;
+    }
+}
+@media screen and (max-width: 420px) {
+    .progress-label {
+        font-size: 9px;
+    }
+}
