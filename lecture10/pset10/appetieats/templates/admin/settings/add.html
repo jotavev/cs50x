@@ -85,6 +85,24 @@
         event.target.value = price;
     });
 </script>
+<form method="post" action="/#" >
+    <div class="form-header">
+        <div class="title">
+            <h1>Add product</h1>
+        </div>
+    </div>
+
+    <div class="input-box">
+        <div class="input-group">
+            <div class="std-input-box">
+                <label for="username">Product name: </label>
+                <input id="name" name="name" class="std-input required" type="text" placeholder="Type product name" required>
+            </div>
+
+        </div>
+        <button class="std-button" type="submit">Add product</button>
+    </div>
+</form>
 {% endblock %}
 
 {% block edit %}{% endblock %}
