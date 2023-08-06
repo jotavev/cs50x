@@ -24,7 +24,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroupPrepend">$<span>
                 </div>
-                <input type="text" class="form-control" id="price" name="price" required>
+                <input type="text" class="form-control" id="praice" name="price" required>
             </div>
         </div>
         <div class="col-12 mb-3">
@@ -63,28 +63,6 @@
 
 <script src="/static/js/add/crop-image.js"></script>
 
-
-<script>
-    let priceInput = document.getElementById('price');
-
-    // Define a standard value for price field
-    priceInput.value = '0,00';
-
-    // Format the field price when reload page
-    let price = priceInput.value;
-    price = price.replace(/\D/g, '');
-    price = (price / 100).toFixed(2)
-    priceInput.value = price;
-
-    priceInput.addEventListener('input', function(event) {
-        let price = event.target.value;
-
-        price = price.replace(/\D/g, '');
-        price = (price / 100).toFixed(2)
-
-        event.target.value = price;
-    });
-</script>
 <form method="post" action="/#" >
     <div class="form-header">
         <div class="title">
@@ -95,14 +73,48 @@
     <div class="input-box">
         <div class="input-group">
             <div class="std-input-box">
-                <label for="username">Product name: </label>
+                <label for="name">Product name: </label>
                 <input id="name" name="name" class="std-input required" type="text" placeholder="Type product name" required>
             </div>
-
         </div>
-        <button class="std-button" type="submit">Add product</button>
+
+        <div class="input-group">
+            <div class="std-input-box">
+                <label for="price">Price: </label>
+                <input id="price" name="price" class="std-input required" type="text" required>
+            </div>
+        </div>
+        <div class="input-group">
+            <div class="std-input-box">
+                <label for="category">Category: </label>
+                <input id="category" name="category" class="std-input required" type="text" required>
+            </div>
+        </div>
+        <button class="std-button mt-2" type="submit">Add product</button>
     </div>
 </form>
+
+<script>
+    let priceInput = document.getElementById('price');
+
+    // Define a standard value for price field
+    priceInput.value = '$ 0.00';
+
+    // Format the field price when reload page
+    let price = priceInput.value;
+    price = price.replace(/\D/g, '');
+    price = `$ ` + (price / 100).toFixed(2)
+    priceInput.value = price;
+
+    priceInput.addEventListener('input', function(event) {
+        let price = event.target.value;
+
+        price = price.replace(/\D/g, '');
+        price = `$ ` + (price / 100).toFixed(2)
+
+        event.target.value = price;
+    });
+</script>
 {% endblock %}
 
 {% block edit %}{% endblock %}
