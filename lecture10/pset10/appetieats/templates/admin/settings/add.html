@@ -10,23 +10,26 @@
     <h1 class="mt-5 mb-3 text-center">Add dish</h1>
     <form>
         <div class="form-row">
-            <div class="col-12 mb-3">
+            <div class="col-md-6 mb-3">
                 <label for="name">Dish name</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="e.g., hamburger, macaroni..." required>
                 <div class="invalid-feedback">
                     Insert a name of dish
                 </div>
             </div>
-        </div>
-        <div class="col-12 mb-3">
-            <label for="price">Price</label>
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroupPrepend">$<span>
+
+            <div class="col-md-6 mb-3">
+                <label for="price">Price</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupPrepend">$</span>
+                    </div>
+                    <input type="text" class="form-control" id="price" name="price" required>
                 </div>
-                <input type="text" class="form-control" id="praice" name="price" required>
             </div>
         </div>
+
+
         <div class="col-12 mb-3">
             <label for="category">Category</label>
             <select class="form-select" id="category" name="category" required>
@@ -90,6 +93,19 @@
                 <input id="category" name="category" class="std-input required" type="text" required>
             </div>
         </div>
+
+        <div class="input-group">
+            <div class="std-input-box">
+                <label for="category">Category</label>
+                <select class="form-select" id="category" name="category" required>
+                    <option value="" selected disabled>Select a category</option>
+                    {% for category in categories %}
+                    <option value="{{ category['category_name'] }}">{{ category["category_name"] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
         <button class="std-button mt-2" type="submit">Add product</button>
     </div>
 </form>
