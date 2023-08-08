@@ -4,11 +4,13 @@
     --std-spacegray: #eeeeee65;
 }
 
+/*
 .std-input-box {
     width: 100%;
 }
+*/
 
-.std-input-box input {
+.std-input-box input, select {
     width: 100%;
     margin: 0.5rem 0 1rem 0;
     padding: 0.8rem 1.2rem;
@@ -19,17 +21,17 @@
     font-size: 0.8rem;
 }
 
-.std-input-box input:hover {
+.std-input-box input:hover, select:hover {
     background-color: var(--std-spacegray);
     transition: ease 0.3s;
 }
 
-.std-input-box input:focus-visible {
+.std-input-box input:focus-visible, select:focus-visible {
     outline: 1px solid var(--std-red);
     transition: ease 0.3s;
 }
 
-.std-input-box input::placeholder {
+.std-input-box input::placeholder select::placeholder {
     color: #000000be;
 }
 
@@ -40,6 +42,16 @@
 }
 
 .std-input-box input[type="color"]:hover {
+    background-color: var(--std-spacegray);
+    transition: ease 0.3s;
+}
+
+.std-input-box select {
+    padding: 0.9rem;
+    background-color: #fff;
+}
+
+.std-input-box select:hover {
     background-color: var(--std-spacegray);
     transition: ease 0.3s;
 }
@@ -74,4 +86,13 @@
     margin: 0 auto;
     position: absolute;
     border-radius: 10px;
+}
+
+#image-form {
+    display: none;
+}
+
+canvas {
+    display: none; 
+    max-height: 250px;
 }
