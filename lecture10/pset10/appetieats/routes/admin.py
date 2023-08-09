@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 
 from appetieats.ext.helpers import login_required
 
@@ -29,7 +29,12 @@ def settings():
     return render_template("admin/settings.html")
 
 
-@admin_bp.route("/admin/settings/add")
+@admin_bp.route("/admin/settings/add", methods=["GET", "POST"])
 @login_required
 def add():
+    """Add new product"""
+    if request.method == "POST":
+        print("POST")
+        return "POST"
+        return redirect("/admin/add")
     return render_template("admin/settings/add.html")
