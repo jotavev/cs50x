@@ -36,9 +36,16 @@ def settings():
 def add():
     """Add new product"""
     if request.method == "POST":
-        print("POST")
-        return "POST"
-        return redirect("/admin/add")
+        form_data = {}
+        fields = {
+                "name": str,
+                "price": str,
+                "category": str
+        }
+
+        for field, data_type in fields.items():
+            form_data[field] = request.form.get(field, type=data_type)
+        return (f'{form_data}')
     else:
         categories = Categories.query.all()
         return render_template("admin/settings/add.html", categories=categories)
