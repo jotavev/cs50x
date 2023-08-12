@@ -39,7 +39,9 @@ def add():
         print("POST")
         return "POST"
         return redirect("/admin/add")
-    return render_template("admin/settings/add.html")
+    else:
+        categories = Categories.query.all()
+        return render_template("admin/settings/add.html", categories=categories)
 
 
 @admin_bp.route("/admin/settings/manage-categories", methods=["GET", "POST"])
@@ -48,15 +50,14 @@ def manage_categories():
     """Manage categories"""
     if request.method == "POST":
         category = request.form.get("category", type=str)
-        print(category)
-        print("POST")
         new_category = Categories(category_name=category)
+
         db.session.add(new_category)
         db.session.commit()
+
         return redirect("/admin/settings/manage-categories")
     else:
         categories = Categories.query.all()
-        print(categories)
     return render_template("admin/settings/manage-categories.html", categories=categories)
 
 
@@ -66,7 +67,8 @@ def delete_category():
     """Delete a category"""
     id = request.form.get("id")
     category = Categories.query.filter_by(id=id).first()
-    print(category)
+
     db.session.delete(category)
     db.session.commit()
+
     return redirect("/admin/settings/manage-categories")
