@@ -15,6 +15,7 @@ class Products(db.Model, SerializerMixin):
     price = db.Column(db.Float, nullable=False)
     available = db.Column(db.String(5), nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     image_id = db.Column(db.Integer, db.ForeignKey(
         'product_images.id', use_alter=True))
 
