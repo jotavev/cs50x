@@ -3,7 +3,7 @@ var canvas = $("#canvas"),
     $form = $('#product-form'),
     image = $('#image-form');
 
-$('#img').on('change', function() {
+$('#image').on('change', function() {
     if (this.files && this.files[0]) {
         if (this.files[0].type.match(/^image\//)) {
             var reader = new FileReader();
