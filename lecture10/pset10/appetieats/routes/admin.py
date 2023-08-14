@@ -1,8 +1,10 @@
-from flask import Blueprint, render_template, request, redirect
-from appetieats.models import Categories
+from flask import Blueprint, render_template, request, redirect, flash
+from appetieats.models import Categories, Products
 from appetieats.ext.database import db
 
 from appetieats.ext.helpers import login_required
+from appetieats.ext.helper.get_inputs import get_product_data_from_request, get_product_image
+from appetieats.ext.helper.validate_inputs import validate_product_data, validate_product_image
 
 admin_bp = Blueprint('admin', __name__)
 
@@ -36,16 +38,27 @@ def settings():
 def add():
     """Add new product"""
     if request.method == "POST":
-        form_data = {}
-        fields = {
-                "name": str,
-                "price": str,
-                "category": str
-        }
+        product_data = get_product_data_from_request()
+        product_image = get_product_image("image")
 
-        for field, data_type in fields.items():
-            form_data[field] = request.form.get(field, type=data_type)
-        return (f'{form_data}')
+        validate_product_data(product_data)
+        validate_product_image(product_image)
+
+        new_product = Products(
+                name=product_data["name"],
+                description=product_data["description"],
+                price=(product_data["price"]).replace("$ ", ""),
+                available="true",
+                category_id=3,
+                image_id="1"
+            )
+        print(new_product)
+
+        # db.session.add(new_product)
+        # db.session.commit()
+
+        flash("Added", "success")
+        return redirect("/admin/settings/add")
     else:
         categories = Categories.query.all()
         return render_template("admin/settings/add.html", categories=categories)
