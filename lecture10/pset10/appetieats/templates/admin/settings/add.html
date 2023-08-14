@@ -7,7 +7,7 @@
 
 {% block main %}
 
-<form method="post" action="/admin/settings/add" >
+<form method="post" action="/admin/settings/add" enctype="multipart/form-data">
     <div class="form-header">
         <div class="title mt-5 text-center">
             <h1>Add product</h1>
@@ -29,8 +29,8 @@
 
         <div class="row">
             <div class="std-input-box">
-                <label for="barcode">Barcode: </label>
-                <input id="barcode" name="barcode" class="std-input required" type="text" inputmode="numeric" placeholder="e.g., 108745..." required>
+                <label for="description">Description: </label>
+                <textarea id="description" name="description" class="std-input required" type="text" rows="3" placeholder="A perfect blend of succulent flavors, irresistible textures, and special touches..." required></textarea>
             </div>
         </div>
 
@@ -40,7 +40,7 @@
                 <select class="" id="category" name="category" required>
                     <option value="" selected disabled>Select a category</option>
                     {% for category in categories %}
-                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                    <option value="{{ category.id }}">{{ category.category_name }}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -48,9 +48,16 @@
 
         <div class="row">
             <div class="std-input-box">
+                <label for="barcode">Barcode: </label>
+                <input id="barcode" name="barcode" class="std-input required" type="text" inputmode="numeric" placeholder="e.g., 108745..." required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="std-input-box">
                 <div class="std-input-box">
                     <label for="file" class="form-label">Dish image</label>
-                    <input class="form-control" type="file" id="img" name="img">
+                    <input class="form-control" type="file" id="image" name="image">
                     <div class="invalid-feedback">
                         Insert a valid image.
                     </div>
