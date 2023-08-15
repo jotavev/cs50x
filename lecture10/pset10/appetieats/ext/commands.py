@@ -40,11 +40,19 @@ def hello_commands():
     print("hello commands")
 
 
+def restart_db():
+    """restart database"""
+    drop_db()
+    create_db()
+    populate_users()
+
+
 def init_app(app):
     """add multiple commands in a bulk"""
     for command in [create_db,
                     drop_db,
                     populate_users,
-                    hello_commands]:
+                    hello_commands,
+                    restart_db]:
         app.cli.add_command(app.cli.command()(command))
     return app
