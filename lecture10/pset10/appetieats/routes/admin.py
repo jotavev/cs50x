@@ -47,14 +47,12 @@ def add():
 
         add_new_product(product_data, product_image)
 
-        # db.session.add(new_product)
-        # db.session.commit()
-
         flash("Added", "success")
         return redirect("/admin/settings/add")
     else:
         categories = Categories.query.all()
-        return render_template("admin/settings/add.html", categories=categories)
+        return render_template("admin/settings/add.html",
+                               categories=categories)
 
 
 @admin_bp.route("/admin/settings/manage-categories", methods=["GET", "POST"])
