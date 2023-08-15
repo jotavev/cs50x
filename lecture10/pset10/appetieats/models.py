@@ -16,12 +16,11 @@ class Products(db.Model, SerializerMixin):
     available = db.Column(db.String(5), nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    image_id = db.Column(db.Integer, db.ForeignKey(
-        'product_images.id', use_alter=True))
 
 
 class Categories(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    # TODO: create user id to do a relation in cate and users
     category_name = db.Column(db.String(200), nullable=False)
 
 
