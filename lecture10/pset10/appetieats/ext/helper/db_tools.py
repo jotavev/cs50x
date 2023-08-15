@@ -11,15 +11,19 @@ def add_new_product(product_data, product_image):
             price=product_data['price'].replace("$ ", ""),
             available="true",
             user_id=session.get('user_id'),
-            category_id=product_data['category'],
-            image_id=1
+            category_id=product_data['category']
     )
     db.session.add(new_product)
     db.session.commit()
 
     product_id = new_product.id
-    print(product_id)
 
+    add_image(product_image, product_id)
+
+    return
+
+
+def add_image(product_image, product_id):
     image_name = secure_filename(
             f"product{product_id}.{product_image.filename.rsplit('.', 1)[1]}")
 
@@ -30,7 +34,6 @@ def add_new_product(product_data, product_image):
             image_path=image_name,
             image_data=image_data
     )
-
     db.session.add(new_image)
     db.session.commit()
     return
