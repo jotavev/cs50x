@@ -5,6 +5,7 @@ from appetieats.ext.database import db
 from appetieats.ext.helpers import login_required
 from appetieats.ext.helper.get_inputs import get_product_data_from_request, get_product_image
 from appetieats.ext.helper.validate_inputs import validate_product_data, validate_product_image
+from appetieats.ext.helper.db_tools import add_new_product
 
 admin_bp = Blueprint('admin', __name__)
 
@@ -44,15 +45,7 @@ def add():
         validate_product_data(product_data)
         validate_product_image(product_image)
 
-        new_product = Products(
-                name=product_data["name"],
-                description=product_data["description"],
-                price=(product_data["price"]).replace("$ ", ""),
-                available="true",
-                category_id=3,
-                image_id="1"
-            )
-        print(new_product)
+        add_new_product(product_data, product_image)
 
         # db.session.add(new_product)
         # db.session.commit()
