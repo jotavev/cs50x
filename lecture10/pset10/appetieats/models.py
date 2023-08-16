@@ -13,6 +13,7 @@ class Products(db.Model, SerializerMixin):
     name = db.Column(db.String(200), nullable=False)
     description = db.Column(db.Text)
     price = db.Column(db.Float, nullable=False)
+    barcode = db.Column(db.Integer, nullable=False)
     available = db.Column(db.String(5), nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
