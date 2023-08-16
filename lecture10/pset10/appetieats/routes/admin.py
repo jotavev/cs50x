@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, flash
+from flask import Blueprint, render_template, request, redirect, flash, session
 from appetieats.models import Categories, Products
 from appetieats.ext.database import db
 
@@ -50,6 +50,10 @@ def add():
         flash("Added", "success")
         return redirect("/admin/settings/add")
     else:
+        # categories = Categories.query.all()
+        categories = Categories.query.filter_by(user_id=session.get("user_id"))
+        return render_template("admin/settings/add.html",
+                               categories=categories)
         categories = Categories.query.all()
         return render_template("admin/settings/add.html",
                                categories=categories)
@@ -61,15 +65,17 @@ def manage_categories():
     """Manage categories"""
     if request.method == "POST":
         category = request.form.get("category", type=str)
-        new_category = Categories(category_name=category)
+        new_category = Categories(category_name=category,
+                                  user_id=session.get("user_id"))
 
         db.session.add(new_category)
         db.session.commit()
 
         return redirect("/admin/settings/manage-categories")
     else:
-        categories = Categories.query.all()
-    return render_template("admin/settings/manage-categories.html", categories=categories)
+        categories = Categories.query.filter_by(user_id=session.get("user_id"))
+        return render_template("admin/settings/manage-categories.html",
+                               categories=categories)
 
 
 @admin_bp.route("/admin/settings/manage-categories/delete", methods=["POST"])

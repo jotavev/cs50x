@@ -20,7 +20,7 @@ class Products(db.Model, SerializerMixin):
 
 class Categories(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    # TODO: create user id to do a relation in cate and users
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     category_name = db.Column(db.String(200), nullable=False)
 
 
