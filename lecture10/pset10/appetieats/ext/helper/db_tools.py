@@ -10,6 +10,7 @@ def add_new_product(product_data, product_image):
             description=product_data['description'],
             price=product_data['price'].replace("$ ", ""),
             available="true",
+            barcode=product_data["barcode"],
             user_id=session.get('user_id'),
             category_id=product_data['category']
     )
