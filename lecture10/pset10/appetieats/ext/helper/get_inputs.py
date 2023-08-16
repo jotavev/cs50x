@@ -13,6 +13,8 @@ def get_product_data_from_request():
     for field, data_type in fields.items():
         data[field] = request.form.get(field, type=data_type)
 
+    data["price"] = data["price"].replace("$ ", "")
+
     return data
 
 
