@@ -17,12 +17,6 @@ def dashboard():
     return render_template("admin/dashboard.html")
 
 
-@admin_bp.route("/admin/edit-menu")
-@login_required
-def edit_menu():
-    return render_template("admin/edit-menu.html")
-
-
 @admin_bp.route("/admin/settings")
 @login_required
 def settings():
