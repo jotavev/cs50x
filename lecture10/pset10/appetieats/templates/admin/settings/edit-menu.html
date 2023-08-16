@@ -1,8 +1,7 @@
 {% extends "admin/admin.html" %}
 
-{% block title %}Manage categories{% endblock %}
+{% block title %}Edit menu{% endblock %}
 {% block head %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.3/cropper.css">
 {% endblock %}
 
 {% block main %}
@@ -10,36 +9,24 @@
 <div>
     <div class="form-header">
         <div class="title mt-5 text-center">
-            <h1>Manage categories</h1>
+            <h1>Edit menu</h1>
         </div>
     </div>
-    <form action="/admin/settings/manage-categories" method="post">
-        <div class="row">
-            <div class="col-md-6 std-input-box">
-                <label for="category">Category name: </label>
-                <input autocomplete="off" id="category" name="category" class="std-input required" type="text" placeholder="e.g., Hamburger, Pizza..." required>
-            </div>
-            <div class="col-md-6 std-input-box d-flex align-items-center">
-                <button class="col-md-6 std-button mt-3" type="submit">Add category</button>
-            </div>
-        </div>
-    </form>
 
     <table class="mt-4">
         <thead>
             <tr>
-                <th>Category name</th>
+                <th>Product</th>
+                <th>Price</th>
             </tr>
         </thead>
         <tbody>
-            {% for category in categories %}
+            {% for product in products %}
             <tr>
-                <td>{{ category.category_name }}</td>
+                <td>{{ product.name }}</td>
+                <td>$ {{ "%0.2f" | format(product.price) }}</td>
                 <td>
-                    <form action="/admin/settings/manage-categories/delete" method="post">
-                        <input name="id" type="hidden" value="{{ category.id }}">
-                        <input type="submit" class="delete" value="Delete">
-                    </form>
+                    <a href="/admin/settings/edit-menu/{{product.id}}">edit</a>
                 </td>
             </tr>
             {% endfor %}
