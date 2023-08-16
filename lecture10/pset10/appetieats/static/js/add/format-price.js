@@ -17,3 +17,9 @@ priceInput.addEventListener('input', function(event) {
 
     event.target.value = price;
 });
+
+function valuePriceField(price) {
+    let priceInput = document.getElementById('price');
+    price = (price).toFixed(2);
+    priceInput.value = `$ ${price}`;
+}
