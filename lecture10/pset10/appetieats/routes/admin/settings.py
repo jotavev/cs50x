@@ -1,5 +1,5 @@
-from flask import Blueprint, render_template, request, redirect, flash, session
-from appetieats.models import Categories
+from flask import Blueprint, render_template, request, redirect, flash, session, abort
+from appetieats.models import Categories, Products
 from appetieats.ext.database import db
 
 from appetieats.ext.helpers import login_required
@@ -63,3 +63,36 @@ def delete_category():
     db.session.commit()
 
     return redirect("/admin/settings/manage-categories")
+
+
+@settings_bp.route("/admin/settings/edit-menu")
+@login_required
+def edit_menu():
+    """edit menu"""
+    products = Products.query.filter_by(user_id=session.get("user_id")).all()
+    print(products)
+    return render_template("admin/settings/edit-menu.html",  products=products)
+
+
+@settings_bp.route("/admin/settings/edit-menu/<product_id>")
+@login_required
+def edit_product(product_id):
+    """edit a product of menu"""
+    user_id = session.get("user_id")
+
+    product = Products.query.filter_by(
+            user_id=user_id, id=product_id).first()
+
+    if not product:
+        return abort(403, "Choose a valid product")
+
+    current_category = Categories.query.filter_by(
+            id=product.category_id).first()
+
+    categories = Categories.query.filter(
+            Categories.user_id == user_id,
+            Categories.id != current_category.id).all()
+
+    return render_template("admin/settings/edit-menu-form.html",
+                           product=product, current_category=current_category,
+                           categories=categories)
