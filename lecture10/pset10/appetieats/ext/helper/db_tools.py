@@ -38,3 +38,17 @@ def add_image(product_image, product_id):
     db.session.add(new_image)
     db.session.commit()
     return
+
+
+def update_product_data(product_data, id):
+    product = Products.query.get(id)
+
+    product.name = product_data["name"]
+    product.description = product_data["description"]
+    product.price = product_data["price"]
+    product.barcode = product_data["barcode"]
+    product.category_id = product_data["category"]
+
+    db.session.commit()
+
+    return

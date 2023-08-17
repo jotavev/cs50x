@@ -7,7 +7,7 @@ from appetieats.ext.helper.get_inputs import (get_product_data_from_request,
                                               get_product_image)
 from appetieats.ext.helper.validate_inputs import (validate_product_data,
                                                    validate_product_image)
-from appetieats.ext.helper.db_tools import add_new_product
+from appetieats.ext.helper.db_tools import add_new_product, update_product_data
 
 settings_bp = Blueprint('settings', __name__)
 
@@ -74,25 +74,31 @@ def edit_menu():
     return render_template("admin/settings/edit-menu.html",  products=products)
 
 
-@settings_bp.route("/admin/settings/edit-menu/<product_id>")
+@settings_bp.route("/admin/settings/edit-menu/<product_id>", methods=["GET", "POST"])
 @login_required
 def edit_product(product_id):
     """edit a product of menu"""
-    user_id = session.get("user_id")
+    if request.method == "POST":
+        product_data = get_product_data_from_request()
 
-    product = Products.query.filter_by(
-            user_id=user_id, id=product_id).first()
+        update_product_data(product_data, product_id)
 
-    if not product:
-        return abort(403, "Choose a valid product")
+        return redirect(f"/admin/settings/edit-menu/{product_id}")
+    else:
+        user_id = session.get("user_id")
 
-    current_category = Categories.query.filter_by(
-            id=product.category_id).first()
+        product = Products.query.filter_by(user_id=user_id,
+                                           id=product_id).first()
+        if not product:
+            return abort(403, "Choose a valid product")
 
-    categories = Categories.query.filter(
-            Categories.user_id == user_id,
-            Categories.id != current_category.id).all()
+        current_category = Categories.query.filter_by(
+                id=product.category_id).first()
 
-    return render_template("admin/settings/edit-menu-form.html",
-                           product=product, current_category=current_category,
-                           categories=categories)
+        categories = Categories.query.filter(
+                Categories.user_id == user_id,
+                Categories.id != current_category.id).all()
+
+        return render_template(
+                "admin/settings/edit-menu-form.html", product=product,
+                current_category=current_category, categories=categories)
