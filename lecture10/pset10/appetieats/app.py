@@ -3,6 +3,7 @@ from appetieats.ext import sesssion
 
 from appetieats.ext import database
 from appetieats.routes.main import main_bp
+from appetieats.routes.menu import menu_bp
 from appetieats.routes.auth import auth_bp
 from appetieats.routes.admin.admin import admin_bp
 from appetieats.routes.admin.settings import settings_bp
@@ -22,3 +23,4 @@ app.register_blueprint(main_bp)
 app.register_blueprint(auth_bp)
 app.register_blueprint(admin_bp)
 app.register_blueprint(settings_bp)
+app.register_blueprint(menu_bp)
