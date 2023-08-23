@@ -1,15 +1,11 @@
+function toggleOverlay() {
+    const products = this.parentElement.nextElementSibling;
+    console.log(products)
+    products.classList.toggle('overlay');
+}
+
 const viewAllButtons = document.querySelectorAll('.view-all-button');
-const backButtons = document.querySelectorAll('.back-button');
-const overlayContainers = document.querySelectorAll('.overlay');
 
-viewAllButtons.forEach((button, index) => {
-    button.addEventListener('click', () => {
-        overlayContainers[index].classList.add('active');
-    });
-});
-
-backButtons.forEach((button, index) => {
-    button.addEventListener('click', () => {
-        overlayContainers[index].classList.remove('active');
-    });
+viewAllButtons.forEach(button => {
+    button.addEventListener('click', toggleOverlay);
 });
