@@ -1,4 +1,5 @@
 /* to fix */
+/*
 .menu {
     position: fixed;
     top: 0;
@@ -18,6 +19,7 @@
     height: 100%;
     z-index: 98;
 }
+*/
 
 /* code */
 .products-line {
@@ -98,4 +100,59 @@
     .product-width {
         width: 45% !important;
     }
+}
+
+.menu-cart-container {
+    display: flex;
+    width: 200%;
+    height: 100%;
+    overflow: hidden;
+    overflow-x: clip;
+}
+
+.menu, .cart {
+    height: 100%;
+    transition: transform 0.3s ease, opacity 0.1s ease;
+    overflow: hidden;
+    oppacity: 1;
+}
+
+.menu {
+    width: 100%;
+    transform: translateX(0);
+    transform: translateX(-100%);
+    pointer-events: none;
+}
+
+.cart {
+    width: 100%;
+    transform: translateX(0%);
+}
+
+.menu.active {
+    width: 100%;
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.cart.active {
+    width: 100%;
+    transform: translateX(-100%);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.menu.deactive {
+    transform: translateX(-100%);
+    opacity: 1;
+    pointer-events: none;
+    width: 100%;
+}
+
+.cart.deactive {
+    transform: translateX(100%);
+    opacity: 1;
+    pointer-events: none;
+    width: 100%;
 }
