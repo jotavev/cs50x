@@ -33,17 +33,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const cartBtn = document.querySelector("#cartBtn");
 
     menuBtn.addEventListener('click', () => {
-        menu.classList.remove('deactive');
         menu.classList.add('active');
         cart.classList.remove('active');
-        cart.classList.add('deactive');
     })
 
     cartBtn.addEventListener('click', () => {
-        cart.classList.remove('deactive');
         cart.classList.add('active');
         menu.classList.remove('active');
-        menu.classList.add('deactive');
     })
 
 

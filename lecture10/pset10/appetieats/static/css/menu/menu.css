@@ -104,55 +104,49 @@
 
 .menu-cart-container {
     display: flex;
-    width: 200%;
-    height: 100%;
     overflow: hidden;
     overflow-x: clip;
 }
 
 .menu, .cart {
-    height: 100%;
-    transition: transform 0.3s ease, opacity 0.1s ease;
+    transition: left 0.3s ease, all 0.3s ease, opacity 0.3s ease;
     overflow: hidden;
-    oppacity: 1;
+    opacity: 1;
+    width: 80%;
+    height: 80%;
 }
 
 .menu {
-    width: 100%;
-    transform: translateX(0);
-    transform: translateX(-100%);
+    position: absolute;
     pointer-events: none;
+    margin-left: -100%;
+    margin-right: -100%;
+    opacity: 0;
+    flex: 1;
 }
 
 .cart {
-    width: 100%;
-    transform: translateX(0%);
+    position: absolute;
+    pointer-events: none;
+    margin-right: 100%;
+    margin-left: 100%;
+    opacity: 0;
+    visibility: none;
+    flex: 1;
 }
 
 .menu.active {
-    width: 100%;
-    transform: translateX(0);
+    margin-left: 0;
+    margin-right: 0;
     opacity: 1;
     pointer-events: auto;
+    flex: 1;
 }
 
 .cart.active {
-    width: 100%;
-    transform: translateX(-100%);
+    margin-right: 0;
+    margin-left: 0;
     opacity: 1;
     pointer-events: auto;
-}
-
-.menu.deactive {
-    transform: translateX(-100%);
-    opacity: 1;
-    pointer-events: none;
-    width: 100%;
-}
-
-.cart.deactive {
-    transform: translateX(100%);
-    opacity: 1;
-    pointer-events: none;
-    width: 100%;
+    flex: 1;
 }
