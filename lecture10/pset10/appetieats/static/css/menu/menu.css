@@ -106,23 +106,25 @@
     display: flex;
     overflow: hidden;
     overflow-x: clip;
+    flex: 1;
 }
 
 .menu, .cart {
     transition: left 0.3s ease, all 0.3s ease, opacity 0.3s ease;
     overflow: hidden;
+    overflow-x: clip;
     opacity: 1;
     width: 80%;
-    height: 80%;
+    height: 100%;
 }
 
 .menu {
+    overflow-x: clip;
     position: absolute;
     pointer-events: none;
     margin-left: -100%;
     margin-right: -100%;
-    opacity: 0;
-    flex: 1;
+    visibility: hidden;
 }
 
 .cart {
@@ -130,23 +132,19 @@
     pointer-events: none;
     margin-right: 100%;
     margin-left: 100%;
-    opacity: 0;
-    visibility: none;
-    flex: 1;
+    visibility: hidden;
 }
 
 .menu.active {
-    margin-left: 0;
     margin-right: 0;
-    opacity: 1;
+    margin-left: 0;
     pointer-events: auto;
-    flex: 1;
+    visibility: visible;
 }
 
 .cart.active {
     margin-right: 0;
     margin-left: 0;
-    opacity: 1;
     pointer-events: auto;
-    flex: 1;
+    visibility: visible;
 }
