@@ -126,3 +126,37 @@
     visibility: visible;
     opacity: 1;
 }
+
+.cart.active {
+    width: calc(80% - 70px);
+}
+
+.cart-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.remove-button {
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    justify-content: center;
+    width: 24px;
+    border: none;
+    background-color: white;
+}
+.remove-button:hover {
+    transition: all 0.4s ease;
+    background-color: #ff000030;
+}
+.remove-button span {
+    color: red;
+}
+.remove-button:hover span {
+    color: #ec0000;
+}
+
+.cart-img {
+    max-width: 100px;
+}
+

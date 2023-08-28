@@ -8,7 +8,7 @@
 
 {% block main %}
 <div class="menu-cart-container">
-    <div class="menu active">
+    <div class="menu">
         <div class="mx-auto search">
             <div class="input-group mb-2 mt-4">
                 <span class="input-group-text bg-white border_right_none border_left_round">
@@ -70,16 +70,22 @@
         {% endfor %}
     </div>
 
-    <div class="cart">
-        <div>
-            <div class="form-header">
-                <div class="title mt-5 text-center">
-                    <h1>{{ restaurant_info.name }}</h1>
-                </div>
+    <div class="cart active">
+        <div class="form-header">
+            <div class="title mt-5 text-center">
+                <h1>Cart</h1>
             </div>
-            <p>address: {{ restaurant_info.address }}</p>
-            <p>phone: {{ restaurant_info.phone }}</p>
         </div>
+        <ul class="list-group">
+            <li class="list-group-item cart-list">
+                <img src="/static/assets/img/macaroni.jpg" class="cart-img">
+                <h6>product name</h6>
+                <input type="text">
+                <button class="remove-button">
+                    <span class="material-icons nav_icons">remove_circle_outline</span>
+                </button>
+            </li>
+        </ul>
     </div>
 </div>
 
