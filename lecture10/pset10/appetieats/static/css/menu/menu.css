@@ -160,3 +160,9 @@
     max-width: 100px;
 }
 
+.input-group{
+	width: 15%;
+	flex-wrap: nowrap;
+}
+
+
