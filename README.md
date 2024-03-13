@@ -294,3 +294,21 @@ person;
 
 Can you check my complete solution clicking [here!](https://github.com/valentejorge/cs50x/tree/master/lecture5/lab5/)
 
+## Problem Set 5: Speller
+
+For this task, I write in C, a spell checker that can take a text from a file and take every word in that text and check to see if the word is spelled correctly or not, and importantly, to do so as quickly as possible, using a hash table.
+
+```
+.
+├── speller.c       # which contains the code of spell checker, call some h
+├── dictionary.h
+├── dictionary.c
+├── Makefile
+├── dictionaries/
+├── texts/ 
+└── keys/
+```
+
+`speller.c` which cointains the code that do the spell checking calling upon some functions that are declared in `dictionary.h`, open up `dictionary.h` you'll see functions prototypes, in `dictionary.c` is the file of i worked to implement some functions to make all this work, `Makefile` contains some commands to compile all files together into a finished program. And the last tree directories, `dictionaries/` contains files of words dictionary, `text/` contains some sample files, and `keys/` contain the solutions, the list words that are misspelled in each of the samples texts. 
+
+Can you check my complete solution clicking [here!](https://github.com/valentejorge/cs50x/tree/master/lecture5/pset5/)
