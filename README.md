@@ -251,3 +251,21 @@ In Lecture 4, I learned about:
 - Trees
 - Tries
 - Hash Tables
+
+### Lab 5: Inheritance
+
+For this task, I wrote a program to simulate the inheritance of blood types for each member of a family
+
+<pre>
+$ ./inheritance
+Child (Generation 0): blood type OO
+    Parent (Generation 1): blood type AO
+        Grandparent (Generation 2): blood type OA
+        Grandparent (Generation 2): blood type BO
+    Parent (Generation 1): blood type OB
+        Grandparent (Generation 2): blood type AO
+        Grandparent (Generation 2): blood type BO
+</pre>
+
+Your blood type is defined by alleles: A, B, O and eatch person has two alleles (maybe you have two A's, two B's or two O's, or maybe you mix and match, have A and B, or B and O, or A and O, for example). And when a parent has a child, each parent passes on one of their alleles to the child.
+ 
