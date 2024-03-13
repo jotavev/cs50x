@@ -39,7 +39,7 @@ int main(void)
     }
     else if ((int) round(result) < 1)
     {
-        printf("Before Grade 1");
+        printf("Before Grade 1\n");
     }
     else
     {
