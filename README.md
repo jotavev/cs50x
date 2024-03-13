@@ -1,6 +1,6 @@
 # CS50x
 
-<img src="https://github.com/jotavev/cs50x/blob/master/assets/Harvard_University_logo.jpg" alt="Harvard Logo" width="700"/>
+<img src="https://github.com/valentejorge/cs50x/blob/master/assets/Harvard_University_logo.jpg" alt="Harvard Logo" width="700"/>
 
 CS50 is a face-to-face and online computer science course at Harvard University.  
 
@@ -22,7 +22,7 @@ During week 0, we covered the fundamental principles of the computer world, incl
 
 In this class, I learned about Scratch, a visual programming language. As part of the course, we were given the freedom to solve a problem using Scratch, and I chose to create a game.
 
-<img src="https://github.com/jotavev/cs50x/blob/master/assets/1pong_demo.gif" alt="Screenshot" width="350" />
+<img src="https://github.com/valentejorge/cs50x/blob/master/assets/1pong_demo.gif" alt="Screenshot" width="350" />
 
 My project is a retro game, similar to pong, but designed for single player. To play, click [here!](https://scratch.mit.edu/projects/778158229/)
 
@@ -42,7 +42,7 @@ the first problem set, is based in make a mario pyramid, using c.
 |:--------------------------------------------:| ---------------------------------------------- |
 | <img src="./assets/mario2.png" width="300"/> | <img src="./assets/mario.gif"/> |
 
-Can you check my solution clicking [here!](https://github.com/jotavev/cs50x/tree/master/lecture1/pset1/)
+Can you check my solution clicking [here!](https://github.com/valentejorge/cs50x/tree/master/lecture1/pset1/)
 
 ### Cash and Credit
 
@@ -62,7 +62,7 @@ Credit is a program that checks credit card numbers. The program determines whet
 |---------------------------------------------|
 |  <img src="./assets/credit.gif"/> |
 
-Can you check my solutions clicking [here!](https://github.com/jotavev/cs50x/tree/master/lecture1/pset1/)
+Can you check my solutions clicking [here!](https://github.com/valentejorge/cs50x/tree/master/lecture1/pset1/)
 
 ___
 
