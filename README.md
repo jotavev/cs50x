@@ -300,7 +300,7 @@ For this task, I write in C, a spell checker that can take a text from a file an
 
 ```
 .
-├── speller.c       # which contains the code of spell checker, call some h
+├── speller.c
 ├── dictionary.h
 ├── dictionary.c
 ├── Makefile
