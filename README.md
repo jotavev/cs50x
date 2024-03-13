@@ -269,3 +269,28 @@ Child (Generation 0): blood type OO
 
 Your blood type is defined by alleles: A, B, O and eatch person has two alleles (maybe you have two A's, two B's or two O's, or maybe you mix and match, have A and B, or B and O, or A and O, for example). And when a parent has a child, each parent passes on one of their alleles to the child.
  
+```
+
+   |----|    |----|
+   | AB |    | OO |
+   |----|    |----|
+        \    /      
+         v  v        
+        |----|
+        | AO |
+        |----|
+```
+
+for help to solve this we can create a data type of a person:
+
+```
+typedef struct person 
+{
+    struct person *parents[2];
+    char alleles[2];
+}
+person;
+```
+
+Can you check my complete solution clicking [here!](https://github.com/valentejorge/cs50x/tree/master/lecture5/lab5/)
+
