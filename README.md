@@ -319,3 +319,30 @@ In the previous weeks I was forged in C, an intermediate level language, doing d
 
 And in week 6 I was introduced to a new programming language, using my painful background to develop in an easier syntax language, I feel like Rock Lee from Naruto after taking the weight off his legs, or like Samson after using minoxidil for 3 months every night, doing many things in very less lines and importing some powerful libraries making my code stronger.
 
+### Lab 6: World Cup
+
+For this task, I wrote a program to run simulations of the FIFA World Cup.
+
+<pre>
+$ python tournament.py 2018m.csv
+Belgium: 20.9% chance of winning
+Brazil: 20.3% chance of winning
+Portugal: 14.5% chance of winning
+Spain: 13.6% chance of winning
+Switzerland: 10.5% chance of winning
+Argentina: 6.5% chance of winning
+England: 3.7% chance of winning
+France: 3.3% chance of winning
+Denmark: 2.2% chance of winning
+Croatia: 2.0% chance of winning
+Colombia: 1.8% chance of winning
+Sweden: 0.5% chance of winning
+Uruguay: 0.1% chance of winning
+Mexico: 0.1% chance of winning
+</pre>
+
+## Problem Set 6: YES
+
+For this task, I reimplement in python some others task was i implement previously in C, including `Hello`, one version of `Mario`, `Credit` or `Cash`, `Readability`, and a new name `DNA`
+
+### DNA
