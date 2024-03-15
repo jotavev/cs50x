@@ -312,3 +312,10 @@ For this task, I write in C, a spell checker that can take a text from a file an
 `speller.c` which cointains the code that do the spell checking calling upon some functions that are declared in `dictionary.h`, open up `dictionary.h` you'll see functions prototypes, in `dictionary.c` is the file of i worked to implement some functions to make all this work, `Makefile` contains some commands to compile all files together into a finished program. And the last tree directories, `dictionaries/` contains files of words dictionary, `text/` contains some sample files, and `keys/` contain the solutions, the list words that are misspelled in each of the samples texts. 
 
 Can you check my complete solution clicking [here!](https://github.com/valentejorge/cs50x/tree/master/lecture5/pset5/)
+
+## Lecture 6 (Python)
+
+In the previous weeks I was forged in C, an intermediate level language, doing difficult things, with verbose syntax, with compilation errors because I forgot a miserable semicolon.
+
+And in week 6 I was introduced to a new programming language, using my painful background to develop in an easier syntax language, I feel like Rock Lee from Naruto after taking the weight off his legs, or like Samson after using minoxidil for 3 months every night, doing many things in very less lines and importing some powerful libraries making my code stronger.
+
